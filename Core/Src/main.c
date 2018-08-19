@@ -55,6 +55,7 @@
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
+#include "usb_device.h"
 #include "gpio.h"
 
 /* USER CODE BEGIN Includes */
@@ -152,6 +153,7 @@ int main(void)
   MX_SPI1_Init();
   MX_I2C3_Init();
   MX_FATFS_Init();
+  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
   at45db_init(&dataflash);
   
