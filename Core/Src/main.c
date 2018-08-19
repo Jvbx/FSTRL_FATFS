@@ -275,7 +275,7 @@ int main(void)
         //return 0;
     }
 
-    char readBuff[128];
+    char readBuff[1024];
     unsigned int bytesRead;
     res = f_read(&msgFile, readBuff, sizeof(readBuff)-1, &bytesRead);
     if(res != FR_OK) {

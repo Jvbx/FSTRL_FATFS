@@ -1,0 +1,5 @@
+*.__i
+*.map
+*.o
+Listings/FSTRL_FATFS.map
+*.dep
