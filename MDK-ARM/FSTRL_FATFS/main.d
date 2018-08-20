@@ -32,6 +32,9 @@
   ../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_tim.h \
   ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
   ../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_uart.h \
+  ../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_pcd.h \
+  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h \
+  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h \
   ../Core/Inc\crc.h ../FATFS\fatfs.h \
   ../Middlewares/Third_Party/FatFs/src\ff.h \
   ../Middlewares/Third_Party/FatFs/src/integer.h ../FATFS\ffconf.h \
@@ -39,10 +42,13 @@
   ../Middlewares/Third_Party/FatFs/src\ff_gen_drv.h \
   ../Middlewares/Third_Party/FatFs/src/diskio.h ../FATFS/user_diskio.h \
   ../Core/Inc\i2c.h ../Core/Inc\spi.h ../Core/Inc\tim.h \
-  ../Core/Inc\usart.h ../Core/Inc\gpio.h ../Drivers/NRF24L01\nrf24l01.h \
+  ../Core/Inc\usart.h ../USB_DEVICE\usb_device.h \
+  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc\usbd_def.h \
+  ../USB_DEVICE\usbd_conf.h \
+  D:\Keil_v5\ARM\ARMCC6.10\bin\..\include\string.h ../Core/Inc\gpio.h \
+  ../Drivers/NRF24L01\nrf24l01.h \
   D:\Keil_v5\ARM\ARMCC6.10\bin\..\include\stdbool.h \
   ../utility\nmea_parser.h ../Core/Inc\gnss_utils.h \
-  D:\Keil_v5\ARM\ARMCC6.10\bin\..\include\string.h \
   ../Drivers/AT45DB\at45db.h ../Drivers/BMP280\bmp280.h \
   ../Drivers/BMP280/bmp280_defs.h \
   D:\Keil_v5\ARM\ARMCC6.10\bin\..\include\stddef.h \

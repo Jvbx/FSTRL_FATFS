@@ -155,20 +155,20 @@ int main(void)
   MX_FATFS_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
-  at45db_init(&dataflash);
+  //at45db_init(&dataflash);
   
   
   
   
        
     
-    
+   
     FATFS fs;
     FATFS* fs_ptr = &fs;
     FRESULT res;
     printf("Ready!\r\n");
-    BYTE work[_MAX_SS]; /* Work area (larger is better for processing time) */
-    // res = f_mkfs("", FM_ANY, 0, work, sizeof work);
+    BYTE work[_MAX_SS]; // Work area (larger is better for processing time) 
+  //  res = f_mkfs("", FM_FAT, 512, work, sizeof work);
     
     
     
@@ -250,7 +250,7 @@ int main(void)
         printf("f_open() failed, res = %d\r\n", res);
        // return 0;
     }
-
+    if (f_sync(&logFile)!= FR_OK)  printf("f_sync() failed\r\n");
     unsigned int bytesToWrite = strlen(writeBuff);
     unsigned int bytesWritten;
     res = f_write(&logFile, writeBuff, bytesToWrite, &bytesWritten);
@@ -258,10 +258,10 @@ int main(void)
         printf("f_write() failed, res = %d\r\n", res);
        // return 0;
     }
-
+     if (f_sync(&logFile)!= FR_OK)  printf("f_sync() failed\r\n");
     if(bytesWritten < bytesToWrite) {
         printf("WARNING! Disk is full.\r\n");
-    }
+    }   
 
     res = f_close(&logFile);
     if(res != FR_OK) {
@@ -276,7 +276,7 @@ int main(void)
         printf("f_open() failed, res = %d\r\n", res);
         //return 0;
     }
-
+     if (f_sync(&msgFile)!= FR_OK)  printf("f_sync() failed\r\n");
     char readBuff[1024];
     unsigned int bytesRead;
     res = f_read(&msgFile, readBuff, sizeof(readBuff)-1, &bytesRead);
@@ -286,7 +286,7 @@ int main(void)
     }
 
     readBuff[bytesRead] = '\0';
-    printf("```\r\n%s\r\n```\r\n", readBuff);
+    printf( readBuff);
 
     res = f_close(&msgFile);
     if(res != FR_OK) {
@@ -303,7 +303,7 @@ int main(void)
 
     printf("Done!\r\n");
     
-    
+      
   
   
   

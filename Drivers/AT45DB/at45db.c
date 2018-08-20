@@ -126,7 +126,8 @@ AT45DB_RESULT at45db_send_cmd(at45db*     dev,
        cmdbuf[1] = ((FlashRequest & 0xFF0000) >> 16); 
        cmdbuf[2] = ((FlashRequest & 0xFF00) >> 8);
        cmdbuf[3] = FlashRequest;
-       if (cmdlen>4) { for (i = 4; i < cmdlen; i++) {cmdbuf[i] = 0;}}  //probably there are some more dummy bytes are needed. for example for direct flash read
+       if (cmdlen>4) { for (i = 4; i < cmdlen; i++) {cmdbuf[i] = 0;}}  //probably there are some more dummy bytes are needed. 
+                                                                       //for example for direct flash read
          
       }
    if(datadir == AT45DB_W) 

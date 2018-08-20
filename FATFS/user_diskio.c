@@ -71,7 +71,7 @@
 /* Private variables ---------------------------------------------------------*/
 /* Disk status */
 static volatile DSTATUS Stat = STA_NOINIT;
-static at45db at45db_dataflash;
+at45db at45db_dataflash;
 /* USER CODE END DECL */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -131,7 +131,7 @@ DSTATUS USER_status (
    switch  (at45db_resp)
    {
      case             AT45DB_READY: {return RES_OK; break;} 
-     case              AT45DB_BUSY: {return RES_NOTRDY; break;}
+     case              AT45DB_BUSY: {return RES_OK; break;}
      case             AT45DB_ERROR: {return RES_ERROR; break;}
      case  AT45DB_INVALID_ARGUMENT: {return RES_PARERR; break;}
                            default: return Stat;  
@@ -164,10 +164,10 @@ DRESULT USER_read (
         res = at45db_read_page(&at45db_dataflash, buff, sector);
         if (res != AT45DB_OK) return RES_ERROR;
         buff += _MIN_SS;
+        sector++;
         count--;
       } 
-   if (res == AT45DB_OK) return RES_OK;
-   return RES_ERROR;
+   return RES_OK;
   /* USER CODE END READ */
 }
 
@@ -189,17 +189,17 @@ DRESULT USER_write (
 { 
   /* USER CODE BEGIN WRITE */
   /* USER CODE HERE */
-   AT45DB_RESULT res = AT45DB_OK;
+   AT45DB_RESULT res;
     while(count > 0) 
       {
         res = at45db_w_pagethroughbuf1(&at45db_dataflash, buff, sector, 0);
         if (res != AT45DB_OK) return RES_ERROR;
+        sector++;
         buff += _MIN_SS;
         count--;
       }
-   do res = at45db_isrdy(&at45db_dataflash); while (res != AT45DB_READY);      
-   if (res == AT45DB_READY) return RES_OK;
-   return RES_ERROR;
+  // if (at45db_wait_cplt(&at45db_dataflash) == AT45DB_OK) return RES_OK;     
+   return RES_OK;
 
   /* USER CODE END WRITE */
 }

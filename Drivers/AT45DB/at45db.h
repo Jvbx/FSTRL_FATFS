@@ -137,6 +137,10 @@ volatile uint8_t             at45_busy;      //0 - flash is free for action. els
 
 
 
+extern at45db at45db_dataflash;
+
+
+
 AT45DB_RESULT at45db_wait_cplt(at45db* dev);
 AT45DB_RESULT at45db_init(at45db* dev); 
 AT45DB_RESULT at45db_getid(at45db* dev);

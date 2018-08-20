@@ -3,3 +3,6 @@
 *.o
 Listings/FSTRL_FATFS.map
 *.dep
+*.d
+*.o
+*.d
