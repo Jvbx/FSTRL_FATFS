@@ -168,7 +168,7 @@ int main(void)
     FRESULT res;
     printf("Ready!\r\n");
     BYTE work[_MAX_SS]; // Work area (larger is better for processing time) 
-    res = f_mkfs("", FM_FAT, 512, work, sizeof work);
+ //   res = f_mkfs("", FM_FAT, 512, work, sizeof work);
     
     
     

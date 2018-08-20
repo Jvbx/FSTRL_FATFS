@@ -34,7 +34,7 @@ AT45DB_RESULT at45db_wait_cplt(at45db* dev)
   while (res != AT45DB_READY) 
     {
      res = at45db_isrdy(dev);
-     if (timeout--) return AT45DB_ERROR;   //timeout reached       
+     if ((timeout--) == 0) return AT45DB_ERROR;   //timeout reached       
      if (res == AT45DB_ERROR) return res;  
     }
   return  AT45DB_OK; 
@@ -74,12 +74,12 @@ AT45DB_RESULT at45db_init(at45db* dev)
   dev->hw_config.spi_timeout  = AT45DB_SPI_TIMEOUT;
   uint8_t retryleft           = 0xFF;     //counter to avoid deadloop if flash decided to go home. Normally only one cycle pass enough
  
- while ((dev->devid[0]!= 0x1F)&(retryleft))
+ while ((dev->devid[0]!= 0x1F)&(retryleft > 0))
  {
   at45db_getid(dev);
   retryleft--;
  }
-  if (!retryleft) return AT45DB_ERROR;
+  if (retryleft == 0) return AT45DB_ERROR;
  
  if (at45db_getstatus(dev) != AT45DB_OK) return AT45DB_ERROR;   //pagesize and address shift fields of dev structure initialized here
  if (at45db_wait_cplt(dev) != AT45DB_OK) return AT45DB_ERROR;

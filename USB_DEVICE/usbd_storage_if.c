@@ -93,7 +93,7 @@
   */
 
 #define STORAGE_LUN_NBR                  1
-#define STORAGE_BLK_NBR                  0x10000
+#define STORAGE_BLK_NBR                  0x1000
 #define STORAGE_BLK_SIZ                  0x200
 
 /* USER CODE BEGIN PRIVATE_DEFINES */
@@ -267,7 +267,7 @@ int8_t STORAGE_Read_FS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t bl
       {
         res = at45db_read_page(&at45db_dataflash, buf, blk_addr);
         if (res != AT45DB_OK) return (USBD_FAIL);
-        buf += _MIN_SS;
+        buf += STORAGE_BLK_SIZ;
         blk_addr++;
         blk_len--;
       } 
@@ -288,12 +288,13 @@ int8_t STORAGE_Write_FS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t b
     while(blk_len > 0) 
       {
         res = at45db_w_pagethroughbuf1(&at45db_dataflash, buf, blk_addr, 0);
+        if (at45db_wait_cplt(&at45db_dataflash) != AT45DB_OK) return (USBD_FAIL);
         if (res != AT45DB_OK) return (USBD_FAIL);
-        buf += _MIN_SS;
+        buf += STORAGE_BLK_SIZ;
         blk_addr++;
         blk_len--;
       }
-  //if (at45db_wait_cplt(&at45db_dataflash) != AT45DB_OK) return (USBD_FAIL);
+  
 
   return (USBD_OK);
   /* USER CODE END 7 */
