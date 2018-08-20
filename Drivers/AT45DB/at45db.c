@@ -30,10 +30,12 @@ static void at45db_wpn_set(at45db* dev) {
 AT45DB_RESULT at45db_wait_cplt(at45db* dev) 
 {
   AT45DB_RESULT res = AT45DB_ERROR;
+  uint16_t timeout = AT45DB_OP_TIMEOUT;
   while (res != AT45DB_READY) 
     {
      res = at45db_isrdy(dev);
-     if (res == AT45DB_ERROR) return res;
+     if (timeout--) return AT45DB_ERROR;   //timeout reached       
+     if (res == AT45DB_ERROR) return res;  
     }
   return  AT45DB_OK; 
 }
@@ -79,9 +81,8 @@ AT45DB_RESULT at45db_init(at45db* dev)
  }
   if (!retryleft) return AT45DB_ERROR;
  
- at45db_getstatus(dev); 
- 
- while (at45db_isrdy(dev) != AT45DB_READY) {}
+ if (at45db_getstatus(dev) != AT45DB_OK) return AT45DB_ERROR;   //pagesize and address shift fields of dev structure initialized here
+ if (at45db_wait_cplt(dev) != AT45DB_OK) return AT45DB_ERROR;
  
  return AT45DB_OK;
 }
@@ -106,56 +107,52 @@ AT45DB_RESULT at45db_send_cmd(at45db*     dev,
   AT45DB_DATA_DIRECTION   datadir;
  
   
-  if (txbuf == NULL) {datadir = AT45DB_R;} else
-  if (rxbuf == NULL) {datadir = AT45DB_W;} else 
-            {datadir = AT45DB_RW;}
+       if (txbuf == NULL) {datadir = AT45DB_R;} 
+  else if (rxbuf == NULL) {datadir = AT45DB_W;} 
+  else {datadir = AT45DB_RW;}
     cmdbuf[0] = cmd;                              //first goes the opcode
-      if (cmdlen>1)                              //probably there are address and/or dummy bytes are needed. 
-      {
-       /*for 528 bytes pagesize address is transfered in form: 
-       00PPPPPP PPPPPPBB BBBBBBBB
-       where P - page number bit, B - bit of number of byte in page
-       for 512 bytes/page chip address is transfered in form:
-       000AAAAA AAAAAAAa aaaaaaaa
-       where A - page number bit, a - bit of number of byte in page*/
-              
-       FlashRequest = (page << dev->addrshift) + byteoffset;         
-              //dev->addrshift should contain the shift value to form the proper address
-              //for 512 page it's decimal 9, for 528 - decimal  10, see address structure in the comment above
-       
-       cmdbuf[1] = ((FlashRequest & 0xFF0000) >> 16); 
-       cmdbuf[2] = ((FlashRequest & 0xFF00) >> 8);
-       cmdbuf[3] = FlashRequest;
-       if (cmdlen>4) { for (i = 4; i < cmdlen; i++) {cmdbuf[i] = 0;}}  //probably there are some more dummy bytes are needed. 
-                                                                       //for example for direct flash read
-         
-      }
+        if (cmdlen>1)                              //probably there are address and/or dummy bytes are needed.
+            {
+            /*for 528 bytes pagesize address is transfered in form:
+            00PPPPPP PPPPPPBB BBBBBBBB
+            where P - page number bit, B - bit of number of byte in page
+              so, we need to shift page address 9 bits to left and add byte number.
+            for 512 bytes/page chip address is transfered in form:
+            000AAAAA AAAAAAAa aaaaaaaa
+            where A - page number bit, a - bit of number of byte in page*/
+
+            FlashRequest = (page << dev->addrshift) + byteoffset;
+                 //dev->addrshift should contain the shift value to form the proper address
+                //for 512 page it's decimal 9, for 528 - decimal  10, see address structure in the comment above
+
+            cmdbuf[1] = ((FlashRequest & 0xFF0000) >> 16);
+            cmdbuf[2] = ((FlashRequest & 0xFF00) >> 8);
+            cmdbuf[3] = FlashRequest;
+               if (cmdlen>4) { for (i = 4; i < cmdlen; i++) {cmdbuf[i] = 0;}}  //probably there are some more dummy bytes are needed.
+                                                                            //for example for direct flash read
+            }
    if(datadir == AT45DB_W) 
    {  
-    //for (i = 0; i < datalen; i++) { tempbuf[i] = txbuf[i]; }        
-        memcpy(tempbuf, txbuf, datalen);
+     memcpy(tempbuf, txbuf, datalen);
     //for (i = datalen; i < dev->pagesize; i++) { tempbuf[i] = 0; }     
-    //    memset((uint8_t*)&tempbuf + datalen, 0x00, dev->pagesize - datalen);          <-- well, i definitely was on drugs doing this... Why? Who knows... 
+    //    memset((uint8_t*)&tempbuf + datalen, 0x00, dev->pagesize - datalen);          <-- well, i definitely was on drugs doing this... Why? Who knows... Well i remember - that was remains from static array declaration
    }
         
-    
-    
-    at45db_csn_reset(dev);
-
-    res =  HAL_SPI_Transmit(dev->hw_config.spi, cmdbuf, cmdlen, dev->hw_config.spi_timeout);
-  if(datadir == AT45DB_W) {res |= HAL_SPI_Transmit(dev->hw_config.spi, tempbuf, datalen,dev->hw_config.spi_timeout);} else
-  if(datadir == AT45DB_R) {res |= HAL_SPI_Receive(dev->hw_config.spi,  tempbuf, datalen,dev->hw_config.spi_timeout);} else
-  {res |= HAL_SPI_TransmitReceive(dev->hw_config.spi, tempbuf, tempbuf, datalen,dev->hw_config.spi_timeout);}
-  at45db_csn_set(dev);    
-    if (res != HAL_OK) 
+   at45db_csn_reset(dev);
+      res =  HAL_SPI_Transmit(dev->hw_config.spi, cmdbuf, cmdlen, dev->hw_config.spi_timeout);
+      if(datadir == AT45DB_W) {res |= HAL_SPI_Transmit(dev->hw_config.spi, tempbuf, datalen,dev->hw_config.spi_timeout);} else
+      if(datadir == AT45DB_R) {res |= HAL_SPI_Receive(dev->hw_config.spi,  tempbuf, datalen,dev->hw_config.spi_timeout);} else
+      {res |= HAL_SPI_TransmitReceive(dev->hw_config.spi, tempbuf, tempbuf, datalen,dev->hw_config.spi_timeout);}
+   at45db_csn_set(dev);    
+   if (res != HAL_OK) 
    {
-        return AT45DB_ERROR;
+       return AT45DB_ERROR;
    }
 
     
   if (datadir != AT45DB_W) 
    {
-    for (i = 0; i < datalen; i++) {rxbuf[i] = tempbuf[i];}  // if not only writing data, then we need to return what we read
+   memcpy(rxbuf, tempbuf, datalen);   // if not only writing data, then we need to return what we read
    }
 
     return AT45DB_OK;
@@ -177,7 +174,7 @@ AT45DB_RESULT at45db_getstatus(at45db* dev)
  {
   AT45DB_RESULT at45_res;
   dev->at45_busy = 1;
-  at45_res = at45db_send_cmd(dev,AT45DB_CMD_STATUS,0,0,NULL,&dev->registers.statusreg,sizeof(dev->registers.statusreg),1);
+  if (at45db_send_cmd(dev,AT45DB_CMD_STATUS,0,0,NULL,&dev->registers.statusreg,sizeof(dev->registers.statusreg),1) != AT45DB_OK) return AT45DB_ERROR;
   if ((dev->registers.statusreg & AT45DB_RDY) != 0) {dev->at45_busy = 0;}
   if ((dev->registers.statusreg & AT45DB_PAGESIZE) || AT45DB_SOFT_OVERRIDE_512) 
      {
@@ -191,9 +188,9 @@ AT45DB_RESULT at45db_getstatus(at45db* dev)
      }
   dev->chipsize = ((dev->registers.statusreg & AT45DB_SIZE) >> 2);              /*note, that this is not an actual size in bytes, 
                                                                                   just a code, that shold be translated to actual size 
-                                                                                   using datashit tables. for 16Mbit is would be 1011...
+                                                                                   using datashit tables. for 16Mbit is would be 1011 or 0x0B...
                                                                                    getting an actual size would be implemented later. Or not.*/
-  return at45_res;
+  return AT45DB_OK;
  }
  
  
@@ -214,7 +211,7 @@ AT45DB_RESULT at45db_getstatus(at45db* dev)
  AT45DB_RESULT at45db_read_page(at45db* dev, uint8_t* rxbuf, uint16_t pageAddr) 
  {
    if (at45db_wait_cplt(dev) != AT45DB_OK) return AT45DB_ERROR;
-   return at45db_send_cmd(dev,AT45DB_CMD_R_MAINMEMPAGE_LEGACY,pageAddr,0,NULL,rxbuf,dev->pagesize,8);
+   return at45db_send_cmd(dev,AT45DB_CMD_R_MAINMEMPAGE_LEGACY,pageAddr,0,NULL,rxbuf,dev->pagesize, 8);
  } 
  
  
@@ -241,7 +238,7 @@ AT45DB_RESULT at45db_getstatus(at45db* dev)
   AT45DB_RESULT at45db_w_buf1tomem_e(at45db* dev, uint16_t pageAddr) 
  {
   if (at45db_wait_cplt(dev) != AT45DB_OK) return AT45DB_ERROR;
-  return at45db_send_cmd(dev, AT45DB_CMD_BUF1_TO_MEM_ERASE, pageAddr, 0, NULL, NULL, 0, 4);
+  return at45db_send_cmd(dev, AT45DB_CMD_BUF1_TO_MEM_ERASE, pageAddr, 0, NULL, NULL, 1, 4);
  } 
  
  

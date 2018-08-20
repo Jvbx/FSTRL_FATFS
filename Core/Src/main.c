@@ -107,10 +107,10 @@ void SystemClock_Config(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
- int fputc(int c, FILE *stream)
-{
-   return ITM_SendChar(c);
-}
+// int fputc(int c, FILE *stream)
+//{
+//   return ITM_SendChar(c);
+//}
 
 /* USER CODE END 0 */
 
@@ -168,13 +168,13 @@ int main(void)
     FRESULT res;
     printf("Ready!\r\n");
     BYTE work[_MAX_SS]; // Work area (larger is better for processing time) 
-  //  res = f_mkfs("", FM_FAT, 512, work, sizeof work);
+    res = f_mkfs("", FM_FAT, 512, work, sizeof work);
     
     
     
     
     // mount the default drive
-    res = f_mount(&fs, "", 0);
+    res = f_mount(&fs, "", 1);
     if(res != FR_OK) {
         printf("f_mount() failed, res = %d\r\n", res);
       //  return 0;

@@ -17,7 +17,7 @@
 #define AT45DB_SPI_PORT           &hspi2  //spi port, what else can it be? )
 #define AT45DB_SPI_TIMEOUT        1000    //ftgj! 
 #define AT45DB_SOFT_OVERRIDE_512  1       //use 512 page size even if chip in 528 mode. Doesn't reconfigures the chip itself. 0 to use chip actual config
-
+#define AT45DB_OP_TIMEOUT         1000 
 
 
 #define  AT45DB_CMD_SECTORPROTECTIONOFF       ((uint8_t []) {0x3D, 0x2A, 0x7F, 0xCF})
