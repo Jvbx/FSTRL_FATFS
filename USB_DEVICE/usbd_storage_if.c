@@ -51,7 +51,6 @@
 #include "usbd_storage_if.h"
 
 /* USER CODE BEGIN INCLUDE */
-#include "fatfs.h"
 #include "at45db.h"
 /* USER CODE END INCLUDE */
 
@@ -93,8 +92,8 @@
   */
 
 #define STORAGE_LUN_NBR                  1
-#define STORAGE_BLK_NBR                  0x1000
-#define STORAGE_BLK_SIZ                  0x200
+#define STORAGE_BLK_NBR                  AT45DB_PAGES
+#define STORAGE_BLK_SIZ                  AT45DB_PAGE_SIZE
 
 /* USER CODE BEGIN PRIVATE_DEFINES */
 
@@ -143,7 +142,7 @@ const int8_t STORAGE_Inquirydata_FS[] = {/* 36 */
 /* USER CODE END INQUIRY_DATA_FS */
 
 /* USER CODE BEGIN PRIVATE_VARIABLES */
-
+at45db at45db_dataflash_usb;
 /* USER CODE END PRIVATE_VARIABLES */
 
 /**
@@ -158,6 +157,9 @@ const int8_t STORAGE_Inquirydata_FS[] = {/* 36 */
 extern USBD_HandleTypeDef hUsbDeviceFS;
 
 /* USER CODE BEGIN EXPORTED_VARIABLES */
+
+
+
 
 /* USER CODE END EXPORTED_VARIABLES */
 
@@ -207,7 +209,7 @@ USBD_StorageTypeDef USBD_Storage_Interface_fops_FS =
 int8_t STORAGE_Init_FS(uint8_t lun)
 {
   /* USER CODE BEGIN 2 */
-  if (at45db_init(&at45db_dataflash) ==  AT45DB_OK) return (USBD_OK);
+  if (at45db_init(&at45db_dataflash_usb) ==  AT45DB_OK) return (USBD_OK);
   return (USBD_FAIL);
   /* USER CODE END 2 */
 }
@@ -236,7 +238,7 @@ int8_t STORAGE_GetCapacity_FS(uint8_t lun, uint32_t *block_num, uint16_t *block_
 int8_t STORAGE_IsReady_FS(uint8_t lun)
 {
   /* USER CODE BEGIN 4 */
-  if (at45db_wait_cplt(&at45db_dataflash) != AT45DB_OK) return (USBD_FAIL);
+  if (at45db_wait_cplt(&at45db_dataflash_usb) != AT45DB_OK) return (USBD_FAIL);
   return (USBD_OK);
   /* USER CODE END 4 */
 }
@@ -265,7 +267,7 @@ int8_t STORAGE_Read_FS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t bl
    AT45DB_RESULT res;
     while(blk_len > 0) 
       {
-        res = at45db_read_page(&at45db_dataflash, buf, blk_addr);
+        res = at45db_read_page(&at45db_dataflash_usb, buf, blk_addr);
         if (res != AT45DB_OK) return (USBD_FAIL);
         buf += STORAGE_BLK_SIZ;
         blk_addr++;
@@ -274,7 +276,7 @@ int8_t STORAGE_Read_FS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t bl
   return (USBD_OK);
   /* USER CODE END 6 */
 }
-
+                                                                       
 /**
   * @brief  .
   * @param  lun: .
@@ -283,15 +285,15 @@ int8_t STORAGE_Read_FS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t bl
 int8_t STORAGE_Write_FS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t blk_len)
 {
   /* USER CODE BEGIN 7 */
-  
+   uint16_t lbapage = (uint16_t)blk_addr;
    AT45DB_RESULT res = AT45DB_OK;
     while(blk_len > 0) 
       {
-        res = at45db_w_pagethroughbuf1(&at45db_dataflash, buf, blk_addr, 0);
-        if (at45db_wait_cplt(&at45db_dataflash) != AT45DB_OK) return (USBD_FAIL);
+        res = at45db_w_pagethroughbuf1(&at45db_dataflash_usb, buf, lbapage, 0);
+        if (at45db_wait_cplt(&at45db_dataflash_usb) != AT45DB_OK) return (USBD_FAIL);
         if (res != AT45DB_OK) return (USBD_FAIL);
         buf += STORAGE_BLK_SIZ;
-        blk_addr++;
+        lbapage++;
         blk_len--;
       }
   

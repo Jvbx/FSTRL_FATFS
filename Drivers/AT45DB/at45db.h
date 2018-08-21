@@ -12,12 +12,12 @@
 //#endif
 
 
-#define AT45DB_PAGE_SIZE          528     //Obsolete parameter - pagesize now determines by respective bit in status register by calling at45db_getstatus()
-#define AT45DB_PAGES              4096    //at45db161 is 16Mbit chip.
+#define AT45DB_PAGE_SIZE          512     //Obsolete parameter - pagesize now determines by respective bit in status register by calling at45db_getstatus()
+#define AT45DB_PAGES              3000    //at45db161 is 16Mbit chip.
 #define AT45DB_SPI_PORT           &hspi2  //spi port, what else can it be? )
-#define AT45DB_SPI_TIMEOUT        1000    //ftgj! 
+#define AT45DB_SPI_TIMEOUT        10000    //ftgj! 
 #define AT45DB_SOFT_OVERRIDE_512  1       //use 512 page size even if chip in 528 mode. Doesn't reconfigures the chip itself. 0 to use chip actual config
-#define AT45DB_OP_TIMEOUT         1000 
+#define AT45DB_OP_TIMEOUT         10000 
 
 
 #define  AT45DB_CMD_SECTORPROTECTIONOFF       ((uint8_t []) {0x3D, 0x2A, 0x7F, 0xCF})
@@ -70,11 +70,11 @@ typedef enum {
 } AT45DB_COMMAND;
 
 typedef enum {
-    AT45DB_PAGESIZE  = 0x01,
-    AT45DB_PROTECT   = 0x02,
-    AT45DB_SIZE      = 0x3C,
-    AT45DB_COMP      = 0x40,
-    AT45DB_RDY       = 0x80
+    AT45DB_PAGESIZE_512  = 0x01,
+    AT45DB_PROTECT       = 0x02,
+    AT45DB_SIZE          = 0x3C,
+    AT45DB_COMP          = 0x40,
+    AT45DB_RDY           = 0x80
 } AT45DB_STATUS_REGMASK;
 
 
@@ -131,7 +131,7 @@ volatile uint8_t             at45_busy;      //0 - flash is free for action. els
          uint8_t             devid[5];       //devid array. devid[0] should be 0x1F for AT45DB flash chip.  
          uint8_t             rtxbuf[528];    //some internal buffer. Stil have no idea why do i need it. 
          uint16_t            pagesize;       //if flash properly inited, this would contain pagesize in bytes. 528(default) or 512 
-         uint8_t             addrshift;      //10 for 528 pagesize or 9 for 512. Used to maintain different address format. zaebalsa pisat po anglisski 
+         uint8_t             addrshift;      //10 for 528 pagesize or 9 for 512. Used to maintain different address format.
          uint8_t             chipsize;
 } at45db;
 

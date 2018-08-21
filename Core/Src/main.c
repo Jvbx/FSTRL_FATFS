@@ -151,24 +151,27 @@ int main(void)
   MX_SPI2_Init();
   MX_CRC_Init();
   MX_SPI1_Init();
-  MX_I2C3_Init();
+  //MX_I2C3_Init();
   MX_FATFS_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
   //at45db_init(&dataflash);
-  
+  #define CHIP_FS_ACCESS 0  //enable device fs routines
+  #define FS_CREATE 0       //enable fs create 
   
   
   
        
-    
-   
+   if (CHIP_FS_ACCESS) 
+   {
     FATFS fs;
     FATFS* fs_ptr = &fs;
     FRESULT res;
     printf("Ready!\r\n");
     BYTE work[_MAX_SS]; // Work area (larger is better for processing time) 
- //   res = f_mkfs("", FM_FAT, 512, work, sizeof work);
+     
+     
+    if (FS_CREATE) res = f_mkfs("", FM_FAT, 0, work, sizeof work);
     
     
     
@@ -286,7 +289,7 @@ int main(void)
     }
 
     readBuff[bytesRead] = '\0';
-    printf( readBuff);
+    printf("%s", readBuff);
 
     res = f_close(&msgFile);
     if(res != FR_OK) {
@@ -303,10 +306,10 @@ int main(void)
 
     printf("Done!\r\n");
     
-      
+  }    
   
   
-  
+ while (1) {}; 
   
   
   

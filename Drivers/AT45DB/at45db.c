@@ -176,7 +176,11 @@ AT45DB_RESULT at45db_getstatus(at45db* dev)
   dev->at45_busy = 1;
   if (at45db_send_cmd(dev,AT45DB_CMD_STATUS,0,0,NULL,&dev->registers.statusreg,sizeof(dev->registers.statusreg),1) != AT45DB_OK) return AT45DB_ERROR;
   if ((dev->registers.statusreg & AT45DB_RDY) != 0) {dev->at45_busy = 0;}
-  if ((dev->registers.statusreg & AT45DB_PAGESIZE) || AT45DB_SOFT_OVERRIDE_512) 
+  dev->chipsize = ((dev->registers.statusreg & AT45DB_SIZE) >> 2);              /*note, that this is not an actual size in bytes, 
+                                                                                  just a code, that shold be translated to actual size 
+                                                                                   using datashit tables. for 16Mbit is would be 1011 or 0x0B...
+                                                                                   getting an actual size would be implemented later. Or not.*/
+    if ((dev->registers.statusreg & AT45DB_PAGESIZE_512) || AT45DB_SOFT_OVERRIDE_512) 
      {
       dev->pagesize = 512;
       dev->addrshift = 9;
@@ -186,10 +190,6 @@ AT45DB_RESULT at45db_getstatus(at45db* dev)
       dev->pagesize = 528;
       dev->addrshift = 10;
      }
-  dev->chipsize = ((dev->registers.statusreg & AT45DB_SIZE) >> 2);              /*note, that this is not an actual size in bytes, 
-                                                                                  just a code, that shold be translated to actual size 
-                                                                                   using datashit tables. for 16Mbit is would be 1011 or 0x0B...
-                                                                                   getting an actual size would be implemented later. Or not.*/
   return AT45DB_OK;
  }
  
@@ -197,7 +197,7 @@ AT45DB_RESULT at45db_getstatus(at45db* dev)
  AT45DB_RESULT at45db_isrdy(at45db* dev) 
  {
   if (at45db_send_cmd(dev,AT45DB_CMD_STATUS,0,0,NULL,&dev->registers.statusreg,sizeof(dev->registers.statusreg),1) != AT45DB_OK) return AT45DB_ERROR;
-  if ((dev->registers.statusreg & AT45DB_RDY) == 0) {dev->at45_busy = 1; return AT45DB_BUSY;}
+  if ((dev->registers.statusreg & AT45DB_RDY) == 0) {dev->at45_busy = 1; return AT45DB_OK;}
   dev->at45_busy = 0;
   return AT45DB_READY;
  }

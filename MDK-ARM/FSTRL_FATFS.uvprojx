@@ -321,20 +321,20 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>3</wLevel>
+            <wLevel>0</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
             <useXO>0</useXO>
-            <v6Lang>5</v6Lang>
-            <v6LangP>3</v6LangP>
-            <vShortEn>1</vShortEn>
-            <vShortWch>1</vShortWch>
+            <v6Lang>3</v6Lang>
+            <v6LangP>0</v6LangP>
+            <vShortEn>0</vShortEn>
+            <vShortWch>0</vShortWch>
             <v6Lto>0</v6Lto>
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls></MiscControls>
+              <MiscControls>-Wno-parentheses-equality</MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
               <IncludePath>../Core/Inc;  ../FATFS;  ../Drivers/STM32F4xx_HAL_Driver/Inc;  ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;  ../Middlewares/Third_Party/FatFs/src;  ../Drivers/CMSIS/Include;  ..\Drivers\AT45DB;  ..\Drivers\NRF24L01;  ..\Drivers\BMP280;  ..\Drivers\MPU9250;  ..\utility; ../USB_DEVICE; ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc; ../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc</IncludePath>
