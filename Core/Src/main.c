@@ -156,7 +156,7 @@ int main(void)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
   //at45db_init(&dataflash);
-  #define CHIP_FS_ACCESS 0  //enable device fs routines
+  #define CHIP_FS_ACCESS 1  //enable device fs routines
   #define FS_CREATE 0       //enable fs create 
   
   
