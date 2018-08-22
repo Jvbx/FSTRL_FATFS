@@ -93,7 +93,7 @@
 
 #define STORAGE_LUN_NBR                  1
 #define STORAGE_BLK_NBR                  AT45DB_PAGES
-#define STORAGE_BLK_SIZ                  AT45DB_PAGE_SIZE
+#define STORAGE_BLK_SIZ                  512
 
 /* USER CODE BEGIN PRIVATE_DEFINES */
 
@@ -134,15 +134,15 @@ const int8_t STORAGE_Inquirydata_FS[] = {/* 36 */
   0x00,
   0x00,	
   0x00,
-  'S', 'T', 'M', ' ', ' ', ' ', ' ', ' ', /* Manufacturer : 8 bytes */
-  'P', 'r', 'o', 'd', 'u', 'c', 't', ' ', /* Product      : 16 Bytes */
+  'O', 'M', 'S', 'K', ' ', ' ', ' ', ' ', /* Manufacturer : 8 bytes */
+  'F', 'o', 'r', 'e', 'v', 'e', 'r', ' ', /* Product      : 16 Bytes */
   ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
   '0', '.', '0' ,'1'                      /* Version      : 4 Bytes */
 }; 
 /* USER CODE END INQUIRY_DATA_FS */
 
 /* USER CODE BEGIN PRIVATE_VARIABLES */
-at45db at45db_dataflash_usb;
+static at45db at45db_dataflash_usb;
 /* USER CODE END PRIVATE_VARIABLES */
 
 /**
@@ -290,8 +290,8 @@ int8_t STORAGE_Write_FS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t b
     while(blk_len > 0) 
       {
         res = at45db_w_pagethroughbuf1(&at45db_dataflash_usb, buf, lbapage, 0);
-        if (at45db_wait_cplt(&at45db_dataflash_usb) != AT45DB_OK) return (USBD_FAIL);
         if (res != AT45DB_OK) return (USBD_FAIL);
+        if (at45db_wait_cplt(&at45db_dataflash_usb) != AT45DB_OK) return (USBD_FAIL);
         buf += STORAGE_BLK_SIZ;
         lbapage++;
         blk_len--;

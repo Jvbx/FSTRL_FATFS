@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\FSTRL_FATFS.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\FSTRL_FATFS.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6100100: Last Updated: Wed Aug 22 02:43:18 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6100100: Last Updated: Thu Aug 23 00:23:34 2018
 <BR><P>
 <H3>Maximum Stack Usage =        696 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -2360,33 +2360,34 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[18]"></a>USER_initialize</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, user_diskio.o(.text.USER_initialize))
-<BR><BR>[Stack]<UL><LI>Max Depth = 424<LI>Call Chain = USER_initialize &rArr; at45db_init &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 520<LI>Call Chain = USER_initialize &rArr; at45db_init &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_init
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> user_diskio.o(.data.USER_Driver)
 </UL>
-<P><STRONG><a name="[1c]"></a>USER_ioctl</STRONG> (Thumb, 212 bytes, Stack size 40 bytes, user_diskio.o(.text.USER_ioctl))
+<P><STRONG><a name="[1c]"></a>USER_ioctl</STRONG> (Thumb, 206 bytes, Stack size 40 bytes, user_diskio.o(.text.USER_ioctl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = USER_ioctl
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> user_diskio.o(.data.USER_Driver)
 </UL>
 <P><STRONG><a name="[1a]"></a>USER_read</STRONG> (Thumb, 112 bytes, Stack size 56 bytes, user_diskio.o(.text.USER_read))
-<BR><BR>[Stack]<UL><LI>Max Depth = 488<LI>Call Chain = USER_read &rArr; at45db_read_page &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 584<LI>Call Chain = USER_read &rArr; at45db_read_page &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_read_page
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> user_diskio.o(.data.USER_Driver)
 </UL>
-<P><STRONG><a name="[19]"></a>USER_status</STRONG> (Thumb, 116 bytes, Stack size 24 bytes, user_diskio.o(.text.USER_status))
-<BR><BR>[Stack]<UL><LI>Max Depth = 368<LI>Call Chain = USER_status &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[19]"></a>USER_status</STRONG> (Thumb, 142 bytes, Stack size 24 bytes, user_diskio.o(.text.USER_status))
+<BR><BR>[Stack]<UL><LI>Max Depth = 496<LI>Call Chain = USER_status &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_isrdy
+<BR>[Calls]<UL><LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_wait_cplt
+<LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_isrdy
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> user_diskio.o(.data.USER_Driver)
 </UL>
 <P><STRONG><a name="[1b]"></a>USER_write</STRONG> (Thumb, 114 bytes, Stack size 56 bytes, user_diskio.o(.text.USER_write))
-<BR><BR>[Stack]<UL><LI>Max Depth = 496<LI>Call Chain = USER_write &rArr; at45db_w_pagethroughbuf1 &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 592<LI>Call Chain = USER_write &rArr; at45db_w_pagethroughbuf1 &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_w_pagethroughbuf1
 </UL>
@@ -2432,15 +2433,15 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[183]"></a>at45db_getid</STRONG> (Thumb, 56 bytes, Stack size 40 bytes, at45db.o(.text.at45db_getid))
-<BR><BR>[Stack]<UL><LI>Max Depth = 344<LI>Call Chain = at45db_getid &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 440<LI>Call Chain = at45db_getid &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_send_cmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_init
 </UL>
 
-<P><STRONG><a name="[185]"></a>at45db_getstatus</STRONG> (Thumb, 180 bytes, Stack size 48 bytes, at45db.o(.text.at45db_getstatus))
-<BR><BR>[Stack]<UL><LI>Max Depth = 352<LI>Call Chain = at45db_getstatus &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[185]"></a>at45db_getstatus</STRONG> (Thumb, 172 bytes, Stack size 48 bytes, at45db.o(.text.at45db_getstatus))
+<BR><BR>[Stack]<UL><LI>Max Depth = 448<LI>Call Chain = at45db_getstatus &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_send_cmd
 </UL>
@@ -2448,7 +2449,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[153]"></a>at45db_init</STRONG> (Thumb, 266 bytes, Stack size 32 bytes, at45db.o(.text.at45db_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 408<LI>Call Chain = at45db_init &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 504<LI>Call Chain = at45db_init &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_wait_cplt
 <LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_getstatus
@@ -2462,7 +2463,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[180]"></a>at45db_isrdy</STRONG> (Thumb, 108 bytes, Stack size 40 bytes, at45db.o(.text.at45db_isrdy))
-<BR><BR>[Stack]<UL><LI>Max Depth = 344<LI>Call Chain = at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 440<LI>Call Chain = at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_send_cmd
 </UL>
@@ -2471,7 +2472,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[155]"></a>at45db_read_page</STRONG> (Thumb, 106 bytes, Stack size 56 bytes, at45db.o(.text.at45db_read_page))
-<BR><BR>[Stack]<UL><LI>Max Depth = 432<LI>Call Chain = at45db_read_page &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 528<LI>Call Chain = at45db_read_page &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_wait_cplt
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_send_cmd
@@ -2480,8 +2481,8 @@ Global Symbols
 <LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;STORAGE_Read_FS
 </UL>
 
-<P><STRONG><a name="[184]"></a>at45db_send_cmd</STRONG> (Thumb, 610 bytes, Stack size 32 bytes, at45db.o(.text.at45db_send_cmd))
-<BR><BR>[Stack]<UL><LI>Max Depth = 304<LI>Call Chain = at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[184]"></a>at45db_send_cmd</STRONG> (Thumb, 470 bytes, Stack size 128 bytes, at45db.o(.text.at45db_send_cmd))
+<BR><BR>[Stack]<UL><LI>Max Depth = 400<LI>Call Chain = at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TransmitReceive
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Transmit
@@ -2498,7 +2499,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[156]"></a>at45db_w_pagethroughbuf1</STRONG> (Thumb, 110 bytes, Stack size 64 bytes, at45db.o(.text.at45db_w_pagethroughbuf1))
-<BR><BR>[Stack]<UL><LI>Max Depth = 440<LI>Call Chain = at45db_w_pagethroughbuf1 &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 536<LI>Call Chain = at45db_w_pagethroughbuf1 &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_wait_cplt
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_send_cmd
@@ -2508,13 +2509,14 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[154]"></a>at45db_wait_cplt</STRONG> (Thumb, 92 bytes, Stack size 32 bytes, at45db.o(.text.at45db_wait_cplt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 376<LI>Call Chain = at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 472<LI>Call Chain = at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_isrdy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_w_pagethroughbuf1
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_read_page
 <LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_init
+<LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_status
 <LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;STORAGE_Write_FS
 <LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;STORAGE_IsReady_FS
 </UL>
@@ -3180,14 +3182,14 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> usbd_storage_if.o(.data.USBD_Storage_Interface_fops_FS)
 </UL>
 <P><STRONG><a name="[11]"></a>STORAGE_Init_FS</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, usbd_storage_if.o(.text.STORAGE_Init_FS))
-<BR><BR>[Stack]<UL><LI>Max Depth = 424<LI>Call Chain = STORAGE_Init_FS &rArr; at45db_init &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 520<LI>Call Chain = STORAGE_Init_FS &rArr; at45db_init &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_init
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> usbd_storage_if.o(.data.USBD_Storage_Interface_fops_FS)
 </UL>
 <P><STRONG><a name="[13]"></a>STORAGE_IsReady_FS</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, usbd_storage_if.o(.text.STORAGE_IsReady_FS))
-<BR><BR>[Stack]<UL><LI>Max Depth = 392<LI>Call Chain = STORAGE_IsReady_FS &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 488<LI>Call Chain = STORAGE_IsReady_FS &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_wait_cplt
 </UL>
@@ -3199,14 +3201,14 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> usbd_storage_if.o(.data.USBD_Storage_Interface_fops_FS)
 </UL>
 <P><STRONG><a name="[15]"></a>STORAGE_Read_FS</STRONG> (Thumb, 126 bytes, Stack size 56 bytes, usbd_storage_if.o(.text.STORAGE_Read_FS))
-<BR><BR>[Stack]<UL><LI>Max Depth = 488<LI>Call Chain = STORAGE_Read_FS &rArr; at45db_read_page &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 584<LI>Call Chain = STORAGE_Read_FS &rArr; at45db_read_page &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_read_page
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> usbd_storage_if.o(.data.USBD_Storage_Interface_fops_FS)
 </UL>
-<P><STRONG><a name="[16]"></a>STORAGE_Write_FS</STRONG> (Thumb, 164 bytes, Stack size 56 bytes, usbd_storage_if.o(.text.STORAGE_Write_FS))
-<BR><BR>[Stack]<UL><LI>Max Depth = 496<LI>Call Chain = STORAGE_Write_FS &rArr; at45db_w_pagethroughbuf1 &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[16]"></a>STORAGE_Write_FS</STRONG> (Thumb, 168 bytes, Stack size 56 bytes, usbd_storage_if.o(.text.STORAGE_Write_FS))
+<BR><BR>[Stack]<UL><LI>Max Depth = 592<LI>Call Chain = STORAGE_Write_FS &rArr; at45db_w_pagethroughbuf1 &rArr; at45db_wait_cplt &rArr; at45db_isrdy &rArr; at45db_send_cmd &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_wait_cplt
 <LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at45db_w_pagethroughbuf1

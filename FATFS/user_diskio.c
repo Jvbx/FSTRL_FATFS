@@ -70,8 +70,8 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* Disk status */
-static volatile DSTATUS Stat = STA_NOINIT;
-at45db at45db_dataflash;
+static volatile DSTATUS Stat;
+static at45db at45db_dataflash;
 /* USER CODE END DECL */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -126,15 +126,15 @@ DSTATUS USER_status (
 )
 {
   /* USER CODE BEGIN STATUS */
-    Stat = STA_NOINIT;
-   AT45DB_RESULT at45db_resp = at45db_isrdy(&at45db_dataflash);
-   switch  (at45db_resp)
+   Stat = STA_NOINIT;
+   AT45DB_RESULT res = at45db_isrdy(&at45db_dataflash);
+   switch  (res)
    {
      case             AT45DB_READY: {return RES_OK; break;} 
-     case              AT45DB_BUSY: {return RES_OK; break;}
+     case              AT45DB_BUSY: {if (at45db_wait_cplt(&at45db_dataflash) != AT45DB_OK) return AT45DB_ERROR; else return RES_OK; break;}
      case             AT45DB_ERROR: {return RES_ERROR; break;}
      case  AT45DB_INVALID_ARGUMENT: {return RES_PARERR; break;}
-                           default: return Stat;  
+     default: return Stat;  
    }
    
     return Stat;
@@ -224,11 +224,11 @@ DRESULT USER_ioctl (
   switch (cmd)
   {
   /* Generic command (Used by FatFs) */
-    case CTRL_SYNC:{       return RES_OK;         break;}        /* Complete pending write process (needed at _FS_READONLY == 0) */
-    case GET_SECTOR_COUNT:{*(uint32_t*)buff = 4096;  return RES_OK;      break;}        /* Get media size (needed at _USE_MKFS == 1) */
-    case GET_SECTOR_SIZE:{ *(uint16_t*)buff = 0x200;            return RES_OK;      break;}        /* Get sector size (needed at _MAX_SS != _MIN_SS) */  //<- not our case anyway
-    case GET_BLOCK_SIZE:{ *(uint32_t*)buff = 1;      return RES_OK;      break;}        /* Get erase block size (needed at _USE_MKFS == 1) */
-    case CTRL_TRIM:{return RES_OK; break;}       /* Inform device that the data on the block of sectors is no longer used (needed at _USE_TRIM == 1) */
+    case CTRL_SYNC:         {                                   return RES_OK;      break;}        /* Complete pending write process (needed at _FS_READONLY == 0) */
+    case GET_SECTOR_COUNT:  {*(uint32_t*)buff = AT45DB_PAGES;   return RES_OK;      break;}        /* Get media size (needed at _USE_MKFS == 1) */
+    case GET_SECTOR_SIZE:   {*(uint16_t*)buff = 512;            return RES_OK;      break;}        /* Get sector size (needed at _MAX_SS != _MIN_SS) */  //<- not our case anyway
+    case GET_BLOCK_SIZE:    {*(uint32_t*)buff = 1;              return RES_OK;      break;}        /* Get erase block size (needed at _USE_MKFS == 1) */
+    //case CTRL_TRIM:{return RES_OK; break;}       /* Inform device that the data on the block of sectors is no longer used (needed at _USE_TRIM == 1) */
 
 /* Generic command (Not used by FatFs) */
     case CTRL_POWER:  {    return  RES_PARERR;    break;}       /* Get/Set power status */

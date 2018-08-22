@@ -100,8 +100,7 @@ AT45DB_RESULT at45db_send_cmd(at45db*     dev,
                                           Page and byteoffset should be set to 0 in that case. */
 {
   uint16_t                i;
-  uint8_t                 tempbuf[datalen];
-  uint8_t                 cmdbuf[cmdlen];
+  uint8_t                 cmdbuf[16];
   HAL_StatusTypeDef       res; 
   uint32_t                FlashRequest = 0;
   AT45DB_DATA_DIRECTION   datadir;
@@ -133,26 +132,24 @@ AT45DB_RESULT at45db_send_cmd(at45db*     dev,
             }
    if(datadir == AT45DB_W) 
    {  
-     memcpy(tempbuf, txbuf, datalen);
+     memcpy(dev->rtxbuf, txbuf, datalen);
     //for (i = datalen; i < dev->pagesize; i++) { tempbuf[i] = 0; }     
     //    memset((uint8_t*)&tempbuf + datalen, 0x00, dev->pagesize - datalen);          <-- well, i definitely was on drugs doing this... Why? Who knows... Well i remember - that was remains from static array declaration
    }
         
    at45db_csn_reset(dev);
       res =  HAL_SPI_Transmit(dev->hw_config.spi, cmdbuf, cmdlen, dev->hw_config.spi_timeout);
-      if(datadir == AT45DB_W) {res |= HAL_SPI_Transmit(dev->hw_config.spi, tempbuf, datalen,dev->hw_config.spi_timeout);} else
-      if(datadir == AT45DB_R) {res |= HAL_SPI_Receive(dev->hw_config.spi,  tempbuf, datalen,dev->hw_config.spi_timeout);} else
-      {res |= HAL_SPI_TransmitReceive(dev->hw_config.spi, tempbuf, tempbuf, datalen,dev->hw_config.spi_timeout);}
-   at45db_csn_set(dev);    
-   if (res != HAL_OK) 
+   if (datalen > 0) 
+       {
+        if(datadir == AT45DB_W) {res |= HAL_SPI_Transmit(dev->hw_config.spi, dev->rtxbuf, datalen,dev->hw_config.spi_timeout);} else
+        if(datadir == AT45DB_R) {res |= HAL_SPI_Receive(dev->hw_config.spi,  dev->rtxbuf, datalen,dev->hw_config.spi_timeout);} else
+        {res |= HAL_SPI_TransmitReceive(dev->hw_config.spi, dev->rtxbuf, dev->rtxbuf, datalen,dev->hw_config.spi_timeout);}             //complete bullshit. never write such code. 
+       }
+        at45db_csn_set(dev);    
+   if (res != HAL_OK) return AT45DB_ERROR;
+   if (datadir != AT45DB_W) 
    {
-       return AT45DB_ERROR;
-   }
-
-    
-  if (datadir != AT45DB_W) 
-   {
-   memcpy(rxbuf, tempbuf, datalen);   // if not only writing data, then we need to return what we read
+   memcpy(rxbuf, dev->rtxbuf, datalen);   // if not only writing data, then we need to return what we read
    }
 
     return AT45DB_OK;
@@ -180,14 +177,14 @@ AT45DB_RESULT at45db_getstatus(at45db* dev)
                                                                                   just a code, that shold be translated to actual size 
                                                                                    using datashit tables. for 16Mbit is would be 1011 or 0x0B...
                                                                                    getting an actual size would be implemented later. Or not.*/
-    if ((dev->registers.statusreg & AT45DB_PAGESIZE_512) || AT45DB_SOFT_OVERRIDE_512) 
+    if (dev->registers.statusreg & AT45DB_PAGESIZE_512) 
      {
       dev->pagesize = 512;
       dev->addrshift = 9;
      } 
   else 
      {
-      dev->pagesize = 528;
+      if (AT45DB_SOFT_OVERRIDE_512) dev->pagesize = 512; else  dev->pagesize = 528;
       dev->addrshift = 10;
      }
   return AT45DB_OK;
@@ -197,7 +194,7 @@ AT45DB_RESULT at45db_getstatus(at45db* dev)
  AT45DB_RESULT at45db_isrdy(at45db* dev) 
  {
   if (at45db_send_cmd(dev,AT45DB_CMD_STATUS,0,0,NULL,&dev->registers.statusreg,sizeof(dev->registers.statusreg),1) != AT45DB_OK) return AT45DB_ERROR;
-  if ((dev->registers.statusreg & AT45DB_RDY) == 0) {dev->at45_busy = 1; return AT45DB_OK;}
+  if ((dev->registers.statusreg & AT45DB_RDY) == 0) {dev->at45_busy = 1; return AT45DB_BUSY;}
   dev->at45_busy = 0;
   return AT45DB_READY;
  }
@@ -211,7 +208,7 @@ AT45DB_RESULT at45db_getstatus(at45db* dev)
  AT45DB_RESULT at45db_read_page(at45db* dev, uint8_t* rxbuf, uint16_t pageAddr) 
  {
    if (at45db_wait_cplt(dev) != AT45DB_OK) return AT45DB_ERROR;
-   return at45db_send_cmd(dev,AT45DB_CMD_R_MAINMEMPAGE_LEGACY,pageAddr,0,NULL,rxbuf,dev->pagesize, 8);
+   return at45db_send_cmd(dev,AT45DB_CMD_R_MAINMEMPAGE_LEGACY,pageAddr,0,NULL,rxbuf, dev->pagesize, 8);
  } 
  
  
@@ -354,8 +351,7 @@ AT45DB_RESULT at45db_getstatus(at45db* dev)
  {                                                 //
   HAL_StatusTypeDef res;
   AT45DB_RESULT   at45_res = AT45DB_OK;
-  //uint8_t  cmdbuf[4] = AT45DB_CMD_CHIPERASE;
-  
+    
   at45db_csn_reset(dev);
     res =  HAL_SPI_Transmit(dev->hw_config.spi, AT45DB_CMD_SETPAGE512, 4, dev->hw_config.spi_timeout);
   at45db_csn_set(dev);

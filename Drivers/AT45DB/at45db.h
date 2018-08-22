@@ -13,7 +13,7 @@
 
 
 #define AT45DB_PAGE_SIZE          512     //Obsolete parameter - pagesize now determines by respective bit in status register by calling at45db_getstatus()
-#define AT45DB_PAGES              3000    //at45db161 is 16Mbit chip.
+#define AT45DB_PAGES              8192    //at45db161 is 16Mbit chip.   now 32 mbit are connected
 #define AT45DB_SPI_PORT           &hspi2  //spi port, what else can it be? )
 #define AT45DB_SPI_TIMEOUT        10000    //ftgj! 
 #define AT45DB_SOFT_OVERRIDE_512  1       //use 512 page size even if chip in 528 mode. Doesn't reconfigures the chip itself. 0 to use chip actual config
@@ -137,7 +137,7 @@ volatile uint8_t             at45_busy;      //0 - flash is free for action. els
 
 
 
-extern at45db at45db_dataflash;
+
 
 
 
