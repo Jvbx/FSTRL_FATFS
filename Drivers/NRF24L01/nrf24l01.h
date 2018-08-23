@@ -2,6 +2,7 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+#include <string.h>
 #include "spi.h"
 
 #if defined STM32F100xB
@@ -13,8 +14,9 @@
 
 #define NRF_DATARATE       NRF_DATA_RATE_250KBPS
 #define NRF_TXPOWER        NRF_TX_PWR_0dBm
+#define NRF_CRC_ON         1
 #define NRF_CRC_WITH       NRF_CRC_WIDTH_1B
-#define NRF_ADR_WITH       NRF_ADDR_WIDTH_3
+#define NRF_ADR_WITH       NRF_ADDR_WIDTH_5
 #define NRF_PAYLOADLEN     0x10
 #define NRF_RETRANSCOUNT   0x0F           //15
 #define NRF_RETRANSDELAY   0x07          //4000 uS
@@ -103,14 +105,15 @@ typedef struct {
     uint8_t  retransmit_count;
     uint8_t  retransmit_delay;
     uint8_t  rf_channel;
-    const uint8_t* rx_address;
-    const uint8_t* tx_address;
+    uint8_t  rx_address[5];
+    uint8_t  rx_address_p1[5];                       
+  
+  
+    uint8_t  tx_address[5];
 
-    /* Must be sufficient size according to payload_length */
-    uint8_t* rx_buffer;
-
-    SPI_HandleTypeDef* spi;
-    uint32_t           spi_timeout;
+   
+    SPI_HandleTypeDef*  spi;
+    uint32_t            spi_timeout;
 
     GPIO_TypeDef*       csn_port;
     uint16_t            csn_pin;
@@ -125,20 +128,17 @@ typedef struct {
 
 typedef struct {
     nrf24l01_config config;
-
     volatile uint8_t        tx_busy;
     volatile NRF_RESULT     tx_result;
     volatile uint8_t        rx_busy;
     volatile NRF_TXRX_STATE state;
-
+    uint8_t        cmdbuffer[8];
+    uint8_t        rtxbuffer[34];      /* Must be sufficient size according to payload_length */
 } nrf24l01;
 
 
-extern uint8_t nrf24_timeout;
-
 /* Initialization routine */
-NRF_RESULT nrf_init(nrf24l01* dev, nrf24l01_config* config);
-NRF_RESULT nrf_startup(nrf24l01* dev);
+NRF_RESULT nrf_init(nrf24l01* dev);
 
 /* EXTI Interrupt Handler
  *

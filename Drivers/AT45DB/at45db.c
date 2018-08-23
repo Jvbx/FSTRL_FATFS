@@ -249,10 +249,7 @@ AT45DB_RESULT at45db_getstatus(at45db* dev)
  
  AT45DB_RESULT at45db_sprot_read(at45db* dev) 
  {
-  AT45DB_RESULT at45_res;
-  uint8_t bytecount = sizeof(dev->registers.lockreg);
-  at45_res = at45db_send_cmd(dev, AT45DB_CMD_R_SECTORPROTECTION, 0, 0, NULL, dev->registers.lockreg, bytecount, 4);
-  return at45_res;
+  return at45db_send_cmd(dev, AT45DB_CMD_R_SECTORPROTECTION, 0, 0, NULL, dev->registers.lockreg, sizeof(dev->registers.lockreg), 4);
  }
 
  
@@ -263,21 +260,13 @@ AT45DB_RESULT at45db_getstatus(at45db* dev)
  {
   HAL_StatusTypeDef res;
   AT45DB_RESULT   at45_res = AT45DB_OK;
-//  uint8_t      *cmdbuf = AT45DB_CMD_SECTORPROTECTIONOFF;
   
   at45db_csn_reset(dev);
     res =  HAL_SPI_Transmit(dev->hw_config.spi, AT45DB_CMD_SECTORPROTECTIONOFF, 4, dev->hw_config.spi_timeout);
   at45db_csn_set(dev);
   if (res != HAL_OK) return AT45DB_ERROR;
-  do 
-   {
-   at45_res = at45db_getstatus(dev);
-   }     //waiting for ready bit
-  while ((dev->at45_busy)&&(at45_res == AT45DB_OK));
- 
- 
- 
- return at45_res; 
+  if (at45db_wait_cplt(dev) != AT45DB_OK) return AT45DB_ERROR;
+  return at45_res; 
  } 
  
  AT45DB_RESULT at45db_sprot_disable(at45db* dev)      //sector protection erase

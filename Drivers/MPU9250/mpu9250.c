@@ -450,7 +450,7 @@ void MPU9250SelfTest(float * destination) // Should return percent deviation fro
   gAvg[2] += (int16_t)(((int16_t)rawData[4] << 8) | rawData[5]) ;
   }
   
-  for (int ii =0; ii < 3; ii++) { // Get average of 200 values and store as average current readings
+  for (int ii = 0; ii < 3; ii++) { // Get average of 200 values and store as average current readings
   aAvg[ii] /= 200;
   gAvg[ii] /= 200;
   }
@@ -460,7 +460,7 @@ void MPU9250SelfTest(float * destination) // Should return percent deviation fro
    mpu9250_writeByte(MPU9250_ADDRESS, GYRO_CONFIG, 0xE0); // Enable self test on all three axes and set gyro range to +/- 250 degrees/s
    HAL_Delay(25); // Delay a while to let the device stabilize
 
-  for( int ii = 0; ii < 200; ii++) { // get average self-test values of gyro and acclerometer
+  for(int ii = 0; ii < 200; ii++) { // get average self-test values of gyro and acclerometer
   
   mpu9250_readBytes(MPU9250_ADDRESS, ACCEL_XOUT_H, 6, &rawData[0]); // Read the six raw data registers into data array
   aSTAvg[0] += (int16_t)(((int16_t)rawData[0] << 8) | rawData[1]) ; // Turn the MSB and LSB into a signed 16-bit value

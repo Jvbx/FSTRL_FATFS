@@ -150,9 +150,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>170</LineNumber>
+          <LineNumber>429</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134285600</Address>
+          <Address>134267432</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -161,7 +161,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>../Core/Src/main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\FSTRL_FATFS\../Core/Src/main.c\170</Expression>
+          <Expression>\\FSTRL_FATFS\../Core/Src/main.c\429</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow2>
@@ -244,6 +244,16 @@
           <count>15</count>
           <WinNumber>2</WinNumber>
           <ItemText>dev</ItemText>
+        </Ww>
+        <Ww>
+          <count>16</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>nrf</ItemText>
+        </Ww>
+        <Ww>
+          <count>17</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>tx_data</ItemText>
         </Ww>
       </WatchWindow2>
       <Tracepoint>

@@ -59,7 +59,7 @@
 #include "gpio.h"
 
 /* USER CODE BEGIN Includes */
-//#include <stdio.h>
+#include <stdio.h>
 #include "nrf24l01.h"
 #include "nmea_parser.h"
 #include "gnss_utils.h"
@@ -156,10 +156,10 @@ int main(void)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
   //at45db_init(&dataflash);
-  #define CHIP_FS_ACCESS 1  //enable device fs routines
+  #define CHIP_FS_ACCESS 0  //enable device fs routines
   #define FS_CREATE 0       //enable fs create 
-  
-  
+  #define BMP_280_ENABLE 0
+  #define MPU9250_ENABLE 0
   
        
    if (CHIP_FS_ACCESS) 
@@ -309,7 +309,7 @@ int main(void)
   }    
   
   
- while (1) {}; 
+ //while (1) {}; 
   
   
   
@@ -322,46 +322,13 @@ int main(void)
   
   
   
-  
-  
+ if (BMP_280_ENABLE) {        
   if (BMP280_Config_and_run(&bmp280) == BMP280_OK) {
  //bmp280_set_power_mode(BMP280_NORMAL_MODE, &bmp280);
  //HAL_Delay(1000);
 
-
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     meas_dur = bmp280_compute_meas_time(&bmp280); 
-
-struct bmp280_uncomp_data ucomp_data;
+    struct bmp280_uncomp_data ucomp_data;
 for (uint8_t i=0; i<10; i++) {
   
 
@@ -388,10 +355,10 @@ int8_t res = 0;
       ucomp_data.uncomp_temp, ucomp_data.uncomp_press, temp32, \
       pres32, pres64, pres64 / 256, temp, pres);
 }
- }
-
+}
+}
   uint8_t sprf_buf[255] = {0};
- 
+ if (MPU9250_ENABLE) {
   uint8_t whoami = mpu9250_readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250);  // Read WHO_AM_I register for MPU-9250
   sprintf((char*)sprf_buf,"I AM 0x%x\n\r", whoami);
  // for (uint8_t i = 0; i<255; i++) {sprf_buf[i] = sprf_buf[i] - 0x40;}
@@ -435,7 +402,7 @@ int8_t res = 0;
     magbias[0] = +470.;  // User environmental x-axis correction in milliGauss, should be automatically calculated
     magbias[1] = +120.;  // User environmental x-axis correction in milliGauss
     magbias[2] = +125.;  // User environmental x-axis correction in milliGauss
-
+  }
     
     
     
@@ -458,17 +425,15 @@ int8_t res = 0;
 
  
  
- HAL_TIM_Base_Start_IT(&htim14);
-  nrf_startup(&nrf);
+ //HAL_TIM_Base_Start_IT(&htim14);
+  nrf_init(&nrf);
  
  
 
  
- //char tx_data1[16] = {0};
- 
- uint8_t tx_data[16] = {0};
- //sprintf((char *)tx_data, "abcdefghijklmnoszxABCDEFCBDA");
- HAL_UART_Receive_IT(&huart3, (uint8_t*)&rxbuf, 1); 
+
+ uint8_t tx_data[16] = {"abcdefghijklmnos"};
+ //HAL_UART_Receive_IT(&huart3, (uint8_t*)&rxbuf, 1); 
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -476,15 +441,15 @@ int8_t res = 0;
   while (1)
   {
  
- while (!DataDone)
- {
- }  
+ //while (!DataDone)
+ //{
+// }  
  //sprintf((char *)tx_data, (char *)&SLatitude); 
  //printf("data = 0x%04X\r\n",(char *)tx_data); 
  nrf_send_packet(&nrf,tx_data);
  
  //sprintf((char *)tx_data, (char *)&SLongitude);
- nrf_send_packet(&nrf,tx_data);
+ //nrf_send_packet(&nrf,tx_data);
  //HAL_Delay(250);
   /* USER CODE END WHILE */
 
@@ -693,8 +658,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 {
- nrf24_timeout = 1;
- HAL_TIM_Base_MspDeInit(&htim14);
+ //HAL_TIM_Base_MspDeInit(&htim14);
  
 }
 /* USER CODE END 4 */
