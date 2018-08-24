@@ -21,7 +21,16 @@
 #define NRF_RETRANSCOUNT   0x0F           //15
 #define NRF_RETRANSDELAY   0x07          //4000 uS
 #define NRF_CHANNEL        119           //2.519Ghz
+#define NRF_SPI_TIMEOUT    10
 
+
+
+
+
+#define NRF_PWR_UP_BIT     2
+#define NRF_RX_FIFO_INT    (1 << 6)
+#define NRF_TX_SEND_INT    (1 << 5)
+#define NRF_MAX_RETRANSMITS_INT (1 << 4)
 
 /* Registers */
 typedef enum {
@@ -134,6 +143,7 @@ typedef struct {
     volatile NRF_TXRX_STATE state;
     uint8_t        cmdbuffer[8];
     uint8_t        rtxbuffer[34];      /* Must be sufficient size according to payload_length */
+    uint8_t        rxpayload[32];
 } nrf24l01;
 
 

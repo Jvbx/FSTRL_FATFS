@@ -3518,9 +3518,9 @@ Removing Unused input sections from the image.
     Removing nrf24l01.o(.ARM.exidx.text.nrf_read_rx_payload), (8 bytes).
     Removing nrf24l01.o(.ARM.exidx.text.nrf_packet_received_callback), (8 bytes).
     Removing nrf24l01.o(.ARM.exidx.text.nrf_write_tx_payload), (8 bytes).
-    Removing nrf24l01.o(.text.nrf_write_tx_payload_noack), (150 bytes).
+    Removing nrf24l01.o(.text.nrf_write_tx_payload_noack), (114 bytes).
     Removing nrf24l01.o(.ARM.exidx.text.nrf_write_tx_payload_noack), (8 bytes).
-    Removing nrf24l01.o(.text.nrf_set_ccw), (126 bytes).
+    Removing nrf24l01.o(.text.nrf_set_ccw), (112 bytes).
     Removing nrf24l01.o(.ARM.exidx.text.nrf_set_ccw), (8 bytes).
     Removing nrf24l01.o(.text.nrf_togglefeatures), (100 bytes).
     Removing nrf24l01.o(.ARM.exidx.text.nrf_togglefeatures), (8 bytes).
@@ -5069,7 +5069,7 @@ Removing Unused input sections from the image.
     Removing dneg.o(.text), (6 bytes).
     Removing dscalb.o(.text), (46 bytes).
 
-1714 unused section(s) (total 173782 bytes) removed from the image.
+1714 unused section(s) (total 173732 bytes) removed from the image.
 
 ==============================================================================
 
@@ -5628,130 +5628,130 @@ Image Symbol Table
     [Anonymous Symbol]                       0x0800d970   Section        0  nrf24l01.o(.text.nrf24_csn_set)
     nrf24_csn_set                            0x0800d971   Thumb Code    36  nrf24l01.o(.text.nrf24_csn_set)
     [Anonymous Symbol]                       0x0800d994   Section        0  nrf24l01.o(.text.nrf_clear_interrupts)
-    [Anonymous Symbol]                       0x0800d9f0   Section        0  nrf24l01.o(.text.nrf_enable_auto_ack)
-    [Anonymous Symbol]                       0x0800da58   Section        0  nrf24l01.o(.text.nrf_enable_crc)
-    [Anonymous Symbol]                       0x0800dadc   Section        0  nrf24l01.o(.text.nrf_enable_max_retransmit_irq)
-    [Anonymous Symbol]                       0x0800db60   Section        0  nrf24l01.o(.text.nrf_enable_rx_data_ready_irq)
-    [Anonymous Symbol]                       0x0800dbe4   Section        0  nrf24l01.o(.text.nrf_enable_tx_data_sent_irq)
-    [Anonymous Symbol]                       0x0800dc68   Section        0  nrf24l01.o(.text.nrf_flush_rx)
-    [Anonymous Symbol]                       0x0800dcb4   Section        0  nrf24l01.o(.text.nrf_flush_tx)
-    [Anonymous Symbol]                       0x0800dd00   Section        0  nrf24l01.o(.text.nrf_init)
-    [Anonymous Symbol]                       0x0800df68   Section        0  nrf24l01.o(.text.nrf_irq_handler)
-    [Anonymous Symbol]                       0x0800e0ec   Section        0  nrf24l01.o(.text.nrf_packet_received_callback)
-    [Anonymous Symbol]                       0x0800e108   Section        0  nrf24l01.o(.text.nrf_power_up)
-    [Anonymous Symbol]                       0x0800e18c   Section        0  nrf24l01.o(.text.nrf_read_register)
-    [Anonymous Symbol]                       0x0800e1e4   Section        0  nrf24l01.o(.text.nrf_read_rx_payload)
-    [Anonymous Symbol]                       0x0800e27c   Section        0  nrf24l01.o(.text.nrf_rx_tx_control)
-    [Anonymous Symbol]                       0x0800e304   Section        0  nrf24l01.o(.text.nrf_send_command)
-    [Anonymous Symbol]                       0x0800e3a0   Section        0  nrf24l01.o(.text.nrf_send_packet)
-    [Anonymous Symbol]                       0x0800e404   Section        0  nrf24l01.o(.text.nrf_set_address_width)
-    [Anonymous Symbol]                       0x0800e478   Section        0  nrf24l01.o(.text.nrf_set_crc_width)
-    [Anonymous Symbol]                       0x0800e4fc   Section        0  nrf24l01.o(.text.nrf_set_data_rate)
-    [Anonymous Symbol]                       0x0800e5a8   Section        0  nrf24l01.o(.text.nrf_set_retransmittion_count)
-    [Anonymous Symbol]                       0x0800e62c   Section        0  nrf24l01.o(.text.nrf_set_retransmittion_delay)
-    [Anonymous Symbol]                       0x0800e6b4   Section        0  nrf24l01.o(.text.nrf_set_rf_channel)
-    [Anonymous Symbol]                       0x0800e72c   Section        0  nrf24l01.o(.text.nrf_set_rx_address_p0)
-    [Anonymous Symbol]                       0x0800e788   Section        0  nrf24l01.o(.text.nrf_set_rx_address_p1)
-    [Anonymous Symbol]                       0x0800e7e4   Section        0  nrf24l01.o(.text.nrf_set_rx_payload_width_p0)
-    [Anonymous Symbol]                       0x0800e838   Section        0  nrf24l01.o(.text.nrf_set_rx_payload_width_p1)
-    [Anonymous Symbol]                       0x0800e88c   Section        0  nrf24l01.o(.text.nrf_set_rx_pipes)
-    [Anonymous Symbol]                       0x0800e8c4   Section        0  nrf24l01.o(.text.nrf_set_tx_address)
-    [Anonymous Symbol]                       0x0800e924   Section        0  nrf24l01.o(.text.nrf_set_tx_power)
-    [Anonymous Symbol]                       0x0800e998   Section        0  nrf24l01.o(.text.nrf_write_register)
-    [Anonymous Symbol]                       0x0800e9f0   Section        0  nrf24l01.o(.text.nrf_write_tx_payload)
-    [Anonymous Symbol]                       0x0800ea88   Section        0  retarget_io.o(.text.stderr_putchar)
-    stderr_putchar                           0x0800ea89   Thumb Code    20  retarget_io.o(.text.stderr_putchar)
-    [Anonymous Symbol]                       0x0800ea9c   Section        0  retarget_io.o(.text.stdout_putchar)
-    stdout_putchar                           0x0800ea9d   Thumb Code    20  retarget_io.o(.text.stdout_putchar)
-    i.__0printf                              0x0800eab0   Section        0  printfa.o(i.__0printf)
-    i.__ARM_fpclassify                       0x0800ead0   Section        0  fpclassify.o(i.__ARM_fpclassify)
-    i.__aeabi_errno_addr                     0x0800eb00   Section        0  errno.o(i.__aeabi_errno_addr)
-    i.__hardfp_asin                          0x0800eb08   Section        0  asin.o(i.__hardfp_asin)
-    i.__hardfp_atan                          0x0800ee68   Section        0  atan.o(i.__hardfp_atan)
-    i.__hardfp_atan2                         0x0800f140   Section        0  atan2.o(i.__hardfp_atan2)
-    i.__hardfp_sqrt                          0x0800f340   Section        0  sqrt.o(i.__hardfp_sqrt)
-    i.__kernel_poly                          0x0800f3ba   Section        0  poly.o(i.__kernel_poly)
-    i.__mathlib_dbl_infnan                   0x0800f4b2   Section        0  dunder.o(i.__mathlib_dbl_infnan)
-    i.__mathlib_dbl_infnan2                  0x0800f4c6   Section        0  dunder.o(i.__mathlib_dbl_infnan2)
-    i.__mathlib_dbl_invalid                  0x0800f4e0   Section        0  dunder.o(i.__mathlib_dbl_invalid)
-    i.__mathlib_dbl_underflow                0x0800f500   Section        0  dunder.o(i.__mathlib_dbl_underflow)
-    i.__scatterload_copy                     0x0800f520   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x0800f52e   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x0800f530   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i.__set_errno                            0x0800f540   Section        0  errno.o(i.__set_errno)
-    i._fp_digits                             0x0800f54c   Section        0  printfa.o(i._fp_digits)
-    _fp_digits                               0x0800f54d   Thumb Code   366  printfa.o(i._fp_digits)
-    i._printf_core                           0x0800f6d0   Section        0  printfa.o(i._printf_core)
-    _printf_core                             0x0800f6d1   Thumb Code  1744  printfa.o(i._printf_core)
-    i._printf_post_padding                   0x0800fdac   Section        0  printfa.o(i._printf_post_padding)
-    _printf_post_padding                     0x0800fdad   Thumb Code    36  printfa.o(i._printf_post_padding)
-    i._printf_pre_padding                    0x0800fdd0   Section        0  printfa.o(i._printf_pre_padding)
-    _printf_pre_padding                      0x0800fdd1   Thumb Code    46  printfa.o(i._printf_pre_padding)
-    i.atan                                   0x0800fdfe   Section        0  atan.o(i.atan)
-    i.fabs                                   0x0800fe0e   Section        0  fabs.o(i.fabs)
-    i.free                                   0x0800fe28   Section        0  malloc.o(i.free)
-    i.malloc                                 0x0800fe78   Section        0  malloc.o(i.malloc)
-    i.sqrt                                   0x0800fee4   Section        0  sqrt.o(i.sqrt)
-    .constdata                               0x0800ff58   Section       80  asin.o(.constdata)
-    pS                                       0x0800ff58   Data          48  asin.o(.constdata)
-    qS                                       0x0800ff88   Data          32  asin.o(.constdata)
-    .constdata                               0x0800ffa8   Section      152  atan.o(.constdata)
-    atanhi                                   0x0800ffa8   Data          32  atan.o(.constdata)
-    atanlo                                   0x0800ffc8   Data          32  atan.o(.constdata)
-    aTodd                                    0x0800ffe8   Data          40  atan.o(.constdata)
-    aTeven                                   0x08010010   Data          48  atan.o(.constdata)
-    .constdata                               0x08010040   Section        8  qnan.o(.constdata)
-    .constdata                               0x08010048   Section      129  ctype_o.o(.constdata)
-    .constdata                               0x080100cc   Section        4  ctype_o.o(.constdata)
-    table                                    0x080100cc   Data           4  ctype_o.o(.constdata)
-    [Anonymous Symbol]                       0x08010218   Section        0  main.o(.rodata.str1.1)
-    .L.str.8                                 0x08010218   Data          23  main.o(.rodata.str1.1)
-    .L.str.7                                 0x0801022f   Data          15  main.o(.rodata.str1.1)
-    .L.str.9                                 0x0801023e   Data          10  main.o(.rodata.str1.1)
-    .L.str.10                                0x08010248   Data          10  main.o(.rodata.str1.1)
-    .L.str.11                                0x08010252   Data          10  main.o(.rodata.str1.1)
-    .L.str.12                                0x0801025c   Data          10  main.o(.rodata.str1.1)
-    .L.str.14                                0x08010266   Data          20  main.o(.rodata.str1.1)
-    .L.str.13                                0x0801027a   Data          29  main.o(.rodata.str1.1)
-    .L.str.3                                 0x08010297   Data          15  main.o(.rodata.str1.1)
-    .L.str.6                                 0x080102a6   Data          18  main.o(.rodata.str1.1)
-    .L.str                                   0x080102b8   Data          19  main.o(.rodata.str1.1)
-    .L.str.1                                 0x080102cb   Data           8  main.o(.rodata.str1.1)
-    .L.str.4                                 0x080102d3   Data           8  main.o(.rodata.str1.1)
-    .L.str.2                                 0x080102db   Data           9  main.o(.rodata.str1.1)
-    .L.str.5                                 0x080102e4   Data           9  main.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x080102ed   Section        0  crc.o(.rodata.str1.1)
-    .L.str                                   0x080102ed   Data          18  crc.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x080102ff   Section        0  spi.o(.rodata.str1.1)
-    .L.str                                   0x080102ff   Data          18  spi.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x08010311   Section        0  tim.o(.rodata.str1.1)
-    .L.str                                   0x08010311   Data          18  tim.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x08010323   Section        0  usart.o(.rodata.str1.1)
-    .L.str                                   0x08010323   Data          20  usart.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x08010337   Section        0  stm32f4xx_hal_pcd.o(.rodata.str1.1)
-    .L.str                                   0x08010337   Data          56  stm32f4xx_hal_pcd.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x0801036f   Section        0  stm32f4xx_hal_crc.o(.rodata.str1.1)
-    .L.str                                   0x0801036f   Data          56  stm32f4xx_hal_crc.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x080103a7   Section        0  stm32f4xx_hal_spi.o(.rodata.str1.1)
-    .L.str                                   0x080103a7   Data          56  stm32f4xx_hal_spi.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x080103df   Section        0  stm32f4xx_hal_tim.o(.rodata.str1.1)
-    .L.str                                   0x080103df   Data          56  stm32f4xx_hal_tim.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x08010417   Section        0  stm32f4xx_hal_uart.o(.rodata.str1.1)
-    .L.str                                   0x08010417   Data          57  stm32f4xx_hal_uart.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x08010450   Section        0  stm32f4xx_hal_rcc.o(.rodata.str1.1)
-    .L.str                                   0x08010450   Data          56  stm32f4xx_hal_rcc.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x08010488   Section        0  stm32f4xx_hal_gpio.o(.rodata.str1.1)
-    .L.str                                   0x08010488   Data          57  stm32f4xx_hal_gpio.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x080104c1   Section        0  stm32f4xx_hal_cortex.o(.rodata.str1.1)
-    .L.str                                   0x080104c1   Data          59  stm32f4xx_hal_cortex.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x080104fc   Section        0  usbd_conf.o(.rodata.str1.1)
-    .L.str                                   0x080104fc   Data          26  usbd_conf.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x08010516   Section        0  usbd_desc.o(.rodata.str1.1)
-    .L.str.2                                 0x08010516   Data          13  usbd_desc.o(.rodata.str1.1)
-    .L.str.1                                 0x08010523   Data           8  usbd_desc.o(.rodata.str1.1)
-    .L.str                                   0x0801052b   Data          13  usbd_desc.o(.rodata.str1.1)
-    .L.str.4                                 0x08010538   Data          14  usbd_desc.o(.rodata.str1.1)
-    .L.str.3                                 0x08010546   Data          11  usbd_desc.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x0800d9e4   Section        0  nrf24l01.o(.text.nrf_enable_auto_ack)
+    [Anonymous Symbol]                       0x0800da40   Section        0  nrf24l01.o(.text.nrf_enable_crc)
+    [Anonymous Symbol]                       0x0800dab4   Section        0  nrf24l01.o(.text.nrf_enable_max_retransmit_irq)
+    [Anonymous Symbol]                       0x0800db28   Section        0  nrf24l01.o(.text.nrf_enable_rx_data_ready_irq)
+    [Anonymous Symbol]                       0x0800db9c   Section        0  nrf24l01.o(.text.nrf_enable_tx_data_sent_irq)
+    [Anonymous Symbol]                       0x0800dc10   Section        0  nrf24l01.o(.text.nrf_flush_rx)
+    [Anonymous Symbol]                       0x0800dc48   Section        0  nrf24l01.o(.text.nrf_flush_tx)
+    [Anonymous Symbol]                       0x0800dc80   Section        0  nrf24l01.o(.text.nrf_init)
+    [Anonymous Symbol]                       0x0800defc   Section        0  nrf24l01.o(.text.nrf_irq_handler)
+    [Anonymous Symbol]                       0x0800e07c   Section        0  nrf24l01.o(.text.nrf_packet_received_callback)
+    [Anonymous Symbol]                       0x0800e098   Section        0  nrf24l01.o(.text.nrf_power_up)
+    [Anonymous Symbol]                       0x0800e10c   Section        0  nrf24l01.o(.text.nrf_read_register)
+    [Anonymous Symbol]                       0x0800e150   Section        0  nrf24l01.o(.text.nrf_read_rx_payload)
+    [Anonymous Symbol]                       0x0800e1c4   Section        0  nrf24l01.o(.text.nrf_rx_tx_control)
+    [Anonymous Symbol]                       0x0800e240   Section        0  nrf24l01.o(.text.nrf_send_command)
+    [Anonymous Symbol]                       0x0800e2dc   Section        0  nrf24l01.o(.text.nrf_send_packet)
+    [Anonymous Symbol]                       0x0800e340   Section        0  nrf24l01.o(.text.nrf_set_address_width)
+    [Anonymous Symbol]                       0x0800e3b4   Section        0  nrf24l01.o(.text.nrf_set_crc_width)
+    [Anonymous Symbol]                       0x0800e438   Section        0  nrf24l01.o(.text.nrf_set_data_rate)
+    [Anonymous Symbol]                       0x0800e4e4   Section        0  nrf24l01.o(.text.nrf_set_retransmittion_count)
+    [Anonymous Symbol]                       0x0800e568   Section        0  nrf24l01.o(.text.nrf_set_retransmittion_delay)
+    [Anonymous Symbol]                       0x0800e5f0   Section        0  nrf24l01.o(.text.nrf_set_rf_channel)
+    [Anonymous Symbol]                       0x0800e668   Section        0  nrf24l01.o(.text.nrf_set_rx_address_p0)
+    [Anonymous Symbol]                       0x0800e6c4   Section        0  nrf24l01.o(.text.nrf_set_rx_address_p1)
+    [Anonymous Symbol]                       0x0800e720   Section        0  nrf24l01.o(.text.nrf_set_rx_payload_width_p0)
+    [Anonymous Symbol]                       0x0800e774   Section        0  nrf24l01.o(.text.nrf_set_rx_payload_width_p1)
+    [Anonymous Symbol]                       0x0800e7c8   Section        0  nrf24l01.o(.text.nrf_set_rx_pipes)
+    [Anonymous Symbol]                       0x0800e7ec   Section        0  nrf24l01.o(.text.nrf_set_tx_address)
+    [Anonymous Symbol]                       0x0800e84c   Section        0  nrf24l01.o(.text.nrf_set_tx_power)
+    [Anonymous Symbol]                       0x0800e8c0   Section        0  nrf24l01.o(.text.nrf_write_register)
+    [Anonymous Symbol]                       0x0800e904   Section        0  nrf24l01.o(.text.nrf_write_tx_payload)
+    [Anonymous Symbol]                       0x0800e978   Section        0  retarget_io.o(.text.stderr_putchar)
+    stderr_putchar                           0x0800e979   Thumb Code    20  retarget_io.o(.text.stderr_putchar)
+    [Anonymous Symbol]                       0x0800e98c   Section        0  retarget_io.o(.text.stdout_putchar)
+    stdout_putchar                           0x0800e98d   Thumb Code    20  retarget_io.o(.text.stdout_putchar)
+    i.__0printf                              0x0800e9a0   Section        0  printfa.o(i.__0printf)
+    i.__ARM_fpclassify                       0x0800e9c0   Section        0  fpclassify.o(i.__ARM_fpclassify)
+    i.__aeabi_errno_addr                     0x0800e9f0   Section        0  errno.o(i.__aeabi_errno_addr)
+    i.__hardfp_asin                          0x0800e9f8   Section        0  asin.o(i.__hardfp_asin)
+    i.__hardfp_atan                          0x0800ed58   Section        0  atan.o(i.__hardfp_atan)
+    i.__hardfp_atan2                         0x0800f030   Section        0  atan2.o(i.__hardfp_atan2)
+    i.__hardfp_sqrt                          0x0800f230   Section        0  sqrt.o(i.__hardfp_sqrt)
+    i.__kernel_poly                          0x0800f2aa   Section        0  poly.o(i.__kernel_poly)
+    i.__mathlib_dbl_infnan                   0x0800f3a2   Section        0  dunder.o(i.__mathlib_dbl_infnan)
+    i.__mathlib_dbl_infnan2                  0x0800f3b6   Section        0  dunder.o(i.__mathlib_dbl_infnan2)
+    i.__mathlib_dbl_invalid                  0x0800f3d0   Section        0  dunder.o(i.__mathlib_dbl_invalid)
+    i.__mathlib_dbl_underflow                0x0800f3f0   Section        0  dunder.o(i.__mathlib_dbl_underflow)
+    i.__scatterload_copy                     0x0800f410   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x0800f41e   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x0800f420   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.__set_errno                            0x0800f430   Section        0  errno.o(i.__set_errno)
+    i._fp_digits                             0x0800f43c   Section        0  printfa.o(i._fp_digits)
+    _fp_digits                               0x0800f43d   Thumb Code   366  printfa.o(i._fp_digits)
+    i._printf_core                           0x0800f5c0   Section        0  printfa.o(i._printf_core)
+    _printf_core                             0x0800f5c1   Thumb Code  1744  printfa.o(i._printf_core)
+    i._printf_post_padding                   0x0800fc9c   Section        0  printfa.o(i._printf_post_padding)
+    _printf_post_padding                     0x0800fc9d   Thumb Code    36  printfa.o(i._printf_post_padding)
+    i._printf_pre_padding                    0x0800fcc0   Section        0  printfa.o(i._printf_pre_padding)
+    _printf_pre_padding                      0x0800fcc1   Thumb Code    46  printfa.o(i._printf_pre_padding)
+    i.atan                                   0x0800fcee   Section        0  atan.o(i.atan)
+    i.fabs                                   0x0800fcfe   Section        0  fabs.o(i.fabs)
+    i.free                                   0x0800fd18   Section        0  malloc.o(i.free)
+    i.malloc                                 0x0800fd68   Section        0  malloc.o(i.malloc)
+    i.sqrt                                   0x0800fdd4   Section        0  sqrt.o(i.sqrt)
+    .constdata                               0x0800fe48   Section       80  asin.o(.constdata)
+    pS                                       0x0800fe48   Data          48  asin.o(.constdata)
+    qS                                       0x0800fe78   Data          32  asin.o(.constdata)
+    .constdata                               0x0800fe98   Section      152  atan.o(.constdata)
+    atanhi                                   0x0800fe98   Data          32  atan.o(.constdata)
+    atanlo                                   0x0800feb8   Data          32  atan.o(.constdata)
+    aTodd                                    0x0800fed8   Data          40  atan.o(.constdata)
+    aTeven                                   0x0800ff00   Data          48  atan.o(.constdata)
+    .constdata                               0x0800ff30   Section        8  qnan.o(.constdata)
+    .constdata                               0x0800ff38   Section      129  ctype_o.o(.constdata)
+    .constdata                               0x0800ffbc   Section        4  ctype_o.o(.constdata)
+    table                                    0x0800ffbc   Data           4  ctype_o.o(.constdata)
+    [Anonymous Symbol]                       0x08010108   Section        0  main.o(.rodata.str1.1)
+    .L.str.8                                 0x08010108   Data          23  main.o(.rodata.str1.1)
+    .L.str.7                                 0x0801011f   Data          15  main.o(.rodata.str1.1)
+    .L.str.9                                 0x0801012e   Data          10  main.o(.rodata.str1.1)
+    .L.str.10                                0x08010138   Data          10  main.o(.rodata.str1.1)
+    .L.str.11                                0x08010142   Data          10  main.o(.rodata.str1.1)
+    .L.str.12                                0x0801014c   Data          10  main.o(.rodata.str1.1)
+    .L.str.14                                0x08010156   Data          20  main.o(.rodata.str1.1)
+    .L.str.13                                0x0801016a   Data          29  main.o(.rodata.str1.1)
+    .L.str.3                                 0x08010187   Data          15  main.o(.rodata.str1.1)
+    .L.str.6                                 0x08010196   Data          18  main.o(.rodata.str1.1)
+    .L.str                                   0x080101a8   Data          19  main.o(.rodata.str1.1)
+    .L.str.1                                 0x080101bb   Data           8  main.o(.rodata.str1.1)
+    .L.str.4                                 0x080101c3   Data           8  main.o(.rodata.str1.1)
+    .L.str.2                                 0x080101cb   Data           9  main.o(.rodata.str1.1)
+    .L.str.5                                 0x080101d4   Data           9  main.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x080101dd   Section        0  crc.o(.rodata.str1.1)
+    .L.str                                   0x080101dd   Data          18  crc.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x080101ef   Section        0  spi.o(.rodata.str1.1)
+    .L.str                                   0x080101ef   Data          18  spi.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08010201   Section        0  tim.o(.rodata.str1.1)
+    .L.str                                   0x08010201   Data          18  tim.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08010213   Section        0  usart.o(.rodata.str1.1)
+    .L.str                                   0x08010213   Data          20  usart.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08010227   Section        0  stm32f4xx_hal_pcd.o(.rodata.str1.1)
+    .L.str                                   0x08010227   Data          56  stm32f4xx_hal_pcd.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x0801025f   Section        0  stm32f4xx_hal_crc.o(.rodata.str1.1)
+    .L.str                                   0x0801025f   Data          56  stm32f4xx_hal_crc.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08010297   Section        0  stm32f4xx_hal_spi.o(.rodata.str1.1)
+    .L.str                                   0x08010297   Data          56  stm32f4xx_hal_spi.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x080102cf   Section        0  stm32f4xx_hal_tim.o(.rodata.str1.1)
+    .L.str                                   0x080102cf   Data          56  stm32f4xx_hal_tim.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08010307   Section        0  stm32f4xx_hal_uart.o(.rodata.str1.1)
+    .L.str                                   0x08010307   Data          57  stm32f4xx_hal_uart.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08010340   Section        0  stm32f4xx_hal_rcc.o(.rodata.str1.1)
+    .L.str                                   0x08010340   Data          56  stm32f4xx_hal_rcc.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08010378   Section        0  stm32f4xx_hal_gpio.o(.rodata.str1.1)
+    .L.str                                   0x08010378   Data          57  stm32f4xx_hal_gpio.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x080103b1   Section        0  stm32f4xx_hal_cortex.o(.rodata.str1.1)
+    .L.str                                   0x080103b1   Data          59  stm32f4xx_hal_cortex.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x080103ec   Section        0  usbd_conf.o(.rodata.str1.1)
+    .L.str                                   0x080103ec   Data          26  usbd_conf.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08010406   Section        0  usbd_desc.o(.rodata.str1.1)
+    .L.str.2                                 0x08010406   Data          13  usbd_desc.o(.rodata.str1.1)
+    .L.str.1                                 0x08010413   Data           8  usbd_desc.o(.rodata.str1.1)
+    .L.str                                   0x0801041b   Data          13  usbd_desc.o(.rodata.str1.1)
+    .L.str.4                                 0x08010428   Data          14  usbd_desc.o(.rodata.str1.1)
+    .L.str.3                                 0x08010436   Data          11  usbd_desc.o(.rodata.str1.1)
     .data                                    0x20000000   Section        4  stdout.o(.data)
     .data                                    0x20000004   Section        4  stderr.o(.data)
     .data                                    0x20000008   Section        4  mvars.o(.data)
@@ -5776,8 +5776,8 @@ Image Symbol Table
     at45db_dataflash                         0x20000420   Data         608  user_diskio.o(.bss.at45db_dataflash)
     [Anonymous Symbol]                       0x20000680   Section        0  usbd_storage_if.o(.bss.at45db_dataflash_usb)
     at45db_dataflash_usb                     0x20000680   Data         608  usbd_storage_if.o(.bss.at45db_dataflash_usb)
-    HEAP                                     0x20001370   Section    16384  startup_stm32f407xx.o(HEAP)
-    STACK                                    0x20005370   Section    16384  startup_stm32f407xx.o(STACK)
+    HEAP                                     0x20001390   Section    16384  startup_stm32f407xx.o(HEAP)
+    STACK                                    0x20005390   Section    16384  startup_stm32f407xx.o(STACK)
 
     Global Symbols
 
@@ -6153,78 +6153,78 @@ Image Symbol Table
     mpu9250_readMagData                      0x0800d6b1   Thumb Code   118  mpu9250.o(.text.mpu9250_readMagData)
     mpu9250_readTempData                     0x0800d729   Thumb Code    36  mpu9250.o(.text.mpu9250_readTempData)
     nmea_getmessage                          0x0800d74d   Thumb Code   440  gnss_utils.o(.text.nmea_getmessage)
-    nrf_clear_interrupts                     0x0800d995   Thumb Code    92  nrf24l01.o(.text.nrf_clear_interrupts)
-    nrf_enable_auto_ack                      0x0800d9f1   Thumb Code   104  nrf24l01.o(.text.nrf_enable_auto_ack)
-    nrf_enable_crc                           0x0800da59   Thumb Code   130  nrf24l01.o(.text.nrf_enable_crc)
-    nrf_enable_max_retransmit_irq            0x0800dadd   Thumb Code   130  nrf24l01.o(.text.nrf_enable_max_retransmit_irq)
-    nrf_enable_rx_data_ready_irq             0x0800db61   Thumb Code   130  nrf24l01.o(.text.nrf_enable_rx_data_ready_irq)
-    nrf_enable_tx_data_sent_irq              0x0800dbe5   Thumb Code   130  nrf24l01.o(.text.nrf_enable_tx_data_sent_irq)
-    nrf_flush_rx                             0x0800dc69   Thumb Code    76  nrf24l01.o(.text.nrf_flush_rx)
-    nrf_flush_tx                             0x0800dcb5   Thumb Code    76  nrf24l01.o(.text.nrf_flush_tx)
-    nrf_init                                 0x0800dd01   Thumb Code   614  nrf24l01.o(.text.nrf_init)
-    nrf_irq_handler                          0x0800df69   Thumb Code   386  nrf24l01.o(.text.nrf_irq_handler)
-    nrf_packet_received_callback             0x0800e0ed   Thumb Code    26  nrf24l01.o(.text.nrf_packet_received_callback)
-    nrf_power_up                             0x0800e109   Thumb Code   130  nrf24l01.o(.text.nrf_power_up)
-    nrf_read_register                        0x0800e18d   Thumb Code    88  nrf24l01.o(.text.nrf_read_register)
-    nrf_read_rx_payload                      0x0800e1e5   Thumb Code   150  nrf24l01.o(.text.nrf_read_rx_payload)
-    nrf_rx_tx_control                        0x0800e27d   Thumb Code   136  nrf24l01.o(.text.nrf_rx_tx_control)
-    nrf_send_command                         0x0800e305   Thumb Code   156  nrf24l01.o(.text.nrf_send_command)
-    nrf_send_packet                          0x0800e3a1   Thumb Code    98  nrf24l01.o(.text.nrf_send_packet)
-    nrf_set_address_width                    0x0800e405   Thumb Code   114  nrf24l01.o(.text.nrf_set_address_width)
-    nrf_set_crc_width                        0x0800e479   Thumb Code   130  nrf24l01.o(.text.nrf_set_crc_width)
-    nrf_set_data_rate                        0x0800e4fd   Thumb Code   170  nrf24l01.o(.text.nrf_set_data_rate)
-    nrf_set_retransmittion_count             0x0800e5a9   Thumb Code   132  nrf24l01.o(.text.nrf_set_retransmittion_count)
-    nrf_set_retransmittion_delay             0x0800e62d   Thumb Code   134  nrf24l01.o(.text.nrf_set_retransmittion_delay)
-    nrf_set_rf_channel                       0x0800e6b5   Thumb Code   120  nrf24l01.o(.text.nrf_set_rf_channel)
-    nrf_set_rx_address_p0                    0x0800e72d   Thumb Code    90  nrf24l01.o(.text.nrf_set_rx_address_p0)
-    nrf_set_rx_address_p1                    0x0800e789   Thumb Code    92  nrf24l01.o(.text.nrf_set_rx_address_p1)
-    nrf_set_rx_payload_width_p0              0x0800e7e5   Thumb Code    82  nrf24l01.o(.text.nrf_set_rx_payload_width_p0)
-    nrf_set_rx_payload_width_p1              0x0800e839   Thumb Code    82  nrf24l01.o(.text.nrf_set_rx_payload_width_p1)
-    nrf_set_rx_pipes                         0x0800e88d   Thumb Code    56  nrf24l01.o(.text.nrf_set_rx_pipes)
-    nrf_set_tx_address                       0x0800e8c5   Thumb Code    94  nrf24l01.o(.text.nrf_set_tx_address)
-    nrf_set_tx_power                         0x0800e925   Thumb Code   116  nrf24l01.o(.text.nrf_set_tx_power)
-    nrf_write_register                       0x0800e999   Thumb Code    86  nrf24l01.o(.text.nrf_write_register)
-    nrf_write_tx_payload                     0x0800e9f1   Thumb Code   150  nrf24l01.o(.text.nrf_write_tx_payload)
-    __0printf                                0x0800eab1   Thumb Code    22  printfa.o(i.__0printf)
-    __1printf                                0x0800eab1   Thumb Code     0  printfa.o(i.__0printf)
-    __2printf                                0x0800eab1   Thumb Code     0  printfa.o(i.__0printf)
-    __c89printf                              0x0800eab1   Thumb Code     0  printfa.o(i.__0printf)
-    printf                                   0x0800eab1   Thumb Code     0  printfa.o(i.__0printf)
-    __ARM_fpclassify                         0x0800ead1   Thumb Code    48  fpclassify.o(i.__ARM_fpclassify)
-    __aeabi_errno_addr                       0x0800eb01   Thumb Code     4  errno.o(i.__aeabi_errno_addr)
-    __rt_errno_addr                          0x0800eb01   Thumb Code     0  errno.o(i.__aeabi_errno_addr)
-    __hardfp_asin                            0x0800eb09   Thumb Code   770  asin.o(i.__hardfp_asin)
-    __hardfp_atan                            0x0800ee69   Thumb Code   622  atan.o(i.__hardfp_atan)
-    __hardfp_atan2                           0x0800f141   Thumb Code   448  atan2.o(i.__hardfp_atan2)
-    __hardfp_sqrt                            0x0800f341   Thumb Code   122  sqrt.o(i.__hardfp_sqrt)
-    __kernel_poly                            0x0800f3bb   Thumb Code   248  poly.o(i.__kernel_poly)
-    __mathlib_dbl_infnan                     0x0800f4b3   Thumb Code    20  dunder.o(i.__mathlib_dbl_infnan)
-    __mathlib_dbl_infnan2                    0x0800f4c7   Thumb Code    20  dunder.o(i.__mathlib_dbl_infnan2)
-    __mathlib_dbl_invalid                    0x0800f4e1   Thumb Code    24  dunder.o(i.__mathlib_dbl_invalid)
-    __mathlib_dbl_underflow                  0x0800f501   Thumb Code    24  dunder.o(i.__mathlib_dbl_underflow)
-    __scatterload_copy                       0x0800f521   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x0800f52f   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x0800f531   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    __set_errno                              0x0800f541   Thumb Code     6  errno.o(i.__set_errno)
-    atan                                     0x0800fdff   Thumb Code    16  atan.o(i.atan)
-    fabs                                     0x0800fe0f   Thumb Code    24  fabs.o(i.fabs)
-    free                                     0x0800fe29   Thumb Code    76  malloc.o(i.free)
-    malloc                                   0x0800fe79   Thumb Code    92  malloc.o(i.malloc)
-    sqrt                                     0x0800fee5   Thumb Code   110  sqrt.o(i.sqrt)
-    __mathlib_zero                           0x08010040   Data           8  qnan.o(.constdata)
-    __ctype_table                            0x08010048   Data         129  ctype_o.o(.constdata)
-    AHBPrescTable                            0x080100d0   Data          16  system_stm32f4xx.o(.rodata.AHBPrescTable)
-    APBPrescTable                            0x080100e0   Data           8  system_stm32f4xx.o(.rodata.APBPrescTable)
-    GGA                                      0x080100e8   Data          64  nmea_parser.o(.rodata.GGA)
-    GSV                                      0x08010128   Data          84  nmea_parser.o(.rodata.GSV)
-    MSC_Mode_Sense10_data                    0x0801017c   Data           8  usbd_msc_data.o(.rodata.MSC_Mode_Sense10_data)
-    MSC_Mode_Sense6_data                     0x08010184   Data           8  usbd_msc_data.o(.rodata.MSC_Mode_Sense6_data)
-    MSC_Page00_Inquiry_Data                  0x0801018c   Data           7  usbd_msc_data.o(.rodata.MSC_Page00_Inquiry_Data)
-    RMC                                      0x08010194   Data          56  nmea_parser.o(.rodata.RMC)
-    STORAGE_Inquirydata_FS                   0x080101cc   Data          36  usbd_storage_if.o(.rodata.STORAGE_Inquirydata_FS)
-    VTG                                      0x080101f0   Data          40  nmea_parser.o(.rodata.VTG)
-    Region$$Table$$Base                      0x08010554   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08010574   Number         0  anon$$obj.o(Region$$Table)
+    nrf_clear_interrupts                     0x0800d995   Thumb Code    78  nrf24l01.o(.text.nrf_clear_interrupts)
+    nrf_enable_auto_ack                      0x0800d9e5   Thumb Code    90  nrf24l01.o(.text.nrf_enable_auto_ack)
+    nrf_enable_crc                           0x0800da41   Thumb Code   116  nrf24l01.o(.text.nrf_enable_crc)
+    nrf_enable_max_retransmit_irq            0x0800dab5   Thumb Code   116  nrf24l01.o(.text.nrf_enable_max_retransmit_irq)
+    nrf_enable_rx_data_ready_irq             0x0800db29   Thumb Code   116  nrf24l01.o(.text.nrf_enable_rx_data_ready_irq)
+    nrf_enable_tx_data_sent_irq              0x0800db9d   Thumb Code   116  nrf24l01.o(.text.nrf_enable_tx_data_sent_irq)
+    nrf_flush_rx                             0x0800dc11   Thumb Code    56  nrf24l01.o(.text.nrf_flush_rx)
+    nrf_flush_tx                             0x0800dc49   Thumb Code    56  nrf24l01.o(.text.nrf_flush_tx)
+    nrf_init                                 0x0800dc81   Thumb Code   636  nrf24l01.o(.text.nrf_init)
+    nrf_irq_handler                          0x0800defd   Thumb Code   384  nrf24l01.o(.text.nrf_irq_handler)
+    nrf_packet_received_callback             0x0800e07d   Thumb Code    26  nrf24l01.o(.text.nrf_packet_received_callback)
+    nrf_power_up                             0x0800e099   Thumb Code   116  nrf24l01.o(.text.nrf_power_up)
+    nrf_read_register                        0x0800e10d   Thumb Code    68  nrf24l01.o(.text.nrf_read_register)
+    nrf_read_rx_payload                      0x0800e151   Thumb Code   114  nrf24l01.o(.text.nrf_read_rx_payload)
+    nrf_rx_tx_control                        0x0800e1c5   Thumb Code   122  nrf24l01.o(.text.nrf_rx_tx_control)
+    nrf_send_command                         0x0800e241   Thumb Code   156  nrf24l01.o(.text.nrf_send_command)
+    nrf_send_packet                          0x0800e2dd   Thumb Code    98  nrf24l01.o(.text.nrf_send_packet)
+    nrf_set_address_width                    0x0800e341   Thumb Code   114  nrf24l01.o(.text.nrf_set_address_width)
+    nrf_set_crc_width                        0x0800e3b5   Thumb Code   130  nrf24l01.o(.text.nrf_set_crc_width)
+    nrf_set_data_rate                        0x0800e439   Thumb Code   170  nrf24l01.o(.text.nrf_set_data_rate)
+    nrf_set_retransmittion_count             0x0800e4e5   Thumb Code   132  nrf24l01.o(.text.nrf_set_retransmittion_count)
+    nrf_set_retransmittion_delay             0x0800e569   Thumb Code   134  nrf24l01.o(.text.nrf_set_retransmittion_delay)
+    nrf_set_rf_channel                       0x0800e5f1   Thumb Code   120  nrf24l01.o(.text.nrf_set_rf_channel)
+    nrf_set_rx_address_p0                    0x0800e669   Thumb Code    90  nrf24l01.o(.text.nrf_set_rx_address_p0)
+    nrf_set_rx_address_p1                    0x0800e6c5   Thumb Code    92  nrf24l01.o(.text.nrf_set_rx_address_p1)
+    nrf_set_rx_payload_width_p0              0x0800e721   Thumb Code    82  nrf24l01.o(.text.nrf_set_rx_payload_width_p0)
+    nrf_set_rx_payload_width_p1              0x0800e775   Thumb Code    82  nrf24l01.o(.text.nrf_set_rx_payload_width_p1)
+    nrf_set_rx_pipes                         0x0800e7c9   Thumb Code    36  nrf24l01.o(.text.nrf_set_rx_pipes)
+    nrf_set_tx_address                       0x0800e7ed   Thumb Code    94  nrf24l01.o(.text.nrf_set_tx_address)
+    nrf_set_tx_power                         0x0800e84d   Thumb Code   116  nrf24l01.o(.text.nrf_set_tx_power)
+    nrf_write_register                       0x0800e8c1   Thumb Code    66  nrf24l01.o(.text.nrf_write_register)
+    nrf_write_tx_payload                     0x0800e905   Thumb Code   114  nrf24l01.o(.text.nrf_write_tx_payload)
+    __0printf                                0x0800e9a1   Thumb Code    22  printfa.o(i.__0printf)
+    __1printf                                0x0800e9a1   Thumb Code     0  printfa.o(i.__0printf)
+    __2printf                                0x0800e9a1   Thumb Code     0  printfa.o(i.__0printf)
+    __c89printf                              0x0800e9a1   Thumb Code     0  printfa.o(i.__0printf)
+    printf                                   0x0800e9a1   Thumb Code     0  printfa.o(i.__0printf)
+    __ARM_fpclassify                         0x0800e9c1   Thumb Code    48  fpclassify.o(i.__ARM_fpclassify)
+    __aeabi_errno_addr                       0x0800e9f1   Thumb Code     4  errno.o(i.__aeabi_errno_addr)
+    __rt_errno_addr                          0x0800e9f1   Thumb Code     0  errno.o(i.__aeabi_errno_addr)
+    __hardfp_asin                            0x0800e9f9   Thumb Code   770  asin.o(i.__hardfp_asin)
+    __hardfp_atan                            0x0800ed59   Thumb Code   622  atan.o(i.__hardfp_atan)
+    __hardfp_atan2                           0x0800f031   Thumb Code   448  atan2.o(i.__hardfp_atan2)
+    __hardfp_sqrt                            0x0800f231   Thumb Code   122  sqrt.o(i.__hardfp_sqrt)
+    __kernel_poly                            0x0800f2ab   Thumb Code   248  poly.o(i.__kernel_poly)
+    __mathlib_dbl_infnan                     0x0800f3a3   Thumb Code    20  dunder.o(i.__mathlib_dbl_infnan)
+    __mathlib_dbl_infnan2                    0x0800f3b7   Thumb Code    20  dunder.o(i.__mathlib_dbl_infnan2)
+    __mathlib_dbl_invalid                    0x0800f3d1   Thumb Code    24  dunder.o(i.__mathlib_dbl_invalid)
+    __mathlib_dbl_underflow                  0x0800f3f1   Thumb Code    24  dunder.o(i.__mathlib_dbl_underflow)
+    __scatterload_copy                       0x0800f411   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x0800f41f   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x0800f421   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    __set_errno                              0x0800f431   Thumb Code     6  errno.o(i.__set_errno)
+    atan                                     0x0800fcef   Thumb Code    16  atan.o(i.atan)
+    fabs                                     0x0800fcff   Thumb Code    24  fabs.o(i.fabs)
+    free                                     0x0800fd19   Thumb Code    76  malloc.o(i.free)
+    malloc                                   0x0800fd69   Thumb Code    92  malloc.o(i.malloc)
+    sqrt                                     0x0800fdd5   Thumb Code   110  sqrt.o(i.sqrt)
+    __mathlib_zero                           0x0800ff30   Data           8  qnan.o(.constdata)
+    __ctype_table                            0x0800ff38   Data         129  ctype_o.o(.constdata)
+    AHBPrescTable                            0x0800ffc0   Data          16  system_stm32f4xx.o(.rodata.AHBPrescTable)
+    APBPrescTable                            0x0800ffd0   Data           8  system_stm32f4xx.o(.rodata.APBPrescTable)
+    GGA                                      0x0800ffd8   Data          64  nmea_parser.o(.rodata.GGA)
+    GSV                                      0x08010018   Data          84  nmea_parser.o(.rodata.GSV)
+    MSC_Mode_Sense10_data                    0x0801006c   Data           8  usbd_msc_data.o(.rodata.MSC_Mode_Sense10_data)
+    MSC_Mode_Sense6_data                     0x08010074   Data           8  usbd_msc_data.o(.rodata.MSC_Mode_Sense6_data)
+    MSC_Page00_Inquiry_Data                  0x0801007c   Data           7  usbd_msc_data.o(.rodata.MSC_Page00_Inquiry_Data)
+    RMC                                      0x08010084   Data          56  nmea_parser.o(.rodata.RMC)
+    STORAGE_Inquirydata_FS                   0x080100bc   Data          36  usbd_storage_if.o(.rodata.STORAGE_Inquirydata_FS)
+    VTG                                      0x080100e0   Data          40  nmea_parser.o(.rodata.VTG)
+    Region$$Table$$Base                      0x08010444   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08010464   Number         0  anon$$obj.o(Region$$Table)
     __stdout                                 0x20000000   Data           4  stdout.o(.data)
     __stderr                                 0x20000004   Data           4  stderr.o(.data)
     __microlib_freelist                      0x20000008   Data           4  mvars.o(.data)
@@ -6308,20 +6308,20 @@ Image Symbol Table
     mz                                       0x200011c4   Data           4  mpu9250.o(.bss.mz)
     nmea_line                                0x200011c8   Data         255  gnss_utils.o(.bss.nmea_line)
     nmea_pos                                 0x200012c7   Data           1  gnss_utils.o(.bss.nmea_pos)
-    nrf                                      0x200012c8   Data         128  main.o(.bss.nrf)
-    pitch                                    0x20001348   Data           4  mpu9250.o(.bss.pitch)
-    retUSER                                  0x2000134c   Data           1  fatfs.o(.bss.retUSER)
-    roll                                     0x20001350   Data           4  mpu9250.o(.bss.roll)
-    rxbuf                                    0x20001354   Data           1  main.o(.bss.rxbuf)
-    sum                                      0x20001358   Data           4  main.o(.bss.sum)
-    sumCount                                 0x2000135c   Data           4  main.o(.bss.sumCount)
-    tempCount                                0x20001360   Data           2  mpu9250.o(.bss.tempCount)
-    temperature                              0x20001364   Data           4  mpu9250.o(.bss.temperature)
-    uwTick                                   0x20001368   Data           4  stm32f4xx_hal.o(.bss.uwTick)
-    yaw                                      0x2000136c   Data           4  mpu9250.o(.bss.yaw)
-    __heap_base                              0x20001370   Data           0  startup_stm32f407xx.o(HEAP)
-    __heap_limit                             0x20005370   Data           0  startup_stm32f407xx.o(HEAP)
-    __initial_sp                             0x20009370   Data           0  startup_stm32f407xx.o(STACK)
+    nrf                                      0x200012c8   Data         160  main.o(.bss.nrf)
+    pitch                                    0x20001368   Data           4  mpu9250.o(.bss.pitch)
+    retUSER                                  0x2000136c   Data           1  fatfs.o(.bss.retUSER)
+    roll                                     0x20001370   Data           4  mpu9250.o(.bss.roll)
+    rxbuf                                    0x20001374   Data           1  main.o(.bss.rxbuf)
+    sum                                      0x20001378   Data           4  main.o(.bss.sum)
+    sumCount                                 0x2000137c   Data           4  main.o(.bss.sumCount)
+    tempCount                                0x20001380   Data           2  mpu9250.o(.bss.tempCount)
+    temperature                              0x20001384   Data           4  mpu9250.o(.bss.temperature)
+    uwTick                                   0x20001388   Data           4  stm32f4xx_hal.o(.bss.uwTick)
+    yaw                                      0x2000138c   Data           4  mpu9250.o(.bss.yaw)
+    __heap_base                              0x20001390   Data           0  startup_stm32f407xx.o(HEAP)
+    __heap_limit                             0x20005390   Data           0  startup_stm32f407xx.o(HEAP)
+    __initial_sp                             0x20009390   Data           0  startup_stm32f407xx.o(STACK)
 
 
 
@@ -6331,9 +6331,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000189
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000106c8, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x00010640])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000105b8, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x00010530])
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00010574, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00010464, Max: 0x00080000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -6823,126 +6823,122 @@ Memory Map of the image
     0x0800d928   0x0800d928   0x00000024   Code   RO          281    .text.nrf24_ce_set  nrf24l01.o
     0x0800d94c   0x0800d94c   0x00000024   Code   RO          285    .text.nrf24_csn_reset  nrf24l01.o
     0x0800d970   0x0800d970   0x00000024   Code   RO          231    .text.nrf24_csn_set  nrf24l01.o
-    0x0800d994   0x0800d994   0x0000005c   Code   RO          251    .text.nrf_clear_interrupts  nrf24l01.o
-    0x0800d9f0   0x0800d9f0   0x00000068   Code   RO          241    .text.nrf_enable_auto_ack  nrf24l01.o
-    0x0800da58   0x0800da58   0x00000082   Code   RO          237    .text.nrf_enable_crc  nrf24l01.o
-    0x0800dada   0x0800dada   0x00000002   PAD
-    0x0800dadc   0x0800dadc   0x00000082   Code   RO          273    .text.nrf_enable_max_retransmit_irq  nrf24l01.o
-    0x0800db5e   0x0800db5e   0x00000002   PAD
-    0x0800db60   0x0800db60   0x00000082   Code   RO          269    .text.nrf_enable_rx_data_ready_irq  nrf24l01.o
-    0x0800dbe2   0x0800dbe2   0x00000002   PAD
-    0x0800dbe4   0x0800dbe4   0x00000082   Code   RO          271    .text.nrf_enable_tx_data_sent_irq  nrf24l01.o
-    0x0800dc66   0x0800dc66   0x00000002   PAD
-    0x0800dc68   0x0800dc68   0x0000004c   Code   RO          275    .text.nrf_flush_rx  nrf24l01.o
-    0x0800dcb4   0x0800dcb4   0x0000004c   Code   RO          277    .text.nrf_flush_tx  nrf24l01.o
-    0x0800dd00   0x0800dd00   0x00000266   Code   RO          227    .text.nrf_init      nrf24l01.o
-    0x0800df66   0x0800df66   0x00000002   PAD
-    0x0800df68   0x0800df68   0x00000182   Code   RO          287    .text.nrf_irq_handler  nrf24l01.o
-    0x0800e0ea   0x0800e0ea   0x00000002   PAD
-    0x0800e0ec   0x0800e0ec   0x0000001a   Code   RO          293    .text.nrf_packet_received_callback  nrf24l01.o
-    0x0800e106   0x0800e106   0x00000002   PAD
-    0x0800e108   0x0800e108   0x00000082   Code   RO          233    .text.nrf_power_up  nrf24l01.o
-    0x0800e18a   0x0800e18a   0x00000002   PAD
-    0x0800e18c   0x0800e18c   0x00000058   Code   RO          235    .text.nrf_read_register  nrf24l01.o
-    0x0800e1e4   0x0800e1e4   0x00000096   Code   RO          291    .text.nrf_read_rx_payload  nrf24l01.o
-    0x0800e27a   0x0800e27a   0x00000002   PAD
-    0x0800e27c   0x0800e27c   0x00000088   Code   RO          279    .text.nrf_rx_tx_control  nrf24l01.o
-    0x0800e304   0x0800e304   0x0000009c   Code   RO          283    .text.nrf_send_command  nrf24l01.o
-    0x0800e3a0   0x0800e3a0   0x00000062   Code   RO          303    .text.nrf_send_packet  nrf24l01.o
-    0x0800e402   0x0800e402   0x00000002   PAD
-    0x0800e404   0x0800e404   0x00000072   Code   RO          245    .text.nrf_set_address_width  nrf24l01.o
-    0x0800e476   0x0800e476   0x00000002   PAD
-    0x0800e478   0x0800e478   0x00000082   Code   RO          239    .text.nrf_set_crc_width  nrf24l01.o
-    0x0800e4fa   0x0800e4fa   0x00000002   PAD
-    0x0800e4fc   0x0800e4fc   0x000000aa   Code   RO          255    .text.nrf_set_data_rate  nrf24l01.o
-    0x0800e5a6   0x0800e5a6   0x00000002   PAD
-    0x0800e5a8   0x0800e5a8   0x00000084   Code   RO          247    .text.nrf_set_retransmittion_count  nrf24l01.o
-    0x0800e62c   0x0800e62c   0x00000086   Code   RO          249    .text.nrf_set_retransmittion_delay  nrf24l01.o
-    0x0800e6b2   0x0800e6b2   0x00000002   PAD
-    0x0800e6b4   0x0800e6b4   0x00000078   Code   RO          253    .text.nrf_set_rf_channel  nrf24l01.o
-    0x0800e72c   0x0800e72c   0x0000005a   Code   RO          261    .text.nrf_set_rx_address_p0  nrf24l01.o
-    0x0800e786   0x0800e786   0x00000002   PAD
-    0x0800e788   0x0800e788   0x0000005c   Code   RO          263    .text.nrf_set_rx_address_p1  nrf24l01.o
-    0x0800e7e4   0x0800e7e4   0x00000052   Code   RO          265    .text.nrf_set_rx_payload_width_p0  nrf24l01.o
-    0x0800e836   0x0800e836   0x00000002   PAD
-    0x0800e838   0x0800e838   0x00000052   Code   RO          267    .text.nrf_set_rx_payload_width_p1  nrf24l01.o
-    0x0800e88a   0x0800e88a   0x00000002   PAD
-    0x0800e88c   0x0800e88c   0x00000038   Code   RO          243    .text.nrf_set_rx_pipes  nrf24l01.o
-    0x0800e8c4   0x0800e8c4   0x0000005e   Code   RO          259    .text.nrf_set_tx_address  nrf24l01.o
-    0x0800e922   0x0800e922   0x00000002   PAD
-    0x0800e924   0x0800e924   0x00000074   Code   RO          257    .text.nrf_set_tx_power  nrf24l01.o
-    0x0800e998   0x0800e998   0x00000056   Code   RO          289    .text.nrf_write_register  nrf24l01.o
-    0x0800e9ee   0x0800e9ee   0x00000002   PAD
-    0x0800e9f0   0x0800e9f0   0x00000096   Code   RO          295    .text.nrf_write_tx_payload  nrf24l01.o
-    0x0800ea86   0x0800ea86   0x00000002   PAD
-    0x0800ea88   0x0800ea88   0x00000014   Code   RO         2642    .text.stderr_putchar  retarget_io.o
-    0x0800ea9c   0x0800ea9c   0x00000014   Code   RO         2640    .text.stdout_putchar  retarget_io.o
-    0x0800eab0   0x0800eab0   0x00000020   Code   RO         2742    i.__0printf         mc_w.l(printfa.o)
-    0x0800ead0   0x0800ead0   0x00000030   Code   RO         2851    i.__ARM_fpclassify  m_wm.l(fpclassify.o)
-    0x0800eb00   0x0800eb00   0x00000008   Code   RO         2880    i.__aeabi_errno_addr  mc_w.l(errno.o)
-    0x0800eb08   0x0800eb08   0x00000360   Code   RO         2667    i.__hardfp_asin     m_wm.l(asin.o)
-    0x0800ee68   0x0800ee68   0x000002d8   Code   RO         2817    i.__hardfp_atan     m_wm.l(atan.o)
-    0x0800f140   0x0800f140   0x00000200   Code   RO         2681    i.__hardfp_atan2    m_wm.l(atan2.o)
-    0x0800f340   0x0800f340   0x0000007a   Code   RO         2707    i.__hardfp_sqrt     m_wm.l(sqrt.o)
-    0x0800f3ba   0x0800f3ba   0x000000f8   Code   RO         2853    i.__kernel_poly     m_wm.l(poly.o)
-    0x0800f4b2   0x0800f4b2   0x00000014   Code   RO         2832    i.__mathlib_dbl_infnan  m_wm.l(dunder.o)
-    0x0800f4c6   0x0800f4c6   0x00000014   Code   RO         2833    i.__mathlib_dbl_infnan2  m_wm.l(dunder.o)
-    0x0800f4da   0x0800f4da   0x00000006   PAD
-    0x0800f4e0   0x0800f4e0   0x00000020   Code   RO         2834    i.__mathlib_dbl_invalid  m_wm.l(dunder.o)
-    0x0800f500   0x0800f500   0x00000020   Code   RO         2837    i.__mathlib_dbl_underflow  m_wm.l(dunder.o)
-    0x0800f520   0x0800f520   0x0000000e   Code   RO         2942    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x0800f52e   0x0800f52e   0x00000002   Code   RO         2943    i.__scatterload_null  mc_w.l(handlers.o)
-    0x0800f530   0x0800f530   0x0000000e   Code   RO         2944    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x0800f53e   0x0800f53e   0x00000002   PAD
-    0x0800f540   0x0800f540   0x0000000c   Code   RO         2882    i.__set_errno       mc_w.l(errno.o)
-    0x0800f54c   0x0800f54c   0x00000184   Code   RO         2749    i._fp_digits        mc_w.l(printfa.o)
-    0x0800f6d0   0x0800f6d0   0x000006dc   Code   RO         2750    i._printf_core      mc_w.l(printfa.o)
-    0x0800fdac   0x0800fdac   0x00000024   Code   RO         2751    i._printf_post_padding  mc_w.l(printfa.o)
-    0x0800fdd0   0x0800fdd0   0x0000002e   Code   RO         2752    i._printf_pre_padding  mc_w.l(printfa.o)
-    0x0800fdfe   0x0800fdfe   0x00000010   Code   RO         2819    i.atan              m_wm.l(atan.o)
-    0x0800fe0e   0x0800fe0e   0x00000018   Code   RO         2847    i.fabs              m_wm.l(fabs.o)
-    0x0800fe26   0x0800fe26   0x00000002   PAD
-    0x0800fe28   0x0800fe28   0x00000050   Code   RO         2769    i.free              mc_w.l(malloc.o)
-    0x0800fe78   0x0800fe78   0x0000006c   Code   RO         2770    i.malloc            mc_w.l(malloc.o)
-    0x0800fee4   0x0800fee4   0x0000006e   Code   RO         2709    i.sqrt              m_wm.l(sqrt.o)
-    0x0800ff52   0x0800ff52   0x00000006   PAD
-    0x0800ff58   0x0800ff58   0x00000050   Data   RO         2670    .constdata          m_wm.l(asin.o)
-    0x0800ffa8   0x0800ffa8   0x00000098   Data   RO         2820    .constdata          m_wm.l(atan.o)
-    0x08010040   0x08010040   0x00000008   Data   RO         2855    .constdata          m_wm.l(qnan.o)
-    0x08010048   0x08010048   0x00000081   Data   RO         2909    .constdata          mc_w.l(ctype_o.o)
-    0x080100c9   0x080100c9   0x00000003   PAD
-    0x080100cc   0x080100cc   0x00000004   Data   RO         2910    .constdata          mc_w.l(ctype_o.o)
-    0x080100d0   0x080100d0   0x00000010   Data   RO         2005    .rodata.AHBPrescTable  system_stm32f4xx.o
-    0x080100e0   0x080100e0   0x00000008   Data   RO         2006    .rodata.APBPrescTable  system_stm32f4xx.o
-    0x080100e8   0x080100e8   0x00000040   Data   RO          346    .rodata.GGA         nmea_parser.o
-    0x08010128   0x08010128   0x00000054   Data   RO          348    .rodata.GSV         nmea_parser.o
-    0x0801017c   0x0801017c   0x00000008   Data   RO         2582    .rodata.MSC_Mode_Sense10_data  usbd_msc_data.o
-    0x08010184   0x08010184   0x00000008   Data   RO         2581    .rodata.MSC_Mode_Sense6_data  usbd_msc_data.o
-    0x0801018c   0x0801018c   0x00000007   Data   RO         2580    .rodata.MSC_Page00_Inquiry_Data  usbd_msc_data.o
-    0x08010193   0x08010193   0x00000001   PAD
-    0x08010194   0x08010194   0x00000038   Data   RO          345    .rodata.RMC         nmea_parser.o
-    0x080101cc   0x080101cc   0x00000024   Data   RO         2389    .rodata.STORAGE_Inquirydata_FS  usbd_storage_if.o
-    0x080101f0   0x080101f0   0x00000028   Data   RO          349    .rodata.VTG         nmea_parser.o
-    0x08010218   0x08010218   0x000000d5   Data   RO          415    .rodata.str1.1      main.o
-    0x080102ed   0x080102ed   0x00000012   Data   RO          447    .rodata.str1.1      crc.o
-    0x080102ff   0x080102ff   0x00000012   Data   RO          487    .rodata.str1.1      spi.o
-    0x08010311   0x08010311   0x00000012   Data   RO          507    .rodata.str1.1      tim.o
-    0x08010323   0x08010323   0x00000014   Data   RO          527    .rodata.str1.1      usart.o
-    0x08010337   0x08010337   0x00000038   Data   RO          694    .rodata.str1.1      stm32f4xx_hal_pcd.o
-    0x0801036f   0x0801036f   0x00000038   Data   RO          834    .rodata.str1.1      stm32f4xx_hal_crc.o
-    0x080103a7   0x080103a7   0x00000038   Data   RO         1113    .rodata.str1.1      stm32f4xx_hal_spi.o
-    0x080103df   0x080103df   0x00000038   Data   RO         1336    .rodata.str1.1      stm32f4xx_hal_tim.o
-    0x08010417   0x08010417   0x00000039   Data   RO         1542    .rodata.str1.1      stm32f4xx_hal_uart.o
-    0x08010450   0x08010450   0x00000038   Data   RO         1581    .rodata.str1.1      stm32f4xx_hal_rcc.o
-    0x08010488   0x08010488   0x00000039   Data   RO         1721    .rodata.str1.1      stm32f4xx_hal_gpio.o
-    0x080104c1   0x080104c1   0x0000003b   Data   RO         1925    .rodata.str1.1      stm32f4xx_hal_cortex.o
-    0x080104fc   0x080104fc   0x0000001a   Data   RO         2335    .rodata.str1.1      usbd_conf.o
-    0x08010516   0x08010516   0x0000003b   Data   RO         2363    .rodata.str1.1      usbd_desc.o
-    0x08010551   0x08010551   0x00000003   PAD
-    0x08010554   0x08010554   0x00000020   Data   RO         2940    Region$$Table       anon$$obj.o
+    0x0800d994   0x0800d994   0x0000004e   Code   RO          251    .text.nrf_clear_interrupts  nrf24l01.o
+    0x0800d9e2   0x0800d9e2   0x00000002   PAD
+    0x0800d9e4   0x0800d9e4   0x0000005a   Code   RO          241    .text.nrf_enable_auto_ack  nrf24l01.o
+    0x0800da3e   0x0800da3e   0x00000002   PAD
+    0x0800da40   0x0800da40   0x00000074   Code   RO          237    .text.nrf_enable_crc  nrf24l01.o
+    0x0800dab4   0x0800dab4   0x00000074   Code   RO          273    .text.nrf_enable_max_retransmit_irq  nrf24l01.o
+    0x0800db28   0x0800db28   0x00000074   Code   RO          269    .text.nrf_enable_rx_data_ready_irq  nrf24l01.o
+    0x0800db9c   0x0800db9c   0x00000074   Code   RO          271    .text.nrf_enable_tx_data_sent_irq  nrf24l01.o
+    0x0800dc10   0x0800dc10   0x00000038   Code   RO          275    .text.nrf_flush_rx  nrf24l01.o
+    0x0800dc48   0x0800dc48   0x00000038   Code   RO          277    .text.nrf_flush_tx  nrf24l01.o
+    0x0800dc80   0x0800dc80   0x0000027c   Code   RO          227    .text.nrf_init      nrf24l01.o
+    0x0800defc   0x0800defc   0x00000180   Code   RO          287    .text.nrf_irq_handler  nrf24l01.o
+    0x0800e07c   0x0800e07c   0x0000001a   Code   RO          293    .text.nrf_packet_received_callback  nrf24l01.o
+    0x0800e096   0x0800e096   0x00000002   PAD
+    0x0800e098   0x0800e098   0x00000074   Code   RO          233    .text.nrf_power_up  nrf24l01.o
+    0x0800e10c   0x0800e10c   0x00000044   Code   RO          235    .text.nrf_read_register  nrf24l01.o
+    0x0800e150   0x0800e150   0x00000072   Code   RO          291    .text.nrf_read_rx_payload  nrf24l01.o
+    0x0800e1c2   0x0800e1c2   0x00000002   PAD
+    0x0800e1c4   0x0800e1c4   0x0000007a   Code   RO          279    .text.nrf_rx_tx_control  nrf24l01.o
+    0x0800e23e   0x0800e23e   0x00000002   PAD
+    0x0800e240   0x0800e240   0x0000009c   Code   RO          283    .text.nrf_send_command  nrf24l01.o
+    0x0800e2dc   0x0800e2dc   0x00000062   Code   RO          303    .text.nrf_send_packet  nrf24l01.o
+    0x0800e33e   0x0800e33e   0x00000002   PAD
+    0x0800e340   0x0800e340   0x00000072   Code   RO          245    .text.nrf_set_address_width  nrf24l01.o
+    0x0800e3b2   0x0800e3b2   0x00000002   PAD
+    0x0800e3b4   0x0800e3b4   0x00000082   Code   RO          239    .text.nrf_set_crc_width  nrf24l01.o
+    0x0800e436   0x0800e436   0x00000002   PAD
+    0x0800e438   0x0800e438   0x000000aa   Code   RO          255    .text.nrf_set_data_rate  nrf24l01.o
+    0x0800e4e2   0x0800e4e2   0x00000002   PAD
+    0x0800e4e4   0x0800e4e4   0x00000084   Code   RO          247    .text.nrf_set_retransmittion_count  nrf24l01.o
+    0x0800e568   0x0800e568   0x00000086   Code   RO          249    .text.nrf_set_retransmittion_delay  nrf24l01.o
+    0x0800e5ee   0x0800e5ee   0x00000002   PAD
+    0x0800e5f0   0x0800e5f0   0x00000078   Code   RO          253    .text.nrf_set_rf_channel  nrf24l01.o
+    0x0800e668   0x0800e668   0x0000005a   Code   RO          261    .text.nrf_set_rx_address_p0  nrf24l01.o
+    0x0800e6c2   0x0800e6c2   0x00000002   PAD
+    0x0800e6c4   0x0800e6c4   0x0000005c   Code   RO          263    .text.nrf_set_rx_address_p1  nrf24l01.o
+    0x0800e720   0x0800e720   0x00000052   Code   RO          265    .text.nrf_set_rx_payload_width_p0  nrf24l01.o
+    0x0800e772   0x0800e772   0x00000002   PAD
+    0x0800e774   0x0800e774   0x00000052   Code   RO          267    .text.nrf_set_rx_payload_width_p1  nrf24l01.o
+    0x0800e7c6   0x0800e7c6   0x00000002   PAD
+    0x0800e7c8   0x0800e7c8   0x00000024   Code   RO          243    .text.nrf_set_rx_pipes  nrf24l01.o
+    0x0800e7ec   0x0800e7ec   0x0000005e   Code   RO          259    .text.nrf_set_tx_address  nrf24l01.o
+    0x0800e84a   0x0800e84a   0x00000002   PAD
+    0x0800e84c   0x0800e84c   0x00000074   Code   RO          257    .text.nrf_set_tx_power  nrf24l01.o
+    0x0800e8c0   0x0800e8c0   0x00000042   Code   RO          289    .text.nrf_write_register  nrf24l01.o
+    0x0800e902   0x0800e902   0x00000002   PAD
+    0x0800e904   0x0800e904   0x00000072   Code   RO          295    .text.nrf_write_tx_payload  nrf24l01.o
+    0x0800e976   0x0800e976   0x00000002   PAD
+    0x0800e978   0x0800e978   0x00000014   Code   RO         2642    .text.stderr_putchar  retarget_io.o
+    0x0800e98c   0x0800e98c   0x00000014   Code   RO         2640    .text.stdout_putchar  retarget_io.o
+    0x0800e9a0   0x0800e9a0   0x00000020   Code   RO         2742    i.__0printf         mc_w.l(printfa.o)
+    0x0800e9c0   0x0800e9c0   0x00000030   Code   RO         2851    i.__ARM_fpclassify  m_wm.l(fpclassify.o)
+    0x0800e9f0   0x0800e9f0   0x00000008   Code   RO         2880    i.__aeabi_errno_addr  mc_w.l(errno.o)
+    0x0800e9f8   0x0800e9f8   0x00000360   Code   RO         2667    i.__hardfp_asin     m_wm.l(asin.o)
+    0x0800ed58   0x0800ed58   0x000002d8   Code   RO         2817    i.__hardfp_atan     m_wm.l(atan.o)
+    0x0800f030   0x0800f030   0x00000200   Code   RO         2681    i.__hardfp_atan2    m_wm.l(atan2.o)
+    0x0800f230   0x0800f230   0x0000007a   Code   RO         2707    i.__hardfp_sqrt     m_wm.l(sqrt.o)
+    0x0800f2aa   0x0800f2aa   0x000000f8   Code   RO         2853    i.__kernel_poly     m_wm.l(poly.o)
+    0x0800f3a2   0x0800f3a2   0x00000014   Code   RO         2832    i.__mathlib_dbl_infnan  m_wm.l(dunder.o)
+    0x0800f3b6   0x0800f3b6   0x00000014   Code   RO         2833    i.__mathlib_dbl_infnan2  m_wm.l(dunder.o)
+    0x0800f3ca   0x0800f3ca   0x00000006   PAD
+    0x0800f3d0   0x0800f3d0   0x00000020   Code   RO         2834    i.__mathlib_dbl_invalid  m_wm.l(dunder.o)
+    0x0800f3f0   0x0800f3f0   0x00000020   Code   RO         2837    i.__mathlib_dbl_underflow  m_wm.l(dunder.o)
+    0x0800f410   0x0800f410   0x0000000e   Code   RO         2942    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x0800f41e   0x0800f41e   0x00000002   Code   RO         2943    i.__scatterload_null  mc_w.l(handlers.o)
+    0x0800f420   0x0800f420   0x0000000e   Code   RO         2944    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x0800f42e   0x0800f42e   0x00000002   PAD
+    0x0800f430   0x0800f430   0x0000000c   Code   RO         2882    i.__set_errno       mc_w.l(errno.o)
+    0x0800f43c   0x0800f43c   0x00000184   Code   RO         2749    i._fp_digits        mc_w.l(printfa.o)
+    0x0800f5c0   0x0800f5c0   0x000006dc   Code   RO         2750    i._printf_core      mc_w.l(printfa.o)
+    0x0800fc9c   0x0800fc9c   0x00000024   Code   RO         2751    i._printf_post_padding  mc_w.l(printfa.o)
+    0x0800fcc0   0x0800fcc0   0x0000002e   Code   RO         2752    i._printf_pre_padding  mc_w.l(printfa.o)
+    0x0800fcee   0x0800fcee   0x00000010   Code   RO         2819    i.atan              m_wm.l(atan.o)
+    0x0800fcfe   0x0800fcfe   0x00000018   Code   RO         2847    i.fabs              m_wm.l(fabs.o)
+    0x0800fd16   0x0800fd16   0x00000002   PAD
+    0x0800fd18   0x0800fd18   0x00000050   Code   RO         2769    i.free              mc_w.l(malloc.o)
+    0x0800fd68   0x0800fd68   0x0000006c   Code   RO         2770    i.malloc            mc_w.l(malloc.o)
+    0x0800fdd4   0x0800fdd4   0x0000006e   Code   RO         2709    i.sqrt              m_wm.l(sqrt.o)
+    0x0800fe42   0x0800fe42   0x00000006   PAD
+    0x0800fe48   0x0800fe48   0x00000050   Data   RO         2670    .constdata          m_wm.l(asin.o)
+    0x0800fe98   0x0800fe98   0x00000098   Data   RO         2820    .constdata          m_wm.l(atan.o)
+    0x0800ff30   0x0800ff30   0x00000008   Data   RO         2855    .constdata          m_wm.l(qnan.o)
+    0x0800ff38   0x0800ff38   0x00000081   Data   RO         2909    .constdata          mc_w.l(ctype_o.o)
+    0x0800ffb9   0x0800ffb9   0x00000003   PAD
+    0x0800ffbc   0x0800ffbc   0x00000004   Data   RO         2910    .constdata          mc_w.l(ctype_o.o)
+    0x0800ffc0   0x0800ffc0   0x00000010   Data   RO         2005    .rodata.AHBPrescTable  system_stm32f4xx.o
+    0x0800ffd0   0x0800ffd0   0x00000008   Data   RO         2006    .rodata.APBPrescTable  system_stm32f4xx.o
+    0x0800ffd8   0x0800ffd8   0x00000040   Data   RO          346    .rodata.GGA         nmea_parser.o
+    0x08010018   0x08010018   0x00000054   Data   RO          348    .rodata.GSV         nmea_parser.o
+    0x0801006c   0x0801006c   0x00000008   Data   RO         2582    .rodata.MSC_Mode_Sense10_data  usbd_msc_data.o
+    0x08010074   0x08010074   0x00000008   Data   RO         2581    .rodata.MSC_Mode_Sense6_data  usbd_msc_data.o
+    0x0801007c   0x0801007c   0x00000007   Data   RO         2580    .rodata.MSC_Page00_Inquiry_Data  usbd_msc_data.o
+    0x08010083   0x08010083   0x00000001   PAD
+    0x08010084   0x08010084   0x00000038   Data   RO          345    .rodata.RMC         nmea_parser.o
+    0x080100bc   0x080100bc   0x00000024   Data   RO         2389    .rodata.STORAGE_Inquirydata_FS  usbd_storage_if.o
+    0x080100e0   0x080100e0   0x00000028   Data   RO          349    .rodata.VTG         nmea_parser.o
+    0x08010108   0x08010108   0x000000d5   Data   RO          415    .rodata.str1.1      main.o
+    0x080101dd   0x080101dd   0x00000012   Data   RO          447    .rodata.str1.1      crc.o
+    0x080101ef   0x080101ef   0x00000012   Data   RO          487    .rodata.str1.1      spi.o
+    0x08010201   0x08010201   0x00000012   Data   RO          507    .rodata.str1.1      tim.o
+    0x08010213   0x08010213   0x00000014   Data   RO          527    .rodata.str1.1      usart.o
+    0x08010227   0x08010227   0x00000038   Data   RO          694    .rodata.str1.1      stm32f4xx_hal_pcd.o
+    0x0801025f   0x0801025f   0x00000038   Data   RO          834    .rodata.str1.1      stm32f4xx_hal_crc.o
+    0x08010297   0x08010297   0x00000038   Data   RO         1113    .rodata.str1.1      stm32f4xx_hal_spi.o
+    0x080102cf   0x080102cf   0x00000038   Data   RO         1336    .rodata.str1.1      stm32f4xx_hal_tim.o
+    0x08010307   0x08010307   0x00000039   Data   RO         1542    .rodata.str1.1      stm32f4xx_hal_uart.o
+    0x08010340   0x08010340   0x00000038   Data   RO         1581    .rodata.str1.1      stm32f4xx_hal_rcc.o
+    0x08010378   0x08010378   0x00000039   Data   RO         1721    .rodata.str1.1      stm32f4xx_hal_gpio.o
+    0x080103b1   0x080103b1   0x0000003b   Data   RO         1925    .rodata.str1.1      stm32f4xx_hal_cortex.o
+    0x080103ec   0x080103ec   0x0000001a   Data   RO         2335    .rodata.str1.1      usbd_conf.o
+    0x08010406   0x08010406   0x0000003b   Data   RO         2363    .rodata.str1.1      usbd_desc.o
+    0x08010441   0x08010441   0x00000003   PAD
+    0x08010444   0x08010444   0x00000020   Data   RO         2940    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08010578, Size: 0x00009370, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x000000c8])
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08010468, Size: 0x00009390, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x000000c8])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -7050,22 +7046,22 @@ Memory Map of the image
     0x200011c4        -       0x00000004   Zero   RW          210    .bss.mz             mpu9250.o
     0x200011c8        -       0x000000ff   Zero   RW          372    .bss.nmea_line      gnss_utils.o
     0x200012c7        -       0x00000001   Zero   RW          373    .bss.nmea_pos       gnss_utils.o
-    0x200012c8        -       0x00000080   Zero   RW          413    .bss.nrf            main.o
-    0x20001348        -       0x00000004   Zero   RW          214    .bss.pitch          mpu9250.o
-    0x2000134c        -       0x00000001   Zero   RW          615    .bss.retUSER        fatfs.o
-    0x2000134d   COMPRESSED   0x00000003   PAD
-    0x20001350        -       0x00000004   Zero   RW          216    .bss.roll           mpu9250.o
-    0x20001354        -       0x00000001   Zero   RW          404    .bss.rxbuf          main.o
-    0x20001355   COMPRESSED   0x00000003   PAD
-    0x20001358        -       0x00000004   Zero   RW          411    .bss.sum            main.o
-    0x2000135c        -       0x00000004   Zero   RW          412    .bss.sumCount       main.o
-    0x20001360        -       0x00000002   Zero   RW          211    .bss.tempCount      mpu9250.o
-    0x20001362   COMPRESSED   0x00000002   PAD
-    0x20001364        -       0x00000004   Zero   RW          212    .bss.temperature    mpu9250.o
-    0x20001368        -       0x00000004   Zero   RW         1988    .bss.uwTick         stm32f4xx_hal.o
-    0x2000136c        -       0x00000004   Zero   RW          215    .bss.yaw            mpu9250.o
-    0x20001370        -       0x00004000   Zero   RW            2    HEAP                startup_stm32f407xx.o
-    0x20005370        -       0x00004000   Zero   RW            1    STACK               startup_stm32f407xx.o
+    0x200012c8        -       0x000000a0   Zero   RW          413    .bss.nrf            main.o
+    0x20001368        -       0x00000004   Zero   RW          214    .bss.pitch          mpu9250.o
+    0x2000136c        -       0x00000001   Zero   RW          615    .bss.retUSER        fatfs.o
+    0x2000136d   COMPRESSED   0x00000003   PAD
+    0x20001370        -       0x00000004   Zero   RW          216    .bss.roll           mpu9250.o
+    0x20001374        -       0x00000001   Zero   RW          404    .bss.rxbuf          main.o
+    0x20001375   COMPRESSED   0x00000003   PAD
+    0x20001378        -       0x00000004   Zero   RW          411    .bss.sum            main.o
+    0x2000137c        -       0x00000004   Zero   RW          412    .bss.sumCount       main.o
+    0x20001380        -       0x00000002   Zero   RW          211    .bss.tempCount      mpu9250.o
+    0x20001382   COMPRESSED   0x00000002   PAD
+    0x20001384        -       0x00000004   Zero   RW          212    .bss.temperature    mpu9250.o
+    0x20001388        -       0x00000004   Zero   RW         1988    .bss.uwTick         stm32f4xx_hal.o
+    0x2000138c        -       0x00000004   Zero   RW          215    .bss.yaw            mpu9250.o
+    0x20001390        -       0x00004000   Zero   RW            2    HEAP                startup_stm32f407xx.o
+    0x20005390        -       0x00004000   Zero   RW            1    STACK               startup_stm32f407xx.o
 
 
 ==============================================================================
@@ -7082,10 +7078,10 @@ Image component sizes
        440          0          0          1        259       1262   gnss_utils.o
        578          0          0          0          0       4262   gpio.o
          0          0          0          0         92       5407   i2c.o
-      2604         32        213          0        137      15115   main.o
+      2604         32        213          0        169      15149   main.o
       3296          0          0         20        156      13214   mpu9250.o
       1338          0        244          6        170       2650   nmea_parser.o
-      4444          0          0          0          0      15923   nrf24l01.o
+      4180          0          0          0          0      15984   nrf24l01.o
        198          0          0          0          0       3041   retarget_io.o
        544          0         18          0        276       5828   spi.o
         36          8        392          0      32768        844   startup_stm32f407xx.o
@@ -7122,9 +7118,9 @@ Image component sizes
        648         28          0         20        609       6488   user_diskio.o
 
     ----------------------------------------------------------------------
-     57420        310       1580        312      37412     380739   Object Totals
+     57148        310       1580        312      37444     380834   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-       348          0          4          9         23          0   (incl. Padding)
+       340          0          4          9         23          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -7203,15 +7199,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     64976        730       1956        332      37412     382603   Grand Totals
-     64976        730       1956        200      37412     382603   ELF Image Totals (compressed)
-     64976        730       1956        200          0          0   ROM Totals
+     64704        730       1956        332      37444     382698   Grand Totals
+     64704        730       1956        200      37444     382698   ELF Image Totals (compressed)
+     64704        730       1956        200          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                66932 (  65.36kB)
-    Total RW  Size (RW Data + ZI Data)             37744 (  36.86kB)
-    Total ROM Size (Code + RO Data + RW Data)      67132 (  65.56kB)
+    Total RO  Size (Code + RO Data)                66660 (  65.10kB)
+    Total RW  Size (RW Data + ZI Data)             37776 (  36.89kB)
+    Total ROM Size (Code + RO Data + RW Data)      66860 (  65.29kB)
 
 ==============================================================================
 

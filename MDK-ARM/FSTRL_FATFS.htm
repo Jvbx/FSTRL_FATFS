@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\FSTRL_FATFS.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\FSTRL_FATFS.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6100100: Last Updated: Fri Aug 24 02:25:52 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6100100: Last Updated: Sat Aug 25 02:31:11 2018
 <BR><P>
-<H3>Maximum Stack Usage =        808 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        704 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-main &rArr; nrf_init &rArr; nrf_set_crc_width &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+main &rArr; nrf_init &rArr; nrf_set_crc_width &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 <P>
 <H3>
 Mutually Recursive functions
@@ -2536,7 +2536,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> printfa.o(i.__0printf)
 </UL>
 <P><STRONG><a name="[78]"></a>main</STRONG> (Thumb, 142 bytes, Stack size 296 bytes, main.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 808<LI>Call Chain = main &rArr; nrf_init &rArr; nrf_set_crc_width &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 704<LI>Call Chain = main &rArr; nrf_init &rArr; nrf_set_crc_width &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_send_packet
 <LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
@@ -2647,8 +2647,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
 </UL>
 
-<P><STRONG><a name="[19d]"></a>nrf_clear_interrupts</STRONG> (Thumb, 92 bytes, Stack size 24 bytes, nrf24l01.o(.text.nrf_clear_interrupts))
-<BR><BR>[Stack]<UL><LI>Max Depth = 352<LI>Call Chain = nrf_clear_interrupts &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[19d]"></a>nrf_clear_interrupts</STRONG> (Thumb, 78 bytes, Stack size 24 bytes, nrf24l01.o(.text.nrf_clear_interrupts))
+<BR><BR>[Stack]<UL><LI>Max Depth = 352<LI>Call Chain = nrf_clear_interrupts &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_read_register
@@ -2656,8 +2656,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
 </UL>
 
-<P><STRONG><a name="[1a0]"></a>nrf_enable_auto_ack</STRONG> (Thumb, 104 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_enable_auto_ack))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_enable_auto_ack &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[1a0]"></a>nrf_enable_auto_ack</STRONG> (Thumb, 90 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_enable_auto_ack))
+<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_enable_auto_ack &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_read_register
@@ -2665,8 +2665,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
 </UL>
 
-<P><STRONG><a name="[1a1]"></a>nrf_enable_crc</STRONG> (Thumb, 130 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_enable_crc))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_enable_crc &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[1a1]"></a>nrf_enable_crc</STRONG> (Thumb, 116 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_enable_crc))
+<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_enable_crc &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_read_register
@@ -2674,8 +2674,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
 </UL>
 
-<P><STRONG><a name="[1a2]"></a>nrf_enable_max_retransmit_irq</STRONG> (Thumb, 130 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_enable_max_retransmit_irq))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_enable_max_retransmit_irq &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[1a2]"></a>nrf_enable_max_retransmit_irq</STRONG> (Thumb, 116 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_enable_max_retransmit_irq))
+<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_enable_max_retransmit_irq &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_read_register
@@ -2683,8 +2683,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
 </UL>
 
-<P><STRONG><a name="[1a3]"></a>nrf_enable_rx_data_ready_irq</STRONG> (Thumb, 130 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_enable_rx_data_ready_irq))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_enable_rx_data_ready_irq &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[1a3]"></a>nrf_enable_rx_data_ready_irq</STRONG> (Thumb, 116 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_enable_rx_data_ready_irq))
+<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_enable_rx_data_ready_irq &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_read_register
@@ -2692,8 +2692,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
 </UL>
 
-<P><STRONG><a name="[1a4]"></a>nrf_enable_tx_data_sent_irq</STRONG> (Thumb, 130 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_enable_tx_data_sent_irq))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_enable_tx_data_sent_irq &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[1a4]"></a>nrf_enable_tx_data_sent_irq</STRONG> (Thumb, 116 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_enable_tx_data_sent_irq))
+<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_enable_tx_data_sent_irq &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_read_register
@@ -2701,7 +2701,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
 </UL>
 
-<P><STRONG><a name="[1a5]"></a>nrf_flush_rx</STRONG> (Thumb, 76 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_flush_rx))
+<P><STRONG><a name="[1a5]"></a>nrf_flush_rx</STRONG> (Thumb, 56 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_flush_rx))
 <BR><BR>[Stack]<UL><LI>Max Depth = 304<LI>Call Chain = nrf_flush_rx &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_send_command
@@ -2709,7 +2709,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
 </UL>
 
-<P><STRONG><a name="[1a7]"></a>nrf_flush_tx</STRONG> (Thumb, 76 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_flush_tx))
+<P><STRONG><a name="[1a7]"></a>nrf_flush_tx</STRONG> (Thumb, 56 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_flush_tx))
 <BR><BR>[Stack]<UL><LI>Max Depth = 304<LI>Call Chain = nrf_flush_tx &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_send_command
@@ -2718,8 +2718,8 @@ Global Symbols
 <LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
 </UL>
 
-<P><STRONG><a name="[18b]"></a>nrf_init</STRONG> (Thumb, 614 bytes, Stack size 144 bytes, nrf24l01.o(.text.nrf_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 512<LI>Call Chain = nrf_init &rArr; nrf_set_crc_width &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[18b]"></a>nrf_init</STRONG> (Thumb, 636 bytes, Stack size 40 bytes, nrf24l01.o(.text.nrf_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 408<LI>Call Chain = nrf_init &rArr; nrf_set_crc_width &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_tx_power
@@ -2753,8 +2753,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a1]"></a>nrf_irq_handler</STRONG> (Thumb, 386 bytes, Stack size 80 bytes, nrf24l01.o(.text.nrf_irq_handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 448<LI>Call Chain = nrf_irq_handler &rArr; nrf_rx_tx_control &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[a1]"></a>nrf_irq_handler</STRONG> (Thumb, 384 bytes, Stack size 72 bytes, nrf24l01.o(.text.nrf_irq_handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 440<LI>Call Chain = nrf_irq_handler &rArr; nrf_rx_tx_control &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_rx_tx_control
@@ -2775,8 +2775,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_irq_handler
 </UL>
 
-<P><STRONG><a name="[1a8]"></a>nrf_power_up</STRONG> (Thumb, 130 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_power_up))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_power_up &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[1a8]"></a>nrf_power_up</STRONG> (Thumb, 116 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_power_up))
+<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_power_up &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_read_register
@@ -2785,7 +2785,7 @@ Global Symbols
 <LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
 </UL>
 
-<P><STRONG><a name="[19e]"></a>nrf_read_register</STRONG> (Thumb, 88 bytes, Stack size 56 bytes, nrf24l01.o(.text.nrf_read_register))
+<P><STRONG><a name="[19e]"></a>nrf_read_register</STRONG> (Thumb, 68 bytes, Stack size 56 bytes, nrf24l01.o(.text.nrf_read_register))
 <BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_send_command
@@ -2809,7 +2809,7 @@ Global Symbols
 <LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_clear_interrupts
 </UL>
 
-<P><STRONG><a name="[1b7]"></a>nrf_read_rx_payload</STRONG> (Thumb, 150 bytes, Stack size 16 bytes, nrf24l01.o(.text.nrf_read_rx_payload))
+<P><STRONG><a name="[1b7]"></a>nrf_read_rx_payload</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, nrf24l01.o(.text.nrf_read_rx_payload))
 <BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = nrf_read_rx_payload &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_send_command
@@ -2817,8 +2817,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_irq_handler
 </UL>
 
-<P><STRONG><a name="[1b6]"></a>nrf_rx_tx_control</STRONG> (Thumb, 136 bytes, Stack size 40 bytes, nrf24l01.o(.text.nrf_rx_tx_control))
-<BR><BR>[Stack]<UL><LI>Max Depth = 368<LI>Call Chain = nrf_rx_tx_control &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[1b6]"></a>nrf_rx_tx_control</STRONG> (Thumb, 122 bytes, Stack size 40 bytes, nrf24l01.o(.text.nrf_rx_tx_control))
+<BR><BR>[Stack]<UL><LI>Max Depth = 368<LI>Call Chain = nrf_rx_tx_control &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_read_register
@@ -2848,7 +2848,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[18c]"></a>nrf_send_packet</STRONG> (Thumb, 98 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_send_packet))
-<BR><BR>[Stack]<UL><LI>Max Depth = 400<LI>Call Chain = nrf_send_packet &rArr; nrf_rx_tx_control &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 400<LI>Call Chain = nrf_send_packet &rArr; nrf_rx_tx_control &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_tx_payload
@@ -2860,7 +2860,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1ab]"></a>nrf_set_address_width</STRONG> (Thumb, 114 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_address_width))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_address_width &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_address_width &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_read_register
@@ -2869,7 +2869,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1a9]"></a>nrf_set_crc_width</STRONG> (Thumb, 130 bytes, Stack size 40 bytes, nrf24l01.o(.text.nrf_set_crc_width))
-<BR><BR>[Stack]<UL><LI>Max Depth = 368<LI>Call Chain = nrf_set_crc_width &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 368<LI>Call Chain = nrf_set_crc_width &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_read_register
@@ -2878,7 +2878,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1af]"></a>nrf_set_data_rate</STRONG> (Thumb, 170 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_data_rate))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_data_rate &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_data_rate &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_read_register
@@ -2887,7 +2887,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1ac]"></a>nrf_set_retransmittion_count</STRONG> (Thumb, 132 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_retransmittion_count))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_retransmittion_count &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_retransmittion_count &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_read_register
@@ -2896,7 +2896,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1ad]"></a>nrf_set_retransmittion_delay</STRONG> (Thumb, 134 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_retransmittion_delay))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_retransmittion_delay &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_retransmittion_delay &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_read_register
@@ -2905,7 +2905,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1ae]"></a>nrf_set_rf_channel</STRONG> (Thumb, 120 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_rf_channel))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_rf_channel &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_rf_channel &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_read_register
@@ -2930,7 +2930,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1b4]"></a>nrf_set_rx_payload_width_p0</STRONG> (Thumb, 82 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_rx_payload_width_p0))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_rx_payload_width_p0 &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 352<LI>Call Chain = nrf_set_rx_payload_width_p0 &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 </UL>
@@ -2938,15 +2938,15 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1b5]"></a>nrf_set_rx_payload_width_p1</STRONG> (Thumb, 82 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_rx_payload_width_p1))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_rx_payload_width_p1 &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 352<LI>Call Chain = nrf_set_rx_payload_width_p1 &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 </UL>
 <BR>[Called By]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
 </UL>
 
-<P><STRONG><a name="[1aa]"></a>nrf_set_rx_pipes</STRONG> (Thumb, 56 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_rx_pipes))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_rx_pipes &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[1aa]"></a>nrf_set_rx_pipes</STRONG> (Thumb, 36 bytes, Stack size 24 bytes, nrf24l01.o(.text.nrf_set_rx_pipes))
+<BR><BR>[Stack]<UL><LI>Max Depth = 344<LI>Call Chain = nrf_set_rx_pipes &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 </UL>
@@ -2962,7 +2962,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1b0]"></a>nrf_set_tx_power</STRONG> (Thumb, 116 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_tx_power))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_tx_power &rArr; nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_tx_power &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_read_register
@@ -2970,8 +2970,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
 </UL>
 
-<P><STRONG><a name="[19f]"></a>nrf_write_register</STRONG> (Thumb, 86 bytes, Stack size 56 bytes, nrf24l01.o(.text.nrf_write_register))
-<BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[19f]"></a>nrf_write_register</STRONG> (Thumb, 66 bytes, Stack size 48 bytes, nrf24l01.o(.text.nrf_write_register))
+<BR><BR>[Stack]<UL><LI>Max Depth = 320<LI>Call Chain = nrf_write_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_send_command
 </UL>
@@ -2996,7 +2996,7 @@ Global Symbols
 <LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_clear_interrupts
 </UL>
 
-<P><STRONG><a name="[1b9]"></a>nrf_write_tx_payload</STRONG> (Thumb, 150 bytes, Stack size 16 bytes, nrf24l01.o(.text.nrf_write_tx_payload))
+<P><STRONG><a name="[1b9]"></a>nrf_write_tx_payload</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, nrf24l01.o(.text.nrf_write_tx_payload))
 <BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = nrf_write_tx_payload &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_send_command
