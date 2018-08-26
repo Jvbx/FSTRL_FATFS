@@ -150,34 +150,82 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>429</LineNumber>
+          <LineNumber>199</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134267432</Address>
+          <Address>134275084</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>../Core/Src/main.c</Filename>
+          <Filename>..\Drivers\NRF24L01\nrf24l01.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\FSTRL_FATFS\../Core/Src/main.c\429</Expression>
+          <Expression>\\FSTRL_FATFS\../Drivers/NRF24L01/nrf24l01.c\199</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>435</LineNumber>
+          <LineNumber>201</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134267444</Address>
+          <Address>134275104</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>../Core/Src/main.c</Filename>
+          <Filename>..\Drivers\NRF24L01\nrf24l01.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\FSTRL_FATFS\../Core/Src/main.c\435</Expression>
+          <Expression>\\FSTRL_FATFS\../Drivers/NRF24L01/nrf24l01.c\201</Expression>
+        </Bp>
+        <Bp>
+          <Number>2</Number>
+          <Type>0</Type>
+          <LineNumber>204</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134275152</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\Drivers\NRF24L01\nrf24l01.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\FSTRL_FATFS\../Drivers/NRF24L01/nrf24l01.c\204</Expression>
+        </Bp>
+        <Bp>
+          <Number>3</Number>
+          <Type>0</Type>
+          <LineNumber>206</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134275176</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\Drivers\NRF24L01\nrf24l01.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\FSTRL_FATFS\../Drivers/NRF24L01/nrf24l01.c\206</Expression>
+        </Bp>
+        <Bp>
+          <Number>4</Number>
+          <Type>0</Type>
+          <LineNumber>195</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134275052</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\Drivers\NRF24L01\nrf24l01.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\FSTRL_FATFS\../Drivers/NRF24L01/nrf24l01.c\195</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>

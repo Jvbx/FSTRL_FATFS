@@ -87,22 +87,41 @@ typedef enum { NRF_STATE_RX = 1, NRF_STATE_TX = 0 } NRF_TXRX_STATE;
 
 typedef enum { NRF_OK, NRF_ERROR, NRF_INVALID_ARGUMENT } NRF_RESULT;
 
+
+
+
+
+
+
+
+
+
+
+
+typedef struct {
+   volatile uint8_t enabled;
+   volatile uint8_t address[5];
+   volatile uint8_t pload_len;
+   volatile uint8_t dynpd_en;
+   volatile uint8_t ack_en;
+} nrf24l01_datapipe; 
+
+
+
+
 typedef struct {
 
-    NRF_DATA_RATE  data_rate;
-    NRF_TX_PWR     tx_power;
-    NRF_CRC_WIDTH  crc_width;
-    NRF_ADDR_WIDTH addr_width;
-
-    uint8_t  payload_length;
-    uint8_t  retransmit_count;
-    uint8_t  retransmit_delay;
-    uint8_t  rf_channel;
-    uint8_t  rx_address[5];
-    uint8_t  rx_address_p1[5];                       
+    NRF_DATA_RATE      data_rate;
+    NRF_TX_PWR         tx_power;
+    NRF_CRC_WIDTH      crc_width;
+    NRF_ADDR_WIDTH     addr_width;
+    uint8_t            tx_addr[5];
+    uint8_t            tx_pload_len;
+    uint8_t            rf_channel;
+    uint8_t            retransmit_count;
+    uint8_t            retransmit_delay;
   
-  
-    uint8_t  tx_address[5];
+    nrf24l01_datapipe  pipes[6];                       
 
    
     SPI_HandleTypeDef*  spi;
@@ -150,6 +169,7 @@ typedef struct {
 
 } nrf24l01_registers;
 
+ 
 
 
 typedef struct {
