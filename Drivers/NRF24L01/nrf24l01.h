@@ -11,23 +11,7 @@
 #include "stm32f4xx_hal.h"
 #endif
 
-
-#define NRF_DATARATE       NRF_DATA_RATE_250KBPS
-#define NRF_TXPOWER        NRF_TX_PWR_0dBm
-#define NRF_CRC_ON         1
-#define NRF_CRC_WITH       NRF_CRC_WIDTH_1B
-#define NRF_ADR_WITH       NRF_ADDR_WIDTH_5
-#define NRF_PAYLOADLEN     0x10
-#define NRF_RETRANSCOUNT   0x0F           //15
-#define NRF_RETRANSDELAY   0x07          //4000 uS
-#define NRF_CHANNEL        119           //2.519Ghz
-#define NRF_SPI_TIMEOUT    10
-
-
-
-
-
-#define NRF_PWR_UP_BIT     2
+#define NRF_PWR_UP_BIT     (1 << 1)
 #define NRF_RX_FIFO_INT    (1 << 6)
 #define NRF_TX_SEND_INT    (1 << 5)
 #define NRF_MAX_RETRANSMITS_INT (1 << 4)
@@ -43,7 +27,7 @@ typedef enum {
     NRF_RF_SETUP    = 0x06,
     NRF_STATUS      = 0x07,
     NRF_OBSERVE_TX  = 0x08,
-    NRF_CD          = 0x09,
+    NRF_RPD         = 0x09,
     NRF_RX_ADDR_P0  = 0x0A,
     NRF_RX_ADDR_P1  = 0x0B,
     NRF_RX_ADDR_P2  = 0x0C,
@@ -71,11 +55,11 @@ typedef enum {
     NRF_CMD_FLUSH_TX           = 0xE1,
     NRF_CMD_FLUSH_RX           = 0xE2,
     NRF_CMD_REUSE_TX_PL        = 0xE3,
-    NRF_CMD_ACTIVATE           = 0x50,
     NRF_CMD_R_RX_PL_WID        = 0x60,
     NRF_CMD_W_ACK_PAYLOAD      = 0xA8,
     NRF_CMD_W_TX_PAYLOAD_NOACK = 0xB0,
-    NRF_CMD_NOP                = 0xFF
+    NRF_CMD_NOP                = 0xFF,
+    NRF_CMD_ACTIVATE           = 0x50
 } NRF_COMMAND;
 
 typedef enum {
@@ -135,14 +119,48 @@ typedef struct {
 
 } nrf24l01_config;
 
+
 typedef struct {
-    nrf24l01_config config;
+ volatile uint8_t   config;
+ volatile uint8_t   en_aa;
+ volatile uint8_t   en_rxaddr;
+ volatile uint8_t   setup_aw;
+ volatile uint8_t   setup_retr;
+ volatile uint8_t   rf_ch;
+ volatile uint8_t   rf_setup;
+ volatile uint8_t   status;
+ volatile uint8_t   observe_tx;
+ volatile uint8_t   rpd;
+ volatile uint8_t   rx_addr_p0[5];
+ volatile uint8_t   rx_addr_p1[5];
+ volatile uint8_t   rx_addr_p2;
+ volatile uint8_t   rx_addr_p3;
+ volatile uint8_t   rx_addr_p4;
+ volatile uint8_t   rx_addr_p5;
+ volatile uint8_t   tx_addr[5];
+ volatile uint8_t   rx_pw_p0;
+ volatile uint8_t   rx_pw_p1;
+ volatile uint8_t   rx_pw_p2;
+ volatile uint8_t   rx_pw_p3;
+ volatile uint8_t   rx_pw_p4;
+ volatile uint8_t   rx_pw_p5;
+ volatile uint8_t   fifo_status;
+ volatile uint8_t   dynpd;
+ volatile uint8_t   feature;
+
+} nrf24l01_registers;
+
+
+
+typedef struct {
+    nrf24l01_config         config;
+    nrf24l01_registers      registers;
     volatile uint8_t        tx_busy;
     volatile NRF_RESULT     tx_result;
     volatile uint8_t        rx_busy;
     volatile NRF_TXRX_STATE state;
     uint8_t        cmdbuffer[8];
-    uint8_t        rtxbuffer[34];      /* Must be sufficient size according to payload_length */
+    uint8_t        rtxbuf[34];      /* Must be sufficient size according to payload_length */
     uint8_t        rxpayload[32];
 } nrf24l01;
 
@@ -231,6 +249,7 @@ NRF_RESULT nrf_enable_rx_data_ready_irq(nrf24l01* dev, bool activate);
 NRF_RESULT nrf_enable_tx_data_sent_irq(nrf24l01* dev, bool activate);
 NRF_RESULT nrf_enable_max_retransmit_irq(nrf24l01* dev, bool activate);
 
+
 /* RX_ADDR_P0 */
 NRF_RESULT nrf_set_rx_address_p0(nrf24l01* dev, const uint8_t*  address); // 5bytes of address
 
@@ -245,3 +264,11 @@ NRF_RESULT nrf_set_rx_payload_width_p0(nrf24l01* dev, uint8_t width);
 
 /* RX_PW_P1 */
 NRF_RESULT nrf_set_rx_payload_width_p1(nrf24l01* dev, uint8_t width);
+
+
+
+NRF_RESULT nrf_enable_pipe_dyn_payload(nrf24l01* dev, uint8_t pipe_num);
+NRF_RESULT nrf_disable_pipe_dyn_payload(nrf24l01* dev, uint8_t pipe_num);
+NRF_RESULT nrf_set_feature(nrf24l01* dev, uint8_t en_dpl, uint8_t en_ack_pay, uint8_t en_dyn_ack);
+NRF_RESULT nrf_read_observe_tx(nrf24l01* dev);
+uint8_t nrf_carrier_detect(nrf24l01* dev);
