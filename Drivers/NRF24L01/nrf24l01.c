@@ -35,6 +35,7 @@ NRF_RESULT res;
     /*--- RF channel settings - datarate, power, channel, crc, retransmit timings---*/
         dev->config.data_rate          = NRF_DATARATE;
         dev->config.tx_power           = NRF_TXPOWER;
+        dev->config.tx_pload_len       = NRF_TX_PAYLOADLEN;
         dev->config.rf_channel         = NRF_CHANNEL;
         dev->config.crc_en             = NRF_CRC_STATE;
         dev->config.crc_width          = NRF_CRC_WIDTH_CFG;
@@ -142,20 +143,9 @@ NRF_RESULT res;
     res |= nrf_set_pipe_dyn_payload(dev, i, dev->config.pipes[i].dynpd_en);
     res |= nrf_set_auto_ack(dev, i, dev->config.pipes[i].ack_en);
     res |= nrf_set_pipe_address(dev, i, (uint8_t*)&dev->config.pipes[i].address);
-       
+    res |= nrf_set_rx_payload_width(dev, i, dev->config.pipes[i].pload_len);   
   }    
  
-         
-         
- 
-  res |= nrf_set_rx_payload_width_p0(dev, dev->config.pipes[0].pload_len);
-  res |= nrf_set_rx_payload_width_p1(dev, dev->config.pipes[1].pload_len);
-
-     
-
-
-     
-
   res |= nrf_set_rf_channel(dev, dev->config.rf_channel);
   res |= nrf_set_data_rate(dev, dev->config.data_rate);    
   res |= nrf_set_tx_power(dev, dev->config.tx_power);
@@ -559,15 +549,15 @@ NRF_RESULT nrf_set_tx_address(nrf24l01* dev, const uint8_t* address) {
     return NRF_OK;
 }
 
-//NRF_RESULT nrf_set_rx_payload_width_p0(nrf24l01* dev, uint8_t width) {
-//    width &= 0x3F;
-//    if (nrf_write_register(dev, NRF_RX_PW_P0, &width) != NRF_OK) {
-//        dev->config.pipes[0].pload_len = 0;
-//        return NRF_ERROR;
-//    }
-//    dev->config.pipes[0].pload_len = width;
-//    return NRF_OK;
-//}
+NRF_RESULT nrf_set_rx_payload_width(nrf24l01* dev, uint8_t pipe_num, uint8_t width) {
+    width &= 0x3F;
+    if (nrf_write_register(dev, NRF_RX_PW_P0 + pipe_num, &width) != NRF_OK) {
+        dev->config.pipes[pipe_num].pload_len = 0;
+        return NRF_ERROR;
+    }
+    dev->config.pipes[pipe_num].pload_len = width;
+    return NRF_OK;
+}
 
 //NRF_RESULT nrf_set_rx_payload_width_p1(nrf24l01* dev, uint8_t width) {
 //    width &= 0x3F;
