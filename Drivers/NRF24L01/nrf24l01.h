@@ -85,7 +85,7 @@ typedef enum { NRF_CRC_WIDTH_1B = 0, NRF_CRC_WIDTH_2B = 1 } NRF_CRC_WIDTH;
 
 typedef enum { NRF_STATE_RX = 1, NRF_STATE_TX = 0 } NRF_TXRX_STATE;
 
-typedef enum { NRF_OK, NRF_ERROR, NRF_INVALID_ARGUMENT } NRF_RESULT;
+typedef enum { NRF_OK, NRF_ERROR, NRF_INVALID_ARGUMENT, NRF_TIMEOUT } NRF_RESULT;
 
 
 
@@ -106,35 +106,33 @@ typedef struct {
    volatile uint8_t ack_en;
 } nrf24l01_datapipe; 
 
-
-
+typedef struct {
+  
+    SPI_HandleTypeDef*  spi;
+    uint32_t            spi_timeout;
+    GPIO_TypeDef*       csn_port;
+    uint16_t            csn_pin;
+    GPIO_TypeDef*       ce_port;
+    uint16_t            ce_pin;
+    GPIO_TypeDef*       irq_port;
+    uint16_t            irq_pin;
+  
+} nrf24l01_hwconfig;
 
 typedef struct {
-
+    nrf24l01_datapipe  pipes[6];
+    uint8_t            tx_addr[5];  
+    NRF_ADDR_WIDTH     addr_width;
     NRF_DATA_RATE      data_rate;
     NRF_TX_PWR         tx_power;
+    uint8_t            crc_en;
     NRF_CRC_WIDTH      crc_width;
-    NRF_ADDR_WIDTH     addr_width;
-    uint8_t            tx_addr[5];
-    uint8_t            tx_pload_len;
+    
+    
+    uint8_t            tx_pload_len;      //ignored when dymamic payload activated
     uint8_t            rf_channel;
     uint8_t            retransmit_count;
     uint8_t            retransmit_delay;
-  
-    nrf24l01_datapipe  pipes[6];                       
-
-   
-    SPI_HandleTypeDef*  spi;
-    uint32_t            spi_timeout;
-
-    GPIO_TypeDef*       csn_port;
-    uint16_t            csn_pin;
-
-    GPIO_TypeDef*       ce_port;
-    uint16_t            ce_pin;
-
-    GPIO_TypeDef*       irq_port;
-    uint16_t            irq_pin;
 
 } nrf24l01_config;
 
@@ -174,12 +172,13 @@ typedef struct {
 
 typedef struct {
     nrf24l01_config         config;
+    nrf24l01_hwconfig       hwconfig;
     nrf24l01_registers      registers;
     volatile uint8_t        tx_busy;
     volatile NRF_RESULT     tx_result;
     volatile uint8_t        rx_busy;
     volatile NRF_TXRX_STATE state;
-    uint8_t        cmdbuffer[8];
+    //uint8_t        cmdbuffer[8];
     uint8_t        rtxbuf[34];      /* Must be sufficient size according to payload_length */
     uint8_t        rxpayload[32];
 } nrf24l01;
@@ -257,7 +256,7 @@ NRF_RESULT nrf_set_address_width(nrf24l01* dev, NRF_ADDR_WIDTH width);
 NRF_RESULT nrf_set_rx_pipes(nrf24l01* dev, uint8_t pipes);
 
 /* EN_AA */
-NRF_RESULT nrf_enable_auto_ack(nrf24l01* dev, uint8_t pipe);
+NRF_RESULT nrf_set_auto_ack(nrf24l01* dev, uint8_t pipe_num, uint8_t ack_state);
 // TODO disable AA?
 
 /* CONFIG */
@@ -271,24 +270,23 @@ NRF_RESULT nrf_enable_max_retransmit_irq(nrf24l01* dev, bool activate);
 
 
 /* RX_ADDR_P0 */
-NRF_RESULT nrf_set_rx_address_p0(nrf24l01* dev, const uint8_t*  address); // 5bytes of address
-
+//NRF_RESULT nrf_set_rx_address_p0(nrf24l01* dev, const uint8_t*  address); // 5bytes of address
+ NRF_RESULT nrf_set_pipe_address(nrf24l01* dev, uint8_t pipe_num ,const uint8_t* address);
 /* RX_ADDR_P1 */
-NRF_RESULT nrf_set_rx_address_p1(nrf24l01* dev, const uint8_t*  address); // 5bytes of address
+//NRF_RESULT nrf_set_rx_address_p1(nrf24l01* dev, const uint8_t*  address); // 5bytes of address
 
 /* TX_ADDR */
 NRF_RESULT nrf_set_tx_address(nrf24l01* dev, const uint8_t*  address); // 5bytes of address
 
 /* RX_PW_P0 */
-NRF_RESULT nrf_set_rx_payload_width_p0(nrf24l01* dev, uint8_t width);
+//NRF_RESULT nrf_set_rx_payload_width_p0(nrf24l01* dev, uint8_t width);
 
 /* RX_PW_P1 */
-NRF_RESULT nrf_set_rx_payload_width_p1(nrf24l01* dev, uint8_t width);
+//NRF_RESULT nrf_set_rx_payload_width_p1(nrf24l01* dev, uint8_t width);
 
 
 
-NRF_RESULT nrf_enable_pipe_dyn_payload(nrf24l01* dev, uint8_t pipe_num);
-NRF_RESULT nrf_disable_pipe_dyn_payload(nrf24l01* dev, uint8_t pipe_num);
+NRF_RESULT nrf_set_pipe_dyn_payload(nrf24l01* dev, uint8_t pipe_num, uint8_t dynpd_state);
 NRF_RESULT nrf_set_feature(nrf24l01* dev, uint8_t en_dpl, uint8_t en_ack_pay, uint8_t en_dyn_ack);
 NRF_RESULT nrf_read_observe_tx(nrf24l01* dev);
 uint8_t nrf_carrier_detect(nrf24l01* dev);

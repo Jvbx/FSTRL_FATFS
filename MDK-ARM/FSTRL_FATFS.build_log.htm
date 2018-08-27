@@ -27,7 +27,36 @@ Project File Date:  08/24/2018
 <h2>Output:</h2>
 *** Using Compiler 'V6.10.1', folder: 'D:\Keil_v5\ARM\ARMCC6.10\Bin'
 Build target 'FSTRL_FATFS'
-".\FSTRL_FATFS.axf" - 0 Error(s), 0 Warning(s).
+../Drivers/NRF24L01/nrf24l01.c(50): error: cannot take the address of an rvalue of type 'int'
+       uint8_t* pipes_addr[6]  = {NRF_RX_PIPE0_ADDR, NRF_RX_PIPE1_ADDR, (uint8_t*)&NRF_RX_PIPE2_ADDR, NRF_RX_PIPE3_ADDR,  NRF_RX_PIPE4_ADDR,  NRF_RX_PIPE5_ADDR};
+                                                                                  ^~~~~~~~~~~~~~~~~~
+../Drivers/NRF24L01/nrf24l01.c(76): warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        dev->config.pipes[2].address[5] = NRF_RX_PIPE2_ADDR;
+        ^                            ~
+../Drivers/NRF24L01/nrf24l01.h(103): note: array 'address' declared here
+   volatile uint8_t address[5];
+   ^
+../Drivers/NRF24L01/nrf24l01.c(86): warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        dev->config.pipes[3].address[5] = NRF_RX_PIPE3_ADDR;
+        ^                            ~
+../Drivers/NRF24L01/nrf24l01.h(103): note: array 'address' declared here
+   volatile uint8_t address[5];
+   ^
+../Drivers/NRF24L01/nrf24l01.c(95): warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        dev->config.pipes[4].address[5] = NRF_RX_PIPE4_ADDR;
+        ^                            ~
+../Drivers/NRF24L01/nrf24l01.h(103): note: array 'address' declared here
+   volatile uint8_t address[5];
+   ^
+../Drivers/NRF24L01/nrf24l01.c(104): warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        dev->config.pipes[5].address[5] = NRF_RX_PIPE5_ADDR;
+        ^                            ~
+../Drivers/NRF24L01/nrf24l01.h(103): note: array 'address' declared here
+   volatile uint8_t address[5];
+   ^
+4 warnings and 1 error generated.
+compiling nrf24l01.c...
+".\FSTRL_FATFS.axf" - 1 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -67,7 +96,8 @@ Package Vendor: Keil
       Source file:   Source\retarget_io.c
 
    * Component: ARM::CMSIS:CORE:5.1.2
-Build Time Elapsed:  00:00:01
+Target not created.
+Build Time Elapsed:  00:00:06
 </pre>
 </body>
 </html>
