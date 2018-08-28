@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\FSTRL_FATFS.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\FSTRL_FATFS.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6100100: Last Updated: Tue Aug 28 02:28:26 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6100100: Last Updated: Wed Aug 29 01:11:51 2018
 <BR><P>
 <H3>Maximum Stack Usage =        824 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -2720,8 +2720,8 @@ Global Symbols
 <LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_rx_pipes
 <LI><a href="#[1af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_rx_payload_width
 <LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_rf_channel
-<LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_retransmittion_delay
-<LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_retransmittion_count
+<LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_retransmit_delay
+<LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_retransmit_count
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_pipe_dyn_payload
 <LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_pipe_address
 <LI><a href="#[1b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_data_rate
@@ -2784,8 +2784,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_tx_power
 <LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_rf_channel
-<LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_retransmittion_delay
-<LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_retransmittion_count
+<LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_retransmit_delay
+<LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_retransmit_count
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_pipe_dyn_payload
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_feature
 <LI><a href="#[1b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_data_rate
@@ -2852,7 +2852,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1a9]"></a>nrf_set_address_width</STRONG> (Thumb, 122 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_address_width))
+<P><STRONG><a name="[1a9]"></a>nrf_set_address_width</STRONG> (Thumb, 80 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_address_width))
 <BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_address_width &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
@@ -2918,8 +2918,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
 </UL>
 
-<P><STRONG><a name="[1b3]"></a>nrf_set_retransmittion_count</STRONG> (Thumb, 142 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_retransmittion_count))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_retransmittion_count &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[1b3]"></a>nrf_set_retransmit_count</STRONG> (Thumb, 142 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_retransmit_count))
+<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_retransmit_count &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_read_register
@@ -2927,8 +2927,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
 </UL>
 
-<P><STRONG><a name="[1b4]"></a>nrf_set_retransmittion_delay</STRONG> (Thumb, 144 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_retransmittion_delay))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_retransmittion_delay &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[1b4]"></a>nrf_set_retransmit_delay</STRONG> (Thumb, 144 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_retransmit_delay))
+<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_retransmit_delay &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_read_register
@@ -2936,7 +2936,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
 </UL>
 
-<P><STRONG><a name="[1b0]"></a>nrf_set_rf_channel</STRONG> (Thumb, 128 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_rf_channel))
+<P><STRONG><a name="[1b0]"></a>nrf_set_rf_channel</STRONG> (Thumb, 102 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_rf_channel))
 <BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_rf_channel &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
@@ -2970,7 +2970,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
 </UL>
 
-<P><STRONG><a name="[1b2]"></a>nrf_set_tx_power</STRONG> (Thumb, 124 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_tx_power))
+<P><STRONG><a name="[1b2]"></a>nrf_set_tx_power</STRONG> (Thumb, 126 bytes, Stack size 32 bytes, nrf24l01.o(.text.nrf_set_tx_power))
 <BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = nrf_set_tx_power &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_write_register
@@ -2988,8 +2988,8 @@ Global Symbols
 <LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_rx_pipes
 <LI><a href="#[1af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_rx_payload_width
 <LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_rf_channel
-<LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_retransmittion_delay
-<LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_retransmittion_count
+<LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_retransmit_delay
+<LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_retransmit_count
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_pipe_dyn_payload
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_feature
 <LI><a href="#[1b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_data_rate

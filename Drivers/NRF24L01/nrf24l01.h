@@ -11,81 +11,14 @@
 #include "stm32f4xx_hal.h"
 #endif
 
-#define NRF_PWR_UP_BIT     (1 << 1)
-#define NRF_RX_FIFO_INT    (1 << 6)
-#define NRF_TX_SEND_INT    (1 << 5)
-#define NRF_MAX_RETRANSMITS_INT (1 << 4)
+#include "nrf24l01def.h"
 
-/* Registers */
-typedef enum {
-    NRF_CONFIG      = 0x00,
-    NRF_EN_AA       = 0x01,
-    NRF_EN_RXADDR   = 0x02,
-    NRF_SETUP_AW    = 0x03,
-    NRF_SETUP_RETR  = 0x04,
-    NRF_RF_CH       = 0x05,
-    NRF_RF_SETUP    = 0x06,
-    NRF_STATUS      = 0x07,
-    NRF_OBSERVE_TX  = 0x08,
-    NRF_RPD         = 0x09,
-    NRF_RX_ADDR_P0  = 0x0A,
-    NRF_RX_ADDR_P1  = 0x0B,
-    NRF_RX_ADDR_P2  = 0x0C,
-    NRF_RX_ADDR_P3  = 0x0D,
-    NRF_RX_ADDR_P4  = 0x0E,
-    NRF_RX_ADDR_P5  = 0x0F,
-    NRF_TX_ADDR     = 0x10,
-    NRF_RX_PW_P0    = 0x11,
-    NRF_RX_PW_P1    = 0x12,
-    NRF_RX_PW_P2    = 0x13,
-    NRF_RX_PW_P3    = 0x14,
-    NRF_RX_PW_P4    = 0x15,
-    NRF_RX_PW_P5    = 0x16,
-    NRF_FIFO_STATUS = 0x17,
-    NRF_DYNPD       = 0x1C,
-    NRF_FEATURE     = 0x1D
-} NRF_REGISTER;
 
-/* Commands */
-typedef enum {
-    NRF_CMD_R_REGISTER         = 0x00,
-    NRF_CMD_W_REGISTER         = 0x20,
-    NRF_CMD_R_RX_PAYLOAD       = 0x61,
-    NRF_CMD_W_TX_PAYLOAD       = 0xA0,
-    NRF_CMD_FLUSH_TX           = 0xE1,
-    NRF_CMD_FLUSH_RX           = 0xE2,
-    NRF_CMD_REUSE_TX_PL        = 0xE3,
-    NRF_CMD_R_RX_PL_WID        = 0x60,
-    NRF_CMD_W_ACK_PAYLOAD      = 0xA8,
-    NRF_CMD_W_TX_PAYLOAD_NOACK = 0xB0,
-    NRF_CMD_NOP                = 0xFF,
-    NRF_CMD_ACTIVATE           = 0x50
-} NRF_COMMAND;
+                        
 
-typedef enum {
-    NRF_DATA_RATE_250KBPS = 1,
-    NRF_DATA_RATE_1MBPS   = 0,
-    NRF_DATA_RATE_2MBPS   = 2
-} NRF_DATA_RATE;
 
-typedef enum {
-    NRF_TX_PWR_M18dBm = 0,
-    NRF_TX_PWR_M12dBm = 1,
-    NRF_TX_PWR_M6dBm  = 2,
-    NRF_TX_PWR_0dBm   = 3
-} NRF_TX_PWR;
 
-typedef enum {
-    NRF_ADDR_WIDTH_3 = 1,
-    NRF_ADDR_WIDTH_4 = 2,
-    NRF_ADDR_WIDTH_5 = 3
-} NRF_ADDR_WIDTH;
 
-typedef enum { NRF_CRC_WIDTH_1B = 0, NRF_CRC_WIDTH_2B = 1 } NRF_CRC_WIDTH;
-
-typedef enum { NRF_STATE_RX = 1, NRF_STATE_TX = 0 } NRF_TXRX_STATE;
-
-typedef enum { NRF_OK, NRF_ERROR, NRF_INVALID_ARGUMENT, NRF_TIMEOUT } NRF_RESULT;
 
 
 
@@ -246,8 +179,8 @@ NRF_RESULT nrf_clear_interrupts(nrf24l01* dev);
 NRF_RESULT nrf_set_rf_channel(nrf24l01* dev, uint8_t ch);
 
 /* SETUP_RETR */
-NRF_RESULT nrf_set_retransmittion_count(nrf24l01* dev, uint8_t count);
-NRF_RESULT nrf_set_retransmittion_delay(nrf24l01* dev, uint8_t delay);
+NRF_RESULT nrf_set_retransmit_count(nrf24l01* dev, uint8_t count);
+NRF_RESULT nrf_set_retransmit_delay(nrf24l01* dev, uint8_t delay);
 
 /* SETUP_AW */
 NRF_RESULT nrf_set_address_width(nrf24l01* dev, NRF_ADDR_WIDTH width);
