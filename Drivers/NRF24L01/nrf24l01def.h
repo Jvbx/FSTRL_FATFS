@@ -1,3 +1,8 @@
+#pragma once
+
+#define ON   1
+#define OFF  0
+
 #define  BIT7         (1 << 7)
 #define  BIT6         (1 << 6)
 #define  BIT5         (1 << 5)
@@ -10,18 +15,34 @@
 typedef enum {
     NRF_CONFIG      = 0x00,
   
-          #define  NRF_CONFIG_FORBIDDEN_BIT   BIT7
-          #define  NRF_CONFIG_MASK_RX_DR      BIT6
-          #define  NRF_CONFIG_MASK_TS_DR      BIT5
-          #define  NRF_CONFIG_MASK_MAX_RT     BIT4
-          #define  NRF_CONFIG_EN_CRC          BIT3
-          #define  NRF_CONFIG_CRCO            BIT2
-          #define  NRF_CONFIG_PWR_UP          BIT1
-          #define  NRF_CONFIG_PRIM_RX         BIT0 
+          #define  NRF_CONFIG_RESERVED      BIT7
+          #define  NRF_CONFIG_MASK_RX_DR    BIT6
+          #define  NRF_CONFIG_MASK_TS_DR    BIT5
+          #define  NRF_CONFIG_MASK_MAX_RT   BIT4
+          #define  NRF_CONFIG_EN_CRC        BIT3
+          #define  NRF_CONFIG_CRCO          BIT2
+          #define  NRF_CONFIG_PWR_UP        BIT1
+          #define  NRF_CONFIG_PRIM_RX       BIT0 
     
     NRF_EN_AA       = 0x01,
-    NRF_EN_RXADDR   = 0x02,
+         
+          #define  NRF_EN_AA_RESERVED      (BIT7|BIT6)
+          #define  NRF_EN_AA_P5             BIT5
+          #define  NRF_EN_AA_P4             BIT4
+          #define  NRF_EN_AA_P3             BIT3
+          #define  NRF_EN_AA_P2             BIT2
+          #define  NRF_EN_AA_P1             BIT1
+          #define  NRF_EN_AA_P0             BIT0
   
+    NRF_EN_RXADDR   = 0x02,
+    
+          #define  NRF_ERX_RESERVED        (BIT7|BIT6)
+          #define  NRF_ERX_P5               BIT5
+          #define  NRF_ERX_P4               BIT4
+          #define  NRF_ERX_P3               BIT3
+          #define  NRF_ERX_P2               BIT2
+          #define  NRF_ERX_P1               BIT1
+          #define  NRF_ERX_P0               BIT0
   
   
     NRF_SETUP_AW    = 0x03,
@@ -37,7 +58,7 @@ typedef enum {
     NRF_RF_CH       = 0x05,
 
           #define  NRF_RF_CH_FORBIDDEN_BIT    BIT7
-          #define  NRF_RF_CH_RF_CHANNEL       (BIT6|BIT5|BIT6|BIT3|BIT2|BIT1|BIT0|)
+          #define  NRF_RF_CH_RF_CHANNEL       (BIT6|BIT5|BIT4|BIT3|BIT2|BIT1|BIT0|)
          
     NRF_RF_SETUP    = 0x06,
   
@@ -46,26 +67,77 @@ typedef enum {
           #define  NRF_RF_SETUP_RF_DR_LOW     BIT5
           #define  NRF_RF_SETUP_PLL_LOCK      BIT4
           #define  NRF_RF_SETUP_RF_DR_HIGH    BIT3
-          #define  NRF_RF_SETUP_RF_PWR        (BIT2|BIT1)
+          #define  NRF_RF_SETUP_RF_PWR       (BIT2|BIT1)
           #define  NRF_RF_SETUP_OBSOLETE      BIT0
           
     NRF_STATUS      = 0x07,
+    
+          #define  NRF_STATUS_RESERVED        BIT7
+          #define  NRF_STATUS_RX_DR           BIT6
+          #define  NRF_STATUS_TX_DS           BIT5
+          #define  NRF_STATUS_MAX_RT          BIT4
+          #define  NRF_STATUS_RX_P_NO        (BIT3|BIT2|BIT1)
+          #define  NRF_STATUS_TX_FULL         BIT0
+          
+          
     NRF_OBSERVE_TX  = 0x08,
+    
+          #define  NRF_OBSERVE_TX_PLOS_CNT    (BIT7|BIT6|BIT5|BIT4)
+          #define  NRF_OBSERVE_TX_PLOS_CNT    (BIT3|BIT2|BIT1|BIT0)
+   
+   
     NRF_RPD         = 0x09,
-    NRF_RX_ADDR_P0  = 0x0A,
-    NRF_RX_ADDR_P1  = 0x0B,
-    NRF_RX_ADDR_P2  = 0x0C,
+    
+          #define  NRF_RPD_RESERVED           (BIT7|BIT6|BIT5|BIT4)
+          #define  NRF_RPD_RPD                BIT0
+          
+    NRF_RX_ADDR_P0  = 0x0A,     //pipe 0 rx address. 5 bytes max
+    NRF_RX_ADDR_P1  = 0x0B,     //pipe 1 rx address. 5 bytes max
+    NRF_RX_ADDR_P2  = 0x0C,     //pipe 2 rx address. 1 byteonly. high bytes are equal as correspondent bytes of pipe1. 3-5 pipes are the same. and london is the capital of great britain
     NRF_RX_ADDR_P3  = 0x0D,
     NRF_RX_ADDR_P4  = 0x0E,
     NRF_RX_ADDR_P5  = 0x0F,
     NRF_TX_ADDR     = 0x10,
     NRF_RX_PW_P0    = 0x11,
+    
+          #define  NRF_RX_PW_RESERVED         (BIT7|BIT6)
+          #define  NRF_RX_PW_P0               (BIT5|BIT4|BIT3|BIT2|BIT1|BIT0)        // 0 - pipe not used, 1..32 - number of payload byted
+
     NRF_RX_PW_P1    = 0x12,
+    
+          #define  NRF_RX_PW_RESERVED         (BIT7|BIT6)
+          #define  NRF_RX_PW_P1               (BIT5|BIT4|BIT3|BIT2|BIT1|BIT0)
+
     NRF_RX_PW_P2    = 0x13,
+    
+          #define  NRF_RX_PW_RESERVED         (BIT7|BIT6)
+          #define  NRF_RX_PW_P0               (BIT5|BIT4|BIT3|BIT2|BIT1|BIT0)        // 0 - pipe not used, 1..32 - number of payload byted
+
     NRF_RX_PW_P3    = 0x14,
+    
+          #define  NRF_RX_PW_RESERVED         (BIT7|BIT6)
+          #define  NRF_RX_PW_P0               (BIT5|BIT4|BIT3|BIT2|BIT1|BIT0)        // 0 - pipe not used, 1..32 - number of payload byted
+
     NRF_RX_PW_P4    = 0x15,
+    
+          #define  NRF_RX_PW_RESERVED         (BIT7|BIT6)
+          #define  NRF_RX_PW_P0               (BIT5|BIT4|BIT3|BIT2|BIT1|BIT0)        // 0 - pipe not used, 1..32 - number of payload byted
+
     NRF_RX_PW_P5    = 0x16,
+    
+          #define  NRF_RX_PW_RESERVED         (BIT7|BIT6)
+          #define  NRF_RX_PW_P0               (BIT5|BIT4|BIT3|BIT2|BIT1|BIT0)        // 0 - pipe not used, 1..32 - number of payload byted
+
     NRF_FIFO_STATUS = 0x17,
+    
+          #define  NRF_FIFO_STATUS_RESERVED    BIT7 
+          #define  NRF_FIFO_STATUS_TX_REUSE    BIT6
+          #define  NRF_FIFO_STATUS_TX_FULL     BIT5
+          #define  NRF_FIFO_STATUS_TX_EMPYY    BIT4
+          #define  NRF_FIFO_STATUS_RESERVED   (BIT3|BIT2)
+          #define  NRF_FIFO_STATUS_RX_FULL     BIT1
+          #define  NRF_FIFO_STATUS_RX_EMPTY    BIT0
+    
     NRF_DYNPD       = 0x1C,
     NRF_FEATURE     = 0x1D
 } NRF_REGISTER;

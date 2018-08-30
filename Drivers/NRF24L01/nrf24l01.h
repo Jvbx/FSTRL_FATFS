@@ -13,24 +13,6 @@
 
 #include "nrf24l01def.h"
 
-
-                        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 typedef struct {
    volatile uint8_t enabled;
    volatile uint8_t address[5];

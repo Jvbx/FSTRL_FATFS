@@ -1,6 +1,4 @@
-#define ON   1
-#define OFF  0
-
+#pragma once
 
 #define NRF_DATARATE              NRF_DATA_RATE_250KBPS   //NRF_DATA_RATE_250KBPS = 1, NRF_DATA_RATE_1MBPS   = 0, NRF_DATA_RATE_2MBPS   = 2
 #define NRF_TXPOWER               NRF_TX_PWR_0dBm
