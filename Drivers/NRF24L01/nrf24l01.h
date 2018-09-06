@@ -11,7 +11,7 @@
 #include "stm32f4xx_hal.h"
 #endif
 
-#include "nrf24l01def.h"
+#include "nrf24l01_defines.h"
 
 typedef struct {
    volatile uint8_t enabled;

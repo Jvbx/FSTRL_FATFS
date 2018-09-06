@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\FSTRL_FATFS.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\FSTRL_FATFS.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6100100: Last Updated: Thu Aug 30 03:32:37 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6100100: Last Updated: Fri Sep  7 02:38:20 2018
 <BR><P>
-<H3>Maximum Stack Usage =        824 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        832 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; nrf_init &rArr; nrf_set_pipe_dyn_payload &rArr; nrf_set_feature &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 <P>
@@ -2538,7 +2538,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> printfa.o(i.__0printf)
 </UL>
 <P><STRONG><a name="[78]"></a>main</STRONG> (Thumb, 142 bytes, Stack size 296 bytes, main.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 824<LI>Call Chain = main &rArr; nrf_init &rArr; nrf_set_pipe_dyn_payload &rArr; nrf_set_feature &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 832<LI>Call Chain = main &rArr; nrf_init &rArr; nrf_set_pipe_dyn_payload &rArr; nrf_set_feature &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_send_packet
 <LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
@@ -2711,8 +2711,8 @@ Global Symbols
 <LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_init
 </UL>
 
-<P><STRONG><a name="[18b]"></a>nrf_init</STRONG> (Thumb, 1458 bytes, Stack size 112 bytes, nrf24l01.o(.text.nrf_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 528<LI>Call Chain = nrf_init &rArr; nrf_set_pipe_dyn_payload &rArr; nrf_set_feature &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[18b]"></a>nrf_init</STRONG> (Thumb, 1470 bytes, Stack size 120 bytes, nrf24l01.o(.text.nrf_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 536<LI>Call Chain = nrf_init &rArr; nrf_set_pipe_dyn_payload &rArr; nrf_set_feature &rArr; nrf_read_register &rArr; nrf_send_command &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[1b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_set_tx_power

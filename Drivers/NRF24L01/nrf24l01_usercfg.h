@@ -5,7 +5,6 @@
 #define NRF_CRC_STATE             ON
 #define NRF_CRC_WIDTH_CFG         NRF_CRC_WIDTH_1B
 #define NRF_ADR_WIDTH_CFG         NRF_ADDR_WIDTH_5
-#define NRF_PAYLOADLEN            0x10
 #define NRF_TX_PAYLOADLEN         0x10
 #define NRF_RETRANSCOUNT          0x0F           //15
 #define NRF_RETRANSDELAY          0x04          //1000 uS
@@ -17,39 +16,46 @@
 #define NRF_PIPE_COUNT            6
 
 #define NRF_TX_ADDRESS            (uint8_t[]){0x6C, 0x75, 0x6E, 0x61, 0x31}
+
+
 #define NRF_RX_PIPE0_EN           ON
 #define NRF_RX_PIPE0_ADDR         (uint8_t[]){0x6C, 0x75, 0x6E, 0x61, 0x31}        //predefined addresses. to change actual address refer to device structure field
 #define NRF_RX_PIPE0_ACK          ON
 #define NRF_RX_PIPE0_DYNPD        OFF
-
+#define NRF_RX_PIPE0_PLOADLEN     10
 
 #define NRF_RX_PIPE1_EN           ON
 #define NRF_RX_PIPE1_ADDR         (uint8_t[]){0x6C, 0x75, 0x6E, 0x61, 0x32}
 #define NRF_RX_PIPE1_ACK          ON
 #define NRF_RX_PIPE1_DYNPD        OFF
+#define NRF_RX_PIPE1_PLOADLEN     10
 
 #define NRF_RX_PIPE2_EN           OFF
 #define NRF_RX_PIPE2_ADDR         (uint8_t[1]){0x32}
 #define NRF_RX_PIPE2_ACK          OFF
 #define NRF_RX_PIPE2_DYNPD        OFF
+#define NRF_RX_PIPE2_PLOADLEN     0
 
 
 #define NRF_RX_PIPE3_EN           OFF
 #define NRF_RX_PIPE3_ADDR         (uint8_t[1]){0x33}
 #define NRF_RX_PIPE3_ACK          OFF
 #define NRF_RX_PIPE3_DYNPD        OFF
+#define NRF_RX_PIPE3_PLOADLEN     0
 
 
 #define NRF_RX_PIPE4_EN           OFF
 #define NRF_RX_PIPE4_ADDR         (uint8_t[1]){0x34}
 #define NRF_RX_PIPE4_ACK          OFF
 #define NRF_RX_PIPE4_DYNPD        OFF
+#define NRF_RX_PIPE4_PLOADLEN     0
 
 
 #define NRF_RX_PIPE5_EN           OFF
 #define NRF_RX_PIPE5_ADDR         (uint8_t[1]){0x35}
 #define NRF_RX_PIPE5_ACK          OFF
 #define NRF_RX_PIPE5_DYNPD        OFF
+#define NRF_RX_PIPE5_PLOADLEN     0
 
   
 

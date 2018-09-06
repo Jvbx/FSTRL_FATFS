@@ -135,6 +135,7 @@ typedef enum {
           #define  NRF_FEATURE_EN_DPL          BIT2
           #define  NRF_FEATURE_EN_ACK_PAY      BIT1
           #define  NRF_FEATURE_EN_DYN_ACK      BIT0
+          
 } NRF_REGISTER;
 
 
