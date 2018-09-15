@@ -77,25 +77,25 @@ NRF_RESULT res;
                         break;} 
               
               case 2: { memcpy((uint8_t*)&dev->config.pipes[i].address, tmp_pipes_addr[1], sizeof(dev->config.pipes[i].address)-1);
-                        dev->config.pipes[i].address[2 + dev->config.addr_width] = *tmp_pipes_addr[i];
+                        dev->config.pipes[i].address[0] = *tmp_pipes_addr[i];
                         dev->registers.rx_addr_p2 = *tmp_pipes_addr[i];
                         break;}
               
               case 3: { 
                         memcpy((uint8_t*)&dev->config.pipes[i].address, tmp_pipes_addr[1], sizeof(dev->config.pipes[i].address)-1);
-                        dev->config.pipes[i].address[2 + dev->config.addr_width] = *tmp_pipes_addr[i];
+                        dev->config.pipes[i].address[0] = *tmp_pipes_addr[i];
                         dev->registers.rx_addr_p3 = *tmp_pipes_addr[i];
                         break;}
               
               case 4: { 
                         memcpy((uint8_t*)&dev->config.pipes[i].address, tmp_pipes_addr[1], sizeof(dev->config.pipes[i].address)-1);
-                        dev->config.pipes[i].address[2 + dev->config.addr_width] = *tmp_pipes_addr[i];
+                        dev->config.pipes[i].address[0] = *tmp_pipes_addr[i];
                         dev->registers.rx_addr_p4 = *tmp_pipes_addr[i];
                         break;}
               
               case 5: { 
                         memcpy((uint8_t*)&dev->config.pipes[i].address, tmp_pipes_addr[1], sizeof(dev->config.pipes[i].address)-1);
-                        dev->config.pipes[i].address[2 + dev->config.addr_width] = *tmp_pipes_addr[i];
+                        dev->config.pipes[i].address[0] = *tmp_pipes_addr[i];
                         dev->registers.rx_addr_p5 = *tmp_pipes_addr[i];
                         break;}
               
@@ -121,7 +121,7 @@ NRF_RESULT res;
         
  /*--- soft power up the transmitter---*/   
           
- if(nrf_power_up(dev, true)!= NRF_OK) return NRF_ERROR;
+ if(nrf_power_up(dev, ON)!= NRF_OK) return NRF_ERROR;
    uint8_t retryleft = 0xFF;   //counter to avoid deadloop if transmitter decided to go home. Normally only couple of cycles enough
     do {
         retryleft--;  
@@ -362,7 +362,7 @@ NRF_RESULT nrf_set_retransmit_delay(nrf24l01* dev, uint8_t delay) {
 }
 
 NRF_RESULT nrf_set_address_width(nrf24l01* dev, NRF_ADDR_WIDTH width) {
-    if (width > 3)  return NRF_INVALID_ARGUMENT;
+    if ((width > 3)|(width <1))  return NRF_INVALID_ARGUMENT;
     if (nrf_write_register(dev, NRF_SETUP_AW, (uint8_t*)&width) != NRF_OK) {return NRF_ERROR;}
     dev->config.addr_width = width;
     return nrf_read_register(dev, NRF_SETUP_AW, (uint8_t*)&dev->registers.setup_aw);
@@ -519,18 +519,20 @@ NRF_RESULT nrf_enable_max_retransmit_irq(nrf24l01* dev, bool activate) {
 }
 
 NRF_RESULT nrf_set_pipe_address(nrf24l01* dev, uint8_t pipe_num ,const uint8_t* address) {              
-    uint8_t rx[dev->config.addr_width];
+    uint8_t rx[dev->config.addr_width + 2];
+    uint8_t addrsize = dev->config.addr_width + 2;
+  
     if (pipe_num < 2) {
-        uint8_t addrsize = dev->config.addr_width + 2;
+        
         if (nrf_send_command(dev, NRF_CMD_W_REGISTER | (NRF_RX_ADDR_P0 + pipe_num), address, rx, addrsize) != NRF_OK) {return NRF_ERROR;}
         if (pipe_num == 0) {
                             memcpy((uint8_t*)&dev->registers.rx_addr_p0, address, addrsize);
                             memcpy((uint8_t*)&dev->config.pipes[pipe_num].address, (uint8_t*)&dev->registers.rx_addr_p0, addrsize);
                            } else {
-                                  memcpy((uint8_t*)&dev->registers.rx_addr_p1, address, dev->config.addr_width + 2);
-                                  memcpy((uint8_t*)&dev->config.pipes[pipe_num].address, (uint8_t*)&dev->registers.rx_addr_p1, dev->config.addr_width + 2);}
+                                  memcpy((uint8_t*)&dev->registers.rx_addr_p1, address, addrsize);
+                                  memcpy((uint8_t*)&dev->config.pipes[pipe_num].address, (uint8_t*)&dev->registers.rx_addr_p1, addrsize);}
       } else {
-        uint8_t addrsize = 1;
+        addrsize = 1;
         if (nrf_send_command(dev, NRF_CMD_W_REGISTER | (NRF_RX_ADDR_P0 + pipe_num), address, rx, addrsize) != NRF_OK) {return NRF_ERROR;}
             memcpy((uint8_t*)&dev->registers.rx_addr_p2 + pipe_num - 2, address, addrsize);
             memcpy((uint8_t*)&dev->config.pipes[pipe_num].address, address, addrsize);

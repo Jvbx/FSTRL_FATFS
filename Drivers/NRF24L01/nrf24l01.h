@@ -37,7 +37,7 @@ typedef struct {
 typedef struct {
     nrf24l01_datapipe  pipes[6];
     uint8_t            tx_addr[5];  
-    NRF_ADDR_WIDTH     addr_width;
+    NRF_ADDR_WIDTH     _addr_width;
     NRF_DATA_RATE      data_rate;
     NRF_TX_PWR         tx_power;
     uint8_t            crc_en;

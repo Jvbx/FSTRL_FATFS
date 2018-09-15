@@ -88,12 +88,12 @@ typedef enum {
    
     NRF_RPD         = 0x09,
     
-          #define  NRF_RPD_RESERVED           (BIT7|BIT6|BIT5|BIT4)
+          #define  NRF_RPD_RESERVED           (BIT7|BIT6|BIT5|BIT4|BIT3|BIT2|BIT1)
           #define  NRF_RPD_RPD                 BIT0
           
     NRF_RX_ADDR_P0  = 0x0A,     //pipe 0 rx address. 5 bytes max
     NRF_RX_ADDR_P1  = 0x0B,     //pipe 1 rx address. 5 bytes max
-    NRF_RX_ADDR_P2  = 0x0C,     //pipe 2 rx address. 1 byte only. high bytes are equal as correspondent bytes of pipe1. 3-5 pipes are the same. and london is the capital of great britain
+    NRF_RX_ADDR_P2  = 0x0C,     //pipe 2 rx address. 1 byte only. high bytes are equal as correspondent bytes of pipe1. 3-5 pipes are the same.
     NRF_RX_ADDR_P3  = 0x0D,
     NRF_RX_ADDR_P4  = 0x0E,
     NRF_RX_ADDR_P5  = 0x0F,
@@ -108,7 +108,7 @@ typedef enum {
     NRF_RX_PW_P5    = 0x16,
     
           #define  NRF_RX_PW_RESERVED         (BIT7|BIT6)
-          #define  NRF_RX_PW_Px               (BIT5|BIT4|BIT3|BIT2|BIT1|BIT0)        // 0 - pipe not used, 1..32 - number of payload byted
+          #define  NRF_RX_PW_Px               (BIT5|BIT4|BIT3|BIT2|BIT1|BIT0)        // 0 - pipe not used, 1..32 - number of payload bytes
 
     NRF_FIFO_STATUS = 0x17,
     
