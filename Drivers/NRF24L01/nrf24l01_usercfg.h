@@ -59,10 +59,10 @@
 
   
 
-#define PIPE_EN(x)      {NRF_RX_PIPE## #x ##_EN}
-#define PIPE_ADDR(x)    {NRF_RX_PIPE## #x ##_ADDR}
-#define PIPE_ACK(x)     {NRF_RX_PIPE## #x ##_ACK}
-#define PIPE_DYNPD(x)   {NRF_RX_PIPE## #x ##_DYNPD}
+//#define PIPE_EN(x)      {NRF_RX_PIPE## #x ##_EN}
+//#define PIPE_ADDR(x)    {NRF_RX_PIPE## #x ##_ADDR}
+//#define PIPE_ACK(x)     {NRF_RX_PIPE## #x ##_ACK}
+//#define PIPE_DYNPD(x)   {NRF_RX_PIPE## #x ##_DYNPD}
 
 
 

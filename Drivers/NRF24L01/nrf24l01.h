@@ -19,6 +19,7 @@ typedef struct {
    volatile uint8_t pload_len;
    volatile uint8_t dynpd_en;
    volatile uint8_t ack_en;
+   volatile uint8_t rtxbuf[32];
 } nrf24l01_datapipe; 
 
 typedef struct {
@@ -37,7 +38,7 @@ typedef struct {
 typedef struct {
     nrf24l01_datapipe  pipes[6];
     uint8_t            tx_addr[5];  
-    NRF_ADDR_WIDTH     _addr_width;
+    NRF_ADDR_WIDTH     addr_width;
     NRF_DATA_RATE      data_rate;
     NRF_TX_PWR         tx_power;
     uint8_t            crc_en;
@@ -89,10 +90,12 @@ typedef struct {
     nrf24l01_config         config;
     nrf24l01_hwconfig       hwconfig;
     nrf24l01_registers      registers;
+  
     volatile uint8_t        tx_busy;
     volatile NRF_RESULT     tx_result;
     volatile uint8_t        rx_busy;
     volatile NRF_TXRX_STATE state;
+    volatile NRF_RESULT     last_irq_result;
     //uint8_t        cmdbuffer[8];
     uint8_t        rtxbuf[34];      /* Must be sufficient size according to payload_length */
     uint8_t        rxpayload[32];
@@ -112,7 +115,7 @@ void nrf_irq_handler(nrf24l01* dev);
  *
  * Override this function to handle received data asynchronously,
  * default implementation is used in favor of nrf_receive_packet for blocking data receiving */
-void nrf_packet_received_callback(nrf24l01* dev, uint8_t* data);
+void nrf_packet_received_callback(nrf24l01* dev, uint8_t* data, uint8_t pipenum);
 
 /* Blocking Data Receiving
  *
@@ -143,7 +146,7 @@ NRF_RESULT nrf_send_command(nrf24l01* dev, uint8_t cmd, const uint8_t* tx,
 /* CMD */
 NRF_RESULT nrf_read_register(nrf24l01* dev, uint8_t reg, uint8_t* data);
 NRF_RESULT nrf_write_register(nrf24l01* dev, uint8_t reg, uint8_t* data);
-NRF_RESULT nrf_read_rx_payload(nrf24l01* dev, uint8_t* data);
+NRF_RESULT nrf_read_rx_payload(nrf24l01* dev, uint8_t* data, uint8_t pipenum);
 NRF_RESULT nrf_write_tx_payload(nrf24l01* dev, const uint8_t* data);
 NRF_RESULT nrf_write_tx_payload_noack(nrf24l01* dev, const uint8_t* data);
 NRF_RESULT nrf_flush_rx(nrf24l01* dev);
